@@ -9,24 +9,24 @@ You can write Angular 1.4+ applications this way:
 import {bootstrap, Component, Inject} from "Ng2Emulation/Ng2Emulation"
 
 import {DataStore} from "App/Services/DataStore"
-import {TodoList} from "App/Components/TodoList"
+import {TodoListComponent} from "App/Components/TodoList"
 
 @Component({
-    componentAs: "vm",
     template: `
+        <h1>Ng2 Emulator - Todo list sample</h1>
         <todo-list></todo-list>
 `,
     selector: "my-app",
-    components: [TodoList]
+    components: [TodoListComponent]
 })
-export class App {
+export class AppComponent {
     constructor() {
         // Configuration section.
         DataStore.setInitialValues(["A sopesteque", "Picha liebre", "Zurre mierdas", "Chupa candaos", "Cascoporro"]);
     }
 }
 
-bootstrap(App);
+bootstrap(AppComponent);
 ```
 
 Ng2Emulation allow you build your components with Angular 2 style. Using similar Angular 2 @Decorators to configure its. You can:
