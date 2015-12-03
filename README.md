@@ -1,6 +1,6 @@
 # Ng2Emulation
 
-Build Angular 1 components using Angular 2 style in TypeScript.
+## Build Angular 1 components using Angular 2 style in TypeScript.
 
 If you, as me, have to start a new project with angular and you can't wait for Angular 2, you can prepare for arrival of Angular 2.
 You can write Angular 1.4+ applications this way:
@@ -40,3 +40,13 @@ Ng2Emulation try to bring you similar tools to Angular 2 tools to make easy the 
 This way you can minimize the migration time from Angular 1.x to Angular 2.0
 
 I recommend to follow the multiples "Angular 2 Preparation" guides on www, asuming to use `controllerAs`, `bindToController`, isolated scopes, ...
+
+## How it works?
+
+The initial versión have been written in two days, 8 hours +-, no large code.
+Ng2Emulation register ng2 components as directives and injectable clases as services, no providers, no controllers, no factories, ...
+
+Bootstrap method register the main component as a directive, use the decorator values to build de DDO and component as controller of this directive. If component has dependencies, in `components` attribute of his `@Component` decorator, bootstrap register each dependent component recursively.
+
+All kind of issues are welcome ;)
+
