@@ -2,10 +2,12 @@
 import {DataStore} from "App/Services/DataStore"
 
 export class TodoService {
-    todoList : string[];
-    constructor( @Inject(DataStore) dataStore: DataStore) {
+    todoList: string[];
+
+    constructor(@Inject(DataStore) dataStore: DataStore) {
         this.todoList = dataStore.valueList;
     }
+
     addTodo(text) {
         this.todoList.push(text);
     }

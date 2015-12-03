@@ -2,8 +2,7 @@
 
 import {TodoService} from "App/Services/TodoService"
 
-@
-Component({
+@Component({
 //    template: `
 //		<input ng-model="vm.text"/>
 //		<div>Aplicacion1 {{vm.text}} {{vm.upper(vm.text)}}</div>
@@ -22,7 +21,7 @@ export class TodoList {
         return undefined;
     }
 
-    constructor( @Inject(TodoService) public service: TodoService) {
+    constructor(@Inject(TodoService) public service: TodoService) {
         this.todoList = service.todoList;
     }
 
@@ -35,5 +34,4 @@ export class TodoList {
         this.service.addTodo(this.text);
         delete this.text;
     }
-    
-} 
+}
