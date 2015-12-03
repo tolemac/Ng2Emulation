@@ -14,7 +14,7 @@ import {TodoService} from "App/Services/TodoService"
     selector: "todo-list",
     componentAs: "vm"
 })
-export class TodoList {
+export class TodoListComponent {
     upper(text) {
         if (text)
             return text.toUpperCase();

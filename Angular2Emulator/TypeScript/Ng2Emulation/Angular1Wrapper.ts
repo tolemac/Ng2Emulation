@@ -15,7 +15,7 @@ export class Angular1Wrapper {
 
     static registerComponent(component: Function) {
 
-        let ddo = {
+        let ddo : ng.IDirective = {
             controller: component,
             controllerAs: DEFAULT_CONTROLLER_AS,
             scope: {}
