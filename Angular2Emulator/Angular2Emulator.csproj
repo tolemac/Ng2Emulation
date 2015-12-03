@@ -26,13 +26,21 @@
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
+    <Content Include="TypeScript\App\Components\TodoList.html" />
     <Content Include="web.config" />
     <Content Include="Scripts\jquery-2.1.4.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="app\app.ts" />
-    <TypeScriptCompile Include="app\Ng2Emulation\AngularHelpers.ts" />
-    <TypeScriptCompile Include="app\Ng2Emulation\Ng2Emulation.ts" />
+    <TypeScriptCompile Include="TypeScript\App\App.ts" />
+    <TypeScriptCompile Include="TypeScript\App\Services\DataStore.ts" />
+    <TypeScriptCompile Include="TypeScript\App\Services\TodoService.ts" />
+    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Angular1Wrapper.ts" />
+    <TypeScriptCompile Include="TypeScript\Ng2Emulation\AngularHelpers.ts" />
+    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Bootstrap.ts" />
+    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Component.ts" />
+    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Inject.ts" />
+    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Ng2Emulation.ts" />
+    <TypeScriptCompile Include="TypeScript\App\Components\TodoList.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-cookies.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-mocks.d.ts" />
@@ -84,7 +92,8 @@
     <TypeScriptSourceMap>true</TypeScriptSourceMap>
     <TypeScriptModuleKind>system</TypeScriptModuleKind>
     <TypeScriptExperimentalDecorators>True</TypeScriptExperimentalDecorators>
-    <TypeScriptSourceRoot>${ProjectDir}App</TypeScriptSourceRoot>
+    <TypeScriptSourceRoot>$(ProjectDir)TypeScript</TypeScriptSourceRoot>
+    <TypeScriptMapRoot>$(ProjectDir)TypeScript</TypeScriptMapRoot>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
     <TypeScriptRemoveComments>true</TypeScriptRemoveComments>

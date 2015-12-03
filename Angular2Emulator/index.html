@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>TypeScript HTML App</title>
+    <title>Ng2 Emulator - Todo list sample</title>
 	<link rel="stylesheet" href="app.css" type="text/css"/>
 
 	<script src="https://code.angularjs.org/tools/system.js"></script>
@@ -12,17 +12,16 @@
 	<script>
 		// set our baseURL reference path
 		System.config({
-			baseURL: '/app'
+		    baseURL: '/TypeScript'
 		});
 		System.defaultJSExtensions = true;
 
-		// loads /app/main.js
-		System.import('app');
+		System.import('App/App');
 	</script>
 
 </head>
 <body>
-    <h1>TypeScript HTML App</h1>
+    <h1>Ng2 Emulator - Todo list sample</h1>
 
 	<div id="content">
 		<my-app></my-app>

@@ -1,0 +1,6 @@
+﻿<form ng-submit="vm.addTodo()">
+    <input autofocus ng-model="vm.text" />
+    <div ng-repeat="todo in vm.todoList">
+        {{todo}}
+    </div>
+</form>

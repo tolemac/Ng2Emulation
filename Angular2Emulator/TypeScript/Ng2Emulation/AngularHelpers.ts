@@ -9,6 +9,10 @@ function camelCase(name) {
  
 var PREFIX_REGEXP = /^((?:x|data)[\:\-_])/i;
 
-export function directiveNormalize(name: any) {
+export function directiveNormalize(name: string) {
 	return camelCase(name.replace(PREFIX_REGEXP, ""));
+}
+
+export function serviceNormalize(name: string) {
+    return name[0].toLowerCase() + name.substr(1);
 }
