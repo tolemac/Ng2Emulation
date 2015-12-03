@@ -31,11 +31,12 @@ bootstrap(App);
 
 Ng2Emulation allow you build your components with Angular 2 style. Using similar Angular 2 @Decorators to configure its. You can:
 
-1) Build components writing only a class and decorating it.
-2) Set component and service dependency.
-3) Inject services.
+1. Build components writing only a class and decorating it.
+2. Set component and service dependency.
+3. Inject services.
 
 Ng2Emulation try to bring you similar tools to Angular 2 tools to make easy the jump to Angular 2, `@Component` and `@Inject` decorators, bootstraping, ...
 
+This way you can minimize the migration time from Angular 1.x to Angular 2.0
 
 I recommend to follow the multiples "Angular 2 Preparation" guides on www, asuming to use `controllerAs`, `bindToController`, isolated scopes, ...
