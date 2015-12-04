@@ -1,0 +1,144 @@
+﻿You can read this post in spanish <a href="http://code.jros.org/2015/12/03/ng2emulation-codigo-angular-1-4-en-typescript-usando-el-estilo-de-angular-2/">here</a>
+
+I have doing "a thing" :-D that I called <strong><a href="https://github.com/tolemac/Ng2Emulation">Ng2Emulation</a></strong>, I'm going to try explain it.
+
+
+
+<h2>Background history</h2>
+
+After two days with Angular 2 I'm going understand it and I like it.
+
+I'm envolved in the development of a custom ERP (propietary) and I have to start develop the new user interface for our ERP. The ERP has 8 years old and, seems, it will have a long live. I have decided to build this UI using Angular and TypeScript. Due to proyect will be a long time I need prepare for future changes, I would like use Angular 2 when it is available but I know that it isn't the moment to start using it. Then I have adopted the guidelines I have read in several post about preparing for Angular 2, using "as" notation in controller and write directives using "controllerAs", "bindToController" and isolated scopes.
+
+During these days, learning to implement custom decorators in TypeScript, I came up with a better idea.
+
+<h2>Searching differences</h2>
+
+Watching how to define the "Angular 2" components and how to define directives in "Angular 1" you can see the equivalences, the logic are on component or controller and the definition are on the decorator or DDO. Then watching this:
+
+<pre lang="javascript">
+var app = angular.module("app", []);;
+export class DirectiveController {
+    static $inject = [];
+    texto: string;
+    constructor() {
+        this.texto = "Hello from the directive controller";
+    }
+}
+app.directive("myDirective", () => {
+    return {
+        scope: {},
+        template: "<div>{{vm.text}}<div>",
+        controllerAs: "vm",
+        bindToController: {
+            text: "="
+        },
+        controller: DirectiveController
+    };
+});
+</pre>
+
+and y watching this:
+
+<pre lang="javascript">
+@Component({
+    selector: "my-directive",
+    template: "<div>{{vm.text}}<div>",
+    controllerAs: "vm",
+    bindToController: {
+        text: "="
+    }
+})
+export class myComponent {
+    static $inject = [];
+    texto: string;
+    constructor() {
+        this.texto = "Hello from the directive controller.";
+    }
+}
+bootstrap(MyComponent)
+</pre>
+
+I thing the big difference are in the @decorators ... how the @decorators works? could I write customs decorators for save metadata about one class and, after, access to this decorators through the class in order to get these metadata?
+
+google("typescript custom decorators") =>
+
+<ul>
+    <li>
+        <a href="http://blog.wolksoftware.com/decorators-reflection-javascript-typescript" id="link-52" class="track_this_link " title="Decorators &amp; metadata reflection in TypeScript: From Novice to Expert (Part I)">Decorators &amp; metadata reflection in TypeScript: From Novice to Expert (Part I)</a>
+        <a href="http://code.jros.org/wp-admin/link.php?action=edit&amp;link_id=52">(Modificar)</a>
+    </li>
+    <li>
+        <a href="https://www.sitepen.com/blog/2015/10/20/typescript-decorators/" id="link-49" class="track_this_link " title="TypeScript Decorators Blog SitePen">TypeScript Decorators Blog SitePen</a>
+        <a href="http://code.jros.org/wp-admin/link.php?action=edit&amp;link_id=49">(Modificar)</a>
+    </li>
+</ul>
+
+Great!! Then I can write some decorators to host the metadata, but ... what happen if I use the same decorators name than Angular 2 and I try to use the same style? could I develop for Angular 1 using the same style of Angular 2??
+
+That's what I've done in this proyect <strong><a href="https://github.com/tolemac/Ng2Emulation">Ng2Emulation</a></strong>
+
+Try to emule the component building style of Angular 2 to use them in Angular 1 and get advantage, thinking in the migration to Angular 2.
+
+Of course the views, the templates, continue working with Angular 1 style, but the components will be similar and the migration effort will be less. With <strong>Ng2Emulation</strong> you can write your directives, controlers and services using Angular 2 syntax.
+
+<h2>Angular 2 emulation</h2>
+
+At the moment (December 3, 2015) I have create only @Component and @Inject decorators, the bootstraping and one Angular 1 Wrappper where access to the Angular 1.x module. You can do this:
+
+<pre lang="javascript">
+import {bootstrap, Component} from "Ng2Emulation/Ng2Emulation"
+import {DataStore} from "App/Services/DataStore"
+import {TodoListComponent} from "App/Components/TodoList"
+@Component({
+    template: `
+<h1>Ng2 Emulator - Todo list sample</h1>
+<todo-list></todo-list>
+`,
+    selector: "my-app",
+    components: [TodoListComponent]
+})
+export class AppComponent {
+    constructor() {
+        // Configuration section.
+        DataStore.setInitialValues(["A sopesteque", "Picha liebre", "Zurre mierdas", "Chupa candaos", "Cascoporro"]);
+    }
+}
+bootstrap(AppComponent);
+</pre>
+
+You create a class, that will be the controller, and decorate it with metadata that will be the DDO in order to call "angular.directive", From "selector" I obtain the directive name (using camelCase function) and the DDO always use "bindToController", "controllerAs" e isolated scopes. In addition, all properties that you put in the decorator are passed to the DDO, then if you have a directive with code in the "link" or "compile" you can put it in the decorator component.
+
+Of course, If you going out Angular 2 standard you will have to migrate it in the migration moment, if you use Angular 1 things that are not in Angular 2 you will have to rewrite.
+
+Another example here, this time using @Inject:
+
+<pre lang="javascript">
+import {Component, Inject} from "Ng2Emulation/Ng2Emulation"
+import {TodoService} from "App/Services/TodoService"
+@Component({
+    templateUrl: "TypeScript/App/Components/TodoList.html",
+    selector: "todo-list",
+    componentAs: "vm"
+})
+export class TodoListComponent {
+    upper(text) {
+        if (text)
+            return text.toUpperCase();
+        return undefined;
+    }
+    constructor(@Inject(TodoService) public service: TodoService) {
+        this.todoList = service.todoList;
+    }
+    text: string;
+    todoList: string[];
+    addTodo() {
+        if (!this.text)
+            return;
+        this.service.addTodo(this.text);
+        delete this.text;
+    }
+}
+</pre>
+
+Now I'm integrating the router, I'm trying ngComponentRouter (before called ngNewRouter) and, of course, add the @RouteConfig decorator.
