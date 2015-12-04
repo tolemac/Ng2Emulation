@@ -1,6 +1,8 @@
 # Ng2Emulation
 
-History: http://code.jros.org/2015/12/04/ng2emulation-typescript-angular-1-4-code-using-angular-2-style/
+## Why?
+
+Yo can read why I started this project: http://code.jros.org/2015/12/04/ng2emulation-typescript-angular-1-4-code-using-angular-2-style/
 
 ## Build Angular 1 components using Angular 2 style in TypeScript.
 
