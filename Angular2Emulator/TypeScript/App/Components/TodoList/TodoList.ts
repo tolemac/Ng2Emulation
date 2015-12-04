@@ -3,14 +3,7 @@
 import {TodoService} from "App/Services/TodoService"
 
 @Component({
-//    template: `
-//		<input ng-model="vm.text"/>
-//		<div>Aplicacion1 {{vm.text}} {{vm.upper(vm.text)}}</div>
-//        <div ng-repeat="thing in vm.appService.todoList">
-//            {{thing}}
-//        </div>
-//`,
-    templateUrl: "TypeScript/App/Components/TodoList.html",
+    templateUrl: "TypeScript/App/Components/TodoList/TodoList.html",
     selector: "todo-list",
     componentAs: "vm"
 })

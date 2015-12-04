@@ -10,6 +10,12 @@ export class Angular1Wrapper {
     private static registerComponentInternal(ddo: any, component: Function) {
         var directiveName = AngularHelpers.directiveNormalize(component["$componentMetadata"]["selector"]);
 
+        let directiveFactory : any = () => ddo;
+
+        if (component["$routeConfig"])
+            directiveFactory.$routeConfig = component["$routeConfig"];
+
+
         this.app.directive(directiveName, () => ddo);
     }
 
@@ -51,7 +57,7 @@ export class Angular1Wrapper {
         this.app = angular.module(APPLICATION_MODULE_NAME, dependencies || []);
     }
 
-    static registerService(service: any) {
+    private static registerService(service: any) {
 
         if (service.$services)
             this.registerServices(service.$services);
@@ -61,7 +67,7 @@ export class Angular1Wrapper {
         this.app.service(nameOfService, service);
     }
 
-    static registerServices(services: Function[]) {
+    private static registerServices(services: Function[]) {
         if (!services)
             return;
 
