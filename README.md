@@ -1,5 +1,7 @@
 # Ng2Emulation
 
+History: http://code.jros.org/2015/12/04/ng2emulation-typescript-angular-1-4-code-using-angular-2-style/
+
 ## Build Angular 1 components using Angular 2 style in TypeScript.
 
 If you, as me, have to start a new project with angular and you can't wait for Angular 2, you can prepare for arrival of Angular 2.
