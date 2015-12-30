@@ -1,6 +1,6 @@
 ﻿import {ParserRule} from "./ParserRule";
 import NgContentRule from "./rules/NgContentRule"
-import NgPropertyRule from "./rules/NgProperty"
+import NgPropertyRule from "./rules/NgPropertyRule"
 
 export default class Parser {
     private static rules: ParserRule[] = [new NgContentRule(), new NgPropertyRule()];

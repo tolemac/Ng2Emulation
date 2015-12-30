@@ -7,7 +7,7 @@ import {TodoListComponent} from "App/Components/TodoList/TodoList"
     template: `
         <h1>{{$$ctrl.title}}</h1>
 
-        <todo-list></todo-list>
+        <todo-list #todolist></todo-list>{{$$cmp.todolist.tagName}}
 `,
     selector: "my-app",
     directives: [TodoListComponent]

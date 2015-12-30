@@ -4,6 +4,14 @@
 * **breaking** controllerAs is $$cmp instead of $$vm
 * Template interception to change html.
 * NgContentRule to replace ng-content por ng-transclude
+* NgProperty directive to access to html element as component property. You can do:
+````html
+ <input type="text" ng-property="myinput"/> {{$cmp.myinput.value}}
+````
+* NgPropertyRule to replace #something by ng-property="something", to access to html like angular2 you can do:
+````html
+ <input type="text" #mybutton/> {{$cmp.myinput.value}}
+````
 
 ## Version 0.1 ALPHA
 * Postpone router.
