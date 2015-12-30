@@ -1,30 +1,8 @@
 ﻿import {Angular1Wrapper} from "./Angular1Wrapper";
 import ElementEvents from "../Events/ElementEvents";
 import httpIntercept from "../Templates/HttpInterceptor";
-import decorateNgBind from "../Directives/NgBindProviderDecorator"
+import decorateInterpolate from "./InterpolateDecorator"
 import {NgProperty} from "../Directives/NgProperty";
-
-function decorateInterpolate(app: ng.IModule) {
-	app.config(["$provide", ($provide: ng.auto.IProvideService) => {
-		$provide.decorator("$interpolate", ["$delegate", ($delegate) => {
-			const origInterpolateDelegate = $delegate;
-			
-			const customDelegate = function() {
-				const origResult = origInterpolateDelegate.apply(this, arguments);
-				return (!origResult ? origResult : function () {
-					const newScope = arguments[0].hasOwnProperty("$$cmp")  ? arguments[0].$$cmp : arguments[0];
-					arguments[0] = newScope;
-
-					return origResult.apply(this, arguments);
-				});
-			};
-			customDelegate["startSymbol"] = $delegate.startSymbol;
-			customDelegate["endSymbol"] = $delegate.endSymbol;
-
-			return customDelegate;
-		}]);
-	}]);
-}
 
 /**
  * Class to store bootstrap information.
@@ -41,8 +19,7 @@ export class BootStrapper {
 
         // Interceptor for templates.
         httpIntercept(Angular1Wrapper.app);
-		// Decorate ngBind.
-	    //decorateNgBind(Angular1Wrapper.app);
+		// Decorate $interpolate to redirect scope to $$cmp
 	    decorateInterpolate(Angular1Wrapper.app);
 
         // Register built-in directives
