@@ -1,5 +1,15 @@
 # Ng2Emulation Change log.
 
+## Version 0.3 ALPHA
+* Doble curly braces syntax use component as scope root. You can do:
+````html
+<div>{{componentProperty}}</div>
+````
+instead of
+````html
+<div>{{component.componentProperty}}</div>
+````
+
 ## Version 0.2 ALPHA
 * **breaking** controllerAs is $$cmp instead of $$vm
 * Template interception to change html.
