@@ -1,9 +1,9 @@
 ﻿/**
  * Copied and modified from ng-forward: https://github.com/tolemac/ng-forward/blob/master/lib/events/events.ts
  */
-import {Directive, Inject} from 'Ng2Emulation/Ng2Emulation';
-import {dasherize, parseSelector} from 'Ng2Emulation/Utils/AngularHelpers';
-import {DEFAULT_CONTROLLER_AS} from "Ng2Emulation/Core/Angular1Wrapper";
+import {Directive, Inject} from '../Ng2Emulation';
+import {dasherize, parseSelector} from '../Utils/AngularHelpers';
+import {DEFAULT_CONTROLLER_AS} from "../Core/Angular1Wrapper";
 
 let events = [
     'click',

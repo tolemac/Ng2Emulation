@@ -1,9 +1,10 @@
-﻿import * as AngularHelpers from "Ng2Emulation/Utils/AngularHelpers"
-import {IComponentMetadata} from "Ng2Emulation/Decorators/Component"
-import {IDirectiveMetadata} from "Ng2Emulation/Decorators/Directive"
+﻿import * as AngularHelpers from "../Utils/AngularHelpers"
+import {IComponentMetadata} from "../Decorators/Component"
+import {IDirectiveMetadata} from "../Decorators/Directive"
+import TemplateParser from "../Templates/Parser";
 
 const APPLICATION_MODULE_NAME = "app";
-export const DEFAULT_CONTROLLER_AS = "$$vm";
+export const DEFAULT_CONTROLLER_AS = "$$cmp";
 
 export class Angular1Wrapper {
     
@@ -59,6 +60,9 @@ export class Angular1Wrapper {
         
         // Copy extra data from metadata to DDO
         angular.extend(ddo, cmpMetaData);
+
+        if (ddo.template)
+            ddo.template = TemplateParser.processTemplate(ddo.template);
 
         var directiveName = AngularHelpers.directiveNormalize(cmpMetaData["selector"]);
 

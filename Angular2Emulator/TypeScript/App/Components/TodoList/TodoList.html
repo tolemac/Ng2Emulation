@@ -1,7 +1,7 @@
-﻿<form (ngSubmit)="addTodo(); text ='nuevo'">
-    <input autofocus ng-model="$$vm.text"/>
-    <button type="button" (click)="addTodo()">Añadir</button>
-    <div ng-repeat="todo in $$vm.todoList">
+﻿<form (ngSubmit)="addTodo();">
+    <input #textInput autofocus ng-model="$$cmp.text" />
+    <button type="button" (click)="addTodo()">Añadir {{$$cmp.textInput.value}}</button>
+    <div ng-repeat="todo in $$cmp.todoList">
         {{todo}}
     </div>
 </form>

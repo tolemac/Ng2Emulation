@@ -36,7 +36,13 @@
     <TypeScriptCompile Include="TypeScript\App\Services\TodoService.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Core\Angular1Wrapper.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Decorators\Directive.ts" />
+    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Directives\NgProperty.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Events\ElementEvents.ts" />
+    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\HttpInterceptor.ts" />
+    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\Parser.ts" />
+    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\ParserRule.ts" />
+    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\Rules\NgContentRule.ts" />
+    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\Rules\NgProperty.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Utils\AngularHelpers.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Core\Bootstrap.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Decorators\Injectable.ts" />
@@ -64,9 +70,7 @@
       <DependentUpon>web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="TypeScript\Ng2Emulation\Polyfills\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
   </PropertyGroup>

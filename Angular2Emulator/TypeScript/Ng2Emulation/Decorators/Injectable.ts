@@ -1,5 +1,5 @@
-﻿import {serviceNormalize} from "Ng2Emulation/Utils/AngularHelpers"
-import {BootStrapper} from "Ng2Emulation/Core/Bootstrap"
+﻿import {serviceNormalize} from "../Utils/AngularHelpers"
+import {BootStrapper} from "../Core/Bootstrap"
 
 /**
  * Register class as service for bootstrapping

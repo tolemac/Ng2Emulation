@@ -5,7 +5,7 @@ import {TodoListComponent} from "App/Components/TodoList/TodoList"
 
 @Component({
     template: `
-        <h1>Ng2 Emulator - Todo list sample</h1>
+        <h1>{{$$ctrl.title}}</h1>
 
         <todo-list></todo-list>
 `,
@@ -13,8 +13,9 @@ import {TodoListComponent} from "App/Components/TodoList/TodoList"
     directives: [TodoListComponent]
 })
 export class AppComponent {
+    public title = "Ng2 Emulator - Todo list sample";
     constructor() {
         // Configuration section.
-        DataStore.setInitialValues(["A sopesteque", "Picha liebre", "Zurre mierdas", "Chupa candaos", "Cascoporro"]);        
+        DataStore.setInitialValues(["A sopesteque", "Picha liebre", "Zurre mierdas", "Chupa candaos", "Cascoporro"]);
     }
 }

@@ -1,5 +1,10 @@
 # Ng2Emulation Change log.
 
+## Version 0.2 ALPHA
+* **breaking** controllerAs is $$cmp instead of $$vm
+* Template interception to change html.
+* NgContentRule to replace ng-content por ng-transclude
+
 ## Version 0.1 ALPHA
 * Postpone router.
 * `@Inject` for angular1 components and take care with param order. Closes #2

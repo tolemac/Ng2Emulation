@@ -19,11 +19,12 @@ export class TodoListComponent {
 
     text: string;
     todoList: string[];
+    textInput: HTMLInputElement;
 
     addTodo() {
         if (!this.text)
-            return;
-        this.service.addTodo(this.text);
-        delete this.text;
+            return;        
+        if (this.service.addTodo(this.text))
+            this.textInput.value = "";
     }
 }

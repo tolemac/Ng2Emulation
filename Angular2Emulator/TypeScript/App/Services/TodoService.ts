@@ -11,6 +11,9 @@ export class TodoService {
     }
 
     addTodo(text) {
+        if (this.todoList.indexOf(text) >= 0)
+            return false;
         this.todoList.push(text);
+        return true;
     }
 }

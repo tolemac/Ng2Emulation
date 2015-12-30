@@ -1,5 +1,7 @@
-﻿import {Angular1Wrapper} from "Ng2Emulation/Core/Angular1Wrapper"
-import ElementEvents from "Ng2Emulation/Events/ElementEvents"
+﻿import {Angular1Wrapper} from "./Angular1Wrapper";
+import ElementEvents from "../Events/ElementEvents";
+import httpIntercept from "../Templates/HttpInterceptor";
+import {NgProperty} from "../Directives/NgProperty";
 
 /**
  * Class to store bootstrap information.
@@ -13,7 +15,14 @@ export class BootStrapper {
 
         Angular1Wrapper.createModule(angular1DependendModules);
 
+        // Interceptor for templates.
+        httpIntercept(Angular1Wrapper.app);
+
+        // Register built-in directives
+        // register element events directives.
         ElementEvents.resolve().forEach(directive => Angular1Wrapper.registerDirective(directive));
+        // register ngProperty
+        Angular1Wrapper.registerDirective(NgProperty);
         
         Angular1Wrapper.registerServices(BootStrapper.services);
         Angular1Wrapper.registerComponent(component);
