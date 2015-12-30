@@ -19,7 +19,7 @@ let events = [
     'keyup',
     'keypress',
     'submit',
-    { selector: '(ngSubmit)', event: "submit"},
+    { selector: '(ngsubmit)', event: "submit"},
     'focus',
     'blur',
     'copy',
@@ -44,7 +44,7 @@ function resolve(): any[] {
     let directives: any[] = [];
 
     events.forEach(eventItem => {
-        const event = typeof eventItem === "object" ? eventItem.selector : eventItem;
+        const event = typeof eventItem === "object" ? eventItem.event : eventItem;
         const selector = typeof eventItem === "object" ? eventItem.selector : `(${dasherize(<any>eventItem)})`;
         @Directive({ selector })        
         class EventHandler {
@@ -57,7 +57,7 @@ function resolve(): any[] {
                 @Inject("$scope") public $scope: ng.IScope) {
 
                 let { name: attrName } = parseSelector(selector);
-                this.expression = $parse(DEFAULT_CONTROLLER_AS + "." + $attrs[attrName]);
+                this.expression = $parse($attrs[attrName]);
                 $element.on(event, e => this.eventHandler(e));
                 $scope.$on('$destroy', () => this.onDestroy());
             }
@@ -72,7 +72,7 @@ function resolve(): any[] {
                     detail = {};
                 }
 
-                this.expression(this.$scope, angular.extend($event, { detail }));
+                this.expression(this.$scope[DEFAULT_CONTROLLER_AS], angular.extend($event, { detail }));
                 this.$scope.$applyAsync();
             }
 
