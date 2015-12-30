@@ -36,6 +36,7 @@
     <TypeScriptCompile Include="TypeScript\App\Services\TodoService.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Core\Angular1Wrapper.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Decorators\Directive.ts" />
+    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Directives\NgBindProviderDecorator.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Directives\NgProperty.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Events\ElementEvents.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\HttpInterceptor.ts" />

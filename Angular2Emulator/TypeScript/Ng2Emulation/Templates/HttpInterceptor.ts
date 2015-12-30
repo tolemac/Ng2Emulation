@@ -9,7 +9,7 @@ function parseInterceptor() {
     };
 }
 
-export default function (app: ng.IModule) {
+export default function httpInterceptor(app: ng.IModule) {
     app.factory("ng2eTemplateParser", parseInterceptor);
     app.config(["$httpProvider", function ($httpProvider) {
         $httpProvider.interceptors.push('ng2eTemplateParser');

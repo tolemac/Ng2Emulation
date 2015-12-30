@@ -5,10 +5,9 @@ import {TodoListComponent} from "App/Components/TodoList/TodoList"
 
 @Component({
     template: `
-        <h1>{{$$ctrl.title}}</h1>
-
+        <h1>{{title}}</h1>
         <todo-list></todo-list>
-`,
+`, ///<todo-list></todo-list>
     selector: "my-app",
     directives: [TodoListComponent]
 })
