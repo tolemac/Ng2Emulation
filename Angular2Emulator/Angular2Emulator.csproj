@@ -18,13 +18,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="app.css" />
-    <Content Include="EnglishPost.html" />
     <Content Include="index.html" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
-    <Content Include="Scripts\angular_1_router.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
     <Content Include="TypeScript\App\Components\TodoList\TodoList.html" />
@@ -33,16 +31,17 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="TypeScript\App\App.ts" />
-    <TypeScriptCompile Include="TypeScript\App\Components\About\About.ts" />
-    <TypeScriptCompile Include="TypeScript\App\Components\Home\Home.ts" />
-    <TypeScriptCompile Include="TypeScript\App\Components\Contact\Contact.ts" />
+    <TypeScriptCompile Include="TypeScript\App\Boot.ts" />
     <TypeScriptCompile Include="TypeScript\App\Services\DataStore.ts" />
     <TypeScriptCompile Include="TypeScript\App\Services\TodoService.ts" />
-    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Angular1Wrapper.ts" />
-    <TypeScriptCompile Include="TypeScript\Ng2Emulation\AngularHelpers.ts" />
-    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Bootstrap.ts" />
-    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Component.ts" />
-    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Inject.ts" />
+    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Core\Angular1Wrapper.ts" />
+    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Decorators\Directive.ts" />
+    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Events\ElementEvents.ts" />
+    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Utils\AngularHelpers.ts" />
+    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Core\Bootstrap.ts" />
+    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Decorators\Injectable.ts" />
+    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Decorators\Component.ts" />
+    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Decorators\Inject.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Ng2Emulation.ts" />
     <TypeScriptCompile Include="TypeScript\App\Components\TodoList\TodoList.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />
@@ -54,7 +53,6 @@
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\systemjs\systemjs.d.ts" />
-    <TypeScriptCompile Include="TypeScript\Ng2Emulation\RouteConfig.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\angular.min.js.map" />
@@ -65,6 +63,9 @@
     <None Include="web.Release.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="TypeScript\Ng2Emulation\Polyfills\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>

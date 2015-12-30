@@ -1,6 +1,8 @@
-﻿import {Inject} from "Ng2Emulation/Inject"
+﻿import {Inject} from "Ng2Emulation/Decorators/Inject"
+import {Injectable} from "Ng2Emulation/Decorators/Injectable"
 import {DataStore} from "App/Services/DataStore"
 
+@Injectable()
 export class TodoService {
     todoList: string[];
 

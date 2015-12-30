@@ -4,8 +4,7 @@ import {TodoService} from "App/Services/TodoService"
 
 @Component({
     templateUrl: "TypeScript/App/Components/TodoList/TodoList.html",
-    selector: "todo-list",
-    componentAs: "vm"
+    selector: "todo-list"
 })
 export class TodoListComponent {
     upper(text) {
@@ -14,8 +13,8 @@ export class TodoListComponent {
         return undefined;
     }
 
-    constructor(@Inject(TodoService) public service: TodoService) {
-        this.todoList = service.todoList;
+    constructor( @Inject(TodoService) public service: TodoService) {
+        this.todoList = service.todoList;        
     }
 
     text: string;

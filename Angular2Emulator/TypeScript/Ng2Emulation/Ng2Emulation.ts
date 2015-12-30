@@ -1,3 +1,4 @@
-﻿export * from "Ng2Emulation/Component"
-export * from "Ng2Emulation/Bootstrap"
-export * from "Ng2Emulation/Inject"
+﻿export * from "Ng2Emulation/Decorators/Component"
+export * from "Ng2Emulation/Decorators/Directive"
+export * from "Ng2Emulation/Decorators/Inject"
+export * from "Ng2Emulation/Core/Bootstrap"

@@ -2,10 +2,13 @@
     template?: string;
     templateUrl?: string;
 	selector?: string;
-    componentAs?: string;
-    components?: Function[];
+    //componentAs?: string;
+    directives?: Function[];
 }
 
+/**
+ * Register metadata into class to be used by bootstrap.
+ */
 export function Component(componentMetadata: IComponentMetadata) {
 	return (target: any) => {
 

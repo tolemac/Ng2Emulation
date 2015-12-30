@@ -1,14 +1,14 @@
-﻿import * as AngularHelpers from "Ng2Emulation/AngularHelpers"
-import {IComponentMetadata} from "Ng2Emulation/Component"
+﻿import * as AngularHelpers from "Ng2Emulation/Utils/AngularHelpers"
+import {IComponentMetadata} from "Ng2Emulation/Decorators/Component"
+import {IDirectiveMetadata} from "Ng2Emulation/Decorators/Directive"
 
 const APPLICATION_MODULE_NAME = "app";
-const DEFAULT_CONTROLLER_AS = "app";
+export const DEFAULT_CONTROLLER_AS = "$$vm";
 
 export class Angular1Wrapper {
     
     static app: ng.IModule;
-    private static registerComponentInternal(ddo: any, component: Function) {
-        var directiveName = AngularHelpers.directiveNormalize(component["$componentMetadata"]["selector"]);
+    private static registerDirectiveInternal(directiveName: string, ddo: any, component: Function) {        
 
         let directiveFactory : any = () => ddo;
 
@@ -17,6 +17,21 @@ export class Angular1Wrapper {
 
 
         this.app.directive(directiveName, () => ddo);
+    }
+
+    static registerDirective(directive: Function) {
+        let ddo: ng.IDirective = {
+            controller: directive
+        };
+
+        let metaData: IComponentMetadata = directive["$directiveMetadata"];
+
+        // Copy extra data from metadata to DDO
+        angular.extend(ddo, metaData);
+
+        var directiveName = AngularHelpers.directiveNormalize(metaData["selector"]);
+
+        this.registerDirectiveInternal(directiveName, ddo, directive);
     }
 
     static registerComponent(component: Function) {
@@ -30,27 +45,24 @@ export class Angular1Wrapper {
         let cmpMetaData: IComponentMetadata = component["$componentMetadata"];
 
         // Component as => controller as
-        if (cmpMetaData.componentAs) {
-            ddo.controllerAs = cmpMetaData.componentAs;
-            delete cmpMetaData.componentAs;
-        }
-
-        // Register dependent services
-        let services: Function[] = component["$services"];
-        this.registerServices(services);
-
+        //if (cmpMetaData.componentAs) {
+        //    ddo.controllerAs = cmpMetaData.componentAs;
+        //    delete cmpMetaData.componentAs;
+        //}
 
         // Register dependent components
-        if (cmpMetaData.components) {
-            for (let i = 0; i < cmpMetaData.components.length; i++) {
-                this.registerComponent(cmpMetaData.components[i]);
+        if (cmpMetaData.directives) {
+            for (let i = 0; i < cmpMetaData.directives.length; i++) {
+                this.registerComponent(cmpMetaData.directives[i]);
             }
         }
         
         // Copy extra data from metadata to DDO
         angular.extend(ddo, cmpMetaData);
 
-        this.registerComponentInternal(ddo, component);
+        var directiveName = AngularHelpers.directiveNormalize(cmpMetaData["selector"]);
+
+        this.registerDirectiveInternal(directiveName, ddo, component);
     }
 
     static createModule(dependencies: string[]) {
@@ -59,15 +71,11 @@ export class Angular1Wrapper {
 
     private static registerService(service: any) {
 
-        if (service.$services)
-            this.registerServices(service.$services);
-
         let nameOfService = AngularHelpers.serviceNormalize(service.name);
-
         this.app.service(nameOfService, service);
     }
 
-    private static registerServices(services: Function[]) {
+    public static registerServices(services: Function[]) {
         if (!services)
             return;
 
