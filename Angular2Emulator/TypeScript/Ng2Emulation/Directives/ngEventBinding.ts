@@ -61,7 +61,8 @@ export class NgEventBinding {
 			parameters = { $event: angular.extend($event, { detail }) };
 		}
 
-		this.expression(this.$scope[DEFAULT_CONTROLLER_AS], parameters);
+		const newScope = this.$scope.hasOwnProperty(DEFAULT_CONTROLLER_AS) ? this.$scope[DEFAULT_CONTROLLER_AS] : this.$scope;
+		this.expression(newScope, parameters);
 		this.$scope.$applyAsync();
 	}
 

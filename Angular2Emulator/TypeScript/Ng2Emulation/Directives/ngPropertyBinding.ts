@@ -25,13 +25,14 @@ export class NgPropertyBinding {
 		const property = attrValues[0];
 		this.expression = attrValues[1];
 
-		const component: any = $element.controller(directiveNormalize($element[0].localName));
+		const interpolateFn = (scope) => {
+		    const newScope = scope.hasOwnProperty(DEFAULT_CONTROLLER_AS) ? scope[DEFAULT_CONTROLLER_AS] : scope;
+		    return $interpolate("{{" + this.expression + "}}")(newScope);
+	    };
+	    const component: any = $element.controller(directiveNormalize($element[0].localName));
 		if (component && component.constructor.$componentMetadata) {
 			if (component.constructor.$componentMetadata.inputs && component.constructor.$componentMetadata.inputs.indexOf(property) >= 0) {
 
-				var interpolateFn = (scope) => {
-					return $interpolate("{{" + this.expression + "}}")(scope.$$cmp);
-				};
 
 				this.$scope.$watch(interpolateFn, (newValue, oldValue) => {
 					if (newValue !== component[property])
@@ -41,8 +42,8 @@ export class NgPropertyBinding {
 				console.log(`Error processing property binding ${$attrs["ngPropertyBinding"]}`);
 			return;
 		} else {
-			this.$scope.$watch(this.expression, (newValue, oldValue) => {
-				if (newValue !== oldValue)
+			this.$scope.$watch(interpolateFn, (newValue, oldValue) => {
+				if (newValue !== $element[0][property])
 					$element[0][property] = newValue;
 			});
 		}
