@@ -28,11 +28,48 @@ export class NgPropertyBinding {
 		const interpolateFn = (scope) => {
 		    const newScope = scope.hasOwnProperty(DEFAULT_CONTROLLER_AS) ? scope[DEFAULT_CONTROLLER_AS] : scope;
 		    return $interpolate("{{" + this.expression + "}}")(newScope);
-	    };
+		};
+
+		// Attribute binding.
+		if (property.substr(0, 5) === "attr.") {
+			const attributeName = property.substr(5);
+			this.$scope.$watch(interpolateFn, (newValue, oldValue) => {
+				if (newValue !== $element[0].getAttribute(attributeName))
+					$element[0].setAttribute(attributeName, newValue);
+			});
+			return;
+		}
+
+		// Class binding.
+		if (property.substr(0, 6) === "class.") {
+			const className = property.substr(6);
+			this.$scope.$watch(interpolateFn, (newValue, oldValue) => {
+				if (newValue)
+					$element[0].classList.add(className);
+				else
+					$element[0].classList.remove(className);
+			});
+			return;
+		}
+
+		// Style binding.
+		if (property.substr(0, 6) === "style.") {
+			const [styleName, units] = property.substr(6).split(".");
+
+			this.$scope.$watch(interpolateFn, (newValue, oldValue) => {
+				if (units)
+					newValue = newValue + units;
+
+				if (newValue !== $element[0].style[styleName])
+					$element[0].style[styleName] = newValue;
+			});
+			return;
+		}
+
+		// Component property binding.
 	    const component: any = $element.controller(directiveNormalize($element[0].localName));
 		if (component && component.constructor.$componentMetadata) {
 			if (component.constructor.$componentMetadata.inputs && component.constructor.$componentMetadata.inputs.indexOf(property) >= 0) {
-
 
 				this.$scope.$watch(interpolateFn, (newValue, oldValue) => {
 					if (newValue !== component[property])
@@ -46,6 +83,7 @@ export class NgPropertyBinding {
 				if (newValue !== $element[0][property])
 					$element[0][property] = newValue;
 			});
+			return;
 		}
     }
 }  

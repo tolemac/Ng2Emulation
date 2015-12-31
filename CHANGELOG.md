@@ -9,10 +9,13 @@ instead of
 ````html
 <div>{{component.componentProperty}}</div>
 ````
-* (event-binding) search in component for custom (outputs) events (EventEmitter), if not found try to emit element event.
-* [property-binding] search in component for custom (inputs) properties, if not found assign value to element property.
-* @Input and @Output add property to $componentMetadata.inputs and $componentMetadata.outputs
-* Cannonical syntax is accepted (bind-propertyName, on-eventName, var-localVariableName)
+* `(event-binding)` search in component for custom (outputs) events (EventEmitter), if not found try to emit element event.
+* `[property-binding]` search in component for custom (inputs) properties, if not found assign value to element property.
+* `@Input` and `@Output` add property to `$componentMetadata.inputs` and `$componentMetadata.outputs`
+* Cannonical syntax is accepted (`bind-propertyName`, `on-eventName`, `var-localVariableName`)
+* Attribute syntax `[attr.colspan]="expression"`.
+* Class syntax `[class.red]="amount < 0"`.
+* Style syntax `[style.color] = "isSpecial ? 'red' : 'green'"`. Or with units: `[style.fontSize.em]="isSpecial ? 3 : 1"`
 
 ## Version 0.2 ALPHA
 * **breaking** controllerAs is $$cmp instead of $$vm
