@@ -2,6 +2,6 @@
 
 export default class NgModelRule implements ParserRule {
     processTemplate(template: string): string {
-        return template.replace(/[(ng-model)]/g, "ng-model");
+        return template.replace(/\[\(ngModel\)\]/g, "ng-model");
     }
 } 

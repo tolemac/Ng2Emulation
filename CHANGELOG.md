@@ -16,6 +16,7 @@ instead of
 * Attribute syntax `[attr.colspan]="expression"`.
 * Class syntax `[class.red]="amount < 0"`.
 * Style syntax `[style.color] = "isSpecial ? 'red' : 'green'"`. Or with units: `[style.fontSize.em]="isSpecial ? 3 : 1"`
+* NgModelRule for template parser, replace [(ngModel)] by ng-model
 
 ## Version 0.2 ALPHA
 * **breaking** controllerAs is $$cmp instead of $$vm
@@ -27,7 +28,7 @@ instead of
 ````
 * NgPropertyRule to replace #something by ng-property="something", to access to html like angular2 you can do:
 ````html
- <input type="text" #mybutton/> {{$cmp.myinput.value}}
+ <input type="text" #myinput/> {{$cmp.myinput.value}}
 ````
 
 ## Version 0.1 ALPHA
