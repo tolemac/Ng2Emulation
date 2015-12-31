@@ -8,11 +8,11 @@ import {DEFAULT_CONTROLLER_AS} from "../Core/Angular1Wrapper";
  *		<input #mytext type="text"/>
  * Parser change #text by ng-property="text":
  *		<input ng-property="mytext" type="text"/>
+ * An you can do:
  *		<input #mytext type="text"/>
  *		<span>{{$$cmp.mytext.value}}</span>
- * An you can do:
  */
-@Directive({ selector: "ng-property" })
+@Directive({ selector: "ng-property", priority: -1000 })
 export class NgProperty {
     constructor( 
         @Inject("$element") public $element: JQuery,

@@ -2,8 +2,10 @@
 
 export default class NgPropertyRule implements ParserRule {
     processTemplate(template: string): string {
-		
-        return template.replace(/<? #([a-zA-Z0-9-]+).+?>/g, (text, match) => {
+
+		const regex = /<? #([a-zA-Z0-9-]+).+?>/g;
+
+        return template.replace(regex, (text, match) => {
 	         return text.replace("#" + match, `ng-property="${match}"`);
         });
     }

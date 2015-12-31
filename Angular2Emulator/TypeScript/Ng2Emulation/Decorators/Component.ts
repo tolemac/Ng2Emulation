@@ -4,6 +4,7 @@
 	selector?: string;
     //componentAs?: string;
     directives?: Function[];
+	outputs?:string[];
 }
 
 /**

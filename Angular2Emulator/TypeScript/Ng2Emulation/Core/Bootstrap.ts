@@ -3,6 +3,7 @@ import ElementEvents from "../Events/ElementEvents";
 import httpIntercept from "../Templates/HttpInterceptor";
 import decorateInterpolate from "./InterpolateDecorator"
 import {NgProperty} from "../Directives/NgProperty";
+import {NgEventBinding} from "../Directives/NgEventBinding";
 
 /**
  * Class to store bootstrap information.
@@ -24,7 +25,10 @@ export class BootStrapper {
 
         // Register built-in directives
         // register element events directives.
-        ElementEvents.resolve().forEach(directive => Angular1Wrapper.registerDirective(directive));
+        //ElementEvents.resolve().forEach(directive => Angular1Wrapper.registerDirective(directive));
+
+		// register Event Binding directive
+		Angular1Wrapper.registerDirective(NgEventBinding);
         // register ngProperty
         Angular1Wrapper.registerDirective(NgProperty);
         

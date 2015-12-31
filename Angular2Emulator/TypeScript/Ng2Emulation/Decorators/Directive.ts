@@ -1,5 +1,7 @@
 ﻿export interface IDirectiveMetadata {
     selector?: string;
+	outputs?: string[];
+	priority?: number;
 }
 
 /**

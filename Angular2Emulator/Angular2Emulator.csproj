@@ -37,11 +37,16 @@
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Core\Angular1Wrapper.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Decorators\Directive.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Core\InterpolateDecorator.ts" />
-    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Directives\NgProperty.ts" />
+    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Directives\ngEventBinding.ts" />
+    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Directives\ngProperty.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Events\ElementEvents.ts" />
+    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Events\EventEmitter.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\HttpInterceptor.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\Parser.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\ParserRule.ts" />
+    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\Rules\TwoWayBindingRule.ts" />
+    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\Rules\PropertyBindingRule.ts" />
+    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\Rules\EventBindingRule.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\Rules\NgContentRule.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\Rules\NgPropertyRule.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Utils\AngularHelpers.ts" />
