@@ -9,6 +9,9 @@ instead of
 ````html
 <div>{{component.componentProperty}}</div>
 ````
+* (event-binding) search in component for custom (outputs) events (EventEmitter), if not found try to emit element event.
+* [property-binding] search in component for custom (inputs) properties, if not found assign value to element property.
+* @Input and @Output add property to $componentMetadata.inputs and $componentMetadata.outputs
 
 ## Version 0.2 ALPHA
 * **breaking** controllerAs is $$cmp instead of $$vm

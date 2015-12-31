@@ -4,6 +4,7 @@ import httpIntercept from "../Templates/HttpInterceptor";
 import decorateInterpolate from "./InterpolateDecorator"
 import {NgProperty} from "../Directives/NgProperty";
 import {NgEventBinding} from "../Directives/NgEventBinding";
+import {NgPropertyBinding} from "../Directives/NgPropertyBinding";
 
 /**
  * Class to store bootstrap information.
@@ -29,6 +30,8 @@ export class BootStrapper {
 
 		// register Event Binding directive
 		Angular1Wrapper.registerDirective(NgEventBinding);
+		// register Property Binding directive
+		Angular1Wrapper.registerDirective(NgPropertyBinding);
         // register ngProperty
         Angular1Wrapper.registerDirective(NgProperty);
         

@@ -4,7 +4,8 @@
 	selector?: string;
     //componentAs?: string;
     directives?: Function[];
-	outputs?:string[];
+	outputs?: string[];
+	inputs?: string[];
 }
 
 /**
@@ -13,7 +14,8 @@
 export function Component(componentMetadata: IComponentMetadata) {
 	return (target: any) => {
 
-        target.$componentMetadata = componentMetadata;
+		target.$componentMetadata = target.$componentMetadata || {};
+		target.$componentMetadata = angular.extend(target.$componentMetadata, componentMetadata);
         		
         return target;
 	}

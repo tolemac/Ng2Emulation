@@ -28,37 +28,40 @@ export class NgEventBinding {
 		const event = attrValues[0];
 		this.expression = $parse(attrValues[1]);
 
-		if (ElementEvents.exists(event)) {
-			$element.on(event, e => this.eventHandler(e));
-			$scope.$on("$destroy", () => this.onDestroy());
-			return;
-		}
-
 		const component: any = $element.controller(directiveNormalize($element[0].localName));
-		if (component) {
+		if (component && component.constructor.$componentMetadata) {
 			if (component.constructor.$componentMetadata.outputs && component.constructor.$componentMetadata.outputs.indexOf(event) >= 0)
 				component[event].subscribe(eventEmitted => {
-					this.expression(this.$scope[DEFAULT_CONTROLLER_AS], { $event: eventEmitted });
-					this.$scope.$applyAsync();
+					this.eventHandler(eventEmitted);
+					//this.expression(this.$scope[DEFAULT_CONTROLLER_AS], { $event: eventEmitted });
+					//this.$scope.$applyAsync();
 				});
 			else
 				console.log(`Error processing ${$attrs["ngEventBinding"]}`);
 			return;
 		}
-		
+
+		if (ElementEvents.exists(event)) {
+			$element.on(event, e => this.eventHandler(e));
+			$scope.$on("$destroy", () => this.onDestroy());
+			return;
+		}
     }
 
 	eventHandler($event: any = {}) {
-		let detail = $event.detail;
+		let parameters = { $event };
+		if (typeof $event === "object") {
+			let detail = $event.detail;
 
-		if (!detail && $event.originalEvent && $event.originalEvent.detail) {
-			detail = $event.originalEvent.detail;
-		}
-		else if (!detail || typeof detail !== "object") {
-			detail = {};
+			if (!detail && $event.originalEvent && $event.originalEvent.detail) {
+				detail = $event.originalEvent.detail;
+			} else if (!detail || typeof detail !== "object") {
+				detail = {};
+			}
+			parameters = { $event: angular.extend($event, { detail }) };
 		}
 
-		this.expression(this.$scope[DEFAULT_CONTROLLER_AS], { $event, detail});
+		this.expression(this.$scope[DEFAULT_CONTROLLER_AS], parameters);
 		this.$scope.$applyAsync();
 	}
 

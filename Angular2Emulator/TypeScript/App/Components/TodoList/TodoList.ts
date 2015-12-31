@@ -1,11 +1,10 @@
-﻿import {Component, Inject} from "Ng2Emulation/Ng2Emulation"
+﻿import {Component, Inject, Output, Input, EventEmiter} from "Ng2Emulation/Ng2Emulation"
 import {TodoService} from "App/Services/TodoService"
-import {EventEmiter} from "Ng2Emulation/Ng2Emulation"
 
 @Component({
 	templateUrl: "TypeScript/App/Components/TodoList/TodoList.html",
-	selector: "todo-list",
-	outputs: ["onNewTodo"]
+	selector: "todo-list"
+	//outputs: ["onNewTodo"]
 })
 export class TodoListComponent {
     upper(text) {
@@ -15,10 +14,11 @@ export class TodoListComponent {
     }
 
     constructor( @Inject(TodoService) public service: TodoService) {
-        this.todoList = service.todoList;        
+        this.todoList = service.todoList;
     }
 
-	onNewTodo = new EventEmiter<string>();
+	@Output() onNewTodo = new EventEmiter<string>();
+	@Input() addText : string = "Añadir";
 
     text: string;
     todoList: string[];

@@ -1,5 +1,8 @@
-﻿export * from "./Decorators/Component"
-export * from "./Decorators/Directive"
-export * from "./Decorators/Inject"
-export * from "./Events/EventEmitter"
-export * from "./Core/Bootstrap"
+﻿export * from "./Decorators/Component";
+export * from "./Decorators/Directive";
+export * from "./Decorators/Inject";
+export * from "./Events/EventEmitter";
+export * from "./Core/Bootstrap";
+export * from "./Decorators/Output";
+export * from "./Decorators/Input";
+

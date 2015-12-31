@@ -6,13 +6,14 @@ import {TodoListComponent} from "App/Components/TodoList/TodoList"
 @Component({
     template: `
         <h1>{{title}}</h1>
-        <todo-list (onNewTodo)="newTodo($event);"></todo-list>
+        <todo-list [addText]="addText" (onNewTodo)="newTodo($event);"></todo-list>
 `, ///<todo-list></todo-list>
     selector: "my-app",
     directives: [TodoListComponent]
 })
 export class AppComponent {
     public title = "Ng2 Emulator - Todo list sample";
+	public addText = "Añadir TODO: ";
 	newTodo(todo:string) {
 		console.log("New todo: " + todo);
 	}
