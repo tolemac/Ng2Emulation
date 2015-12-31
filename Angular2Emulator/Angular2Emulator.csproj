@@ -35,6 +35,7 @@
     <TypeScriptCompile Include="TypeScript\App\Services\DataStore.ts" />
     <TypeScriptCompile Include="TypeScript\App\Services\TodoService.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Core\Angular1Wrapper.ts" />
+    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Core\ParseDecorator.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Decorators\Directive.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Core\InterpolateDecorator.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Decorators\Input.ts" />

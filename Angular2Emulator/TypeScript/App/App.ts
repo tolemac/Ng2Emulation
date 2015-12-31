@@ -6,8 +6,9 @@ import {TodoListComponent} from "App/Components/TodoList/TodoList"
 @Component({
     template: `
         <h1>{{title}}</h1>
-        <todo-list bind-addText="addText" on-onNewTodo="newTodo($event);"></todo-list>
-`, ///<todo-list></todo-list>
+		<input autofocus [(ngModel)]="text"/>
+		{{text}}
+`, ///<todo-list bind-addText="addText" on-onNewTodo="newTodo($event);"></todo-list>
     selector: "my-app",
     directives: [TodoListComponent]
 })
