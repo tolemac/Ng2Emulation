@@ -1,5 +1,5 @@
 ﻿<form (submit)="addTodo();">
-    <input #textInput autofocus [(ngModel)]="$$cmp.text" [bacalao]="'hola'" /> {{text}}
+    <input #textInput autofocus [(ngModel)]="$$cmp.text" [bacalao]="'hola'" />
     <button type="button" (click)="addTodo($event)">{{addText}} {{textInput.value}}</button>
     <div ng-repeat="todo in $$cmp.todoList">
         {{todo}}
