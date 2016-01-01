@@ -69,6 +69,7 @@ export class NgPropertyBinding {
 		// Component property binding.
 	    const component: any = $element.controller(directiveNormalize($element[0].localName));
 		if (component && component.constructor.$componentMetadata) {
+			// Bind to component input property.
 			if (component.constructor.$componentMetadata.inputs && component.constructor.$componentMetadata.inputs.indexOf(property) >= 0) {
 
 				this.$scope.$watch(interpolateFn, (newValue, oldValue) => {
@@ -79,6 +80,7 @@ export class NgPropertyBinding {
 				console.log(`Error processing property binding ${$attrs["ngPropertyBinding"]}`);
 			return;
 		} else {
+			// Bind to element (DOM) property.
 			this.$scope.$watch(interpolateFn, (newValue, oldValue) => {
 				if (newValue !== $element[0][property])
 					$element[0][property] = newValue;

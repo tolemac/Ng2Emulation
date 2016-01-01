@@ -30,11 +30,10 @@ export class NgEventBinding {
 
 		const component: any = $element.controller(directiveNormalize($element[0].localName));
 		if (component && component.constructor.$componentMetadata) {
+			// Component event binding (must be in component outputs)
 			if (component.constructor.$componentMetadata.outputs && component.constructor.$componentMetadata.outputs.indexOf(event) >= 0)
 				component[event].subscribe(eventEmitted => {
 					this.eventHandler(eventEmitted);
-					//this.expression(this.$scope[DEFAULT_CONTROLLER_AS], { $event: eventEmitted });
-					//this.$scope.$applyAsync();
 				});
 			else
 				console.log(`Error processing ${$attrs["ngEventBinding"]}`);
@@ -42,6 +41,7 @@ export class NgEventBinding {
 		}
 
 		if (ElementEvents.exists(event)) {
+			// DOM element binding.
 			$element.on(event, e => this.eventHandler(e));
 			$scope.$on("$destroy", () => this.onDestroy());
 			return;
