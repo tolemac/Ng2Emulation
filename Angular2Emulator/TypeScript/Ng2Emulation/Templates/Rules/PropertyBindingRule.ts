@@ -22,8 +22,7 @@ export default class BindingRule extends  ParserRule
 		}
 		return undefined;
 	}
-
-
+	
     //processTemplate(template: string): string {
 
 	//	const replaceFn = (text, event, expression) => {

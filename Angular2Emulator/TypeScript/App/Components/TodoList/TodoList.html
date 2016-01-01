@@ -1,7 +1,7 @@
 ﻿<form (submit)="addTodo();">
     <input #textInput autofocus [(ngModel)]="text" [bacalao]="'hola'" />
     <button type="button" (click)="addTodo($event)">{{addText}} {{textInput.value}}</button>
-    <div ng-repeat="todo in $$cmp.todoList">
-        {{todo}}
+    <div *ngFor="#todo of todoList,#a=index, #b=index+1"> <!-- ng-repeat="todo in $$cmp.todoList" -->
+        {{$index}} {{todo}} {{a}} {{b}}
     </div>
 </form>

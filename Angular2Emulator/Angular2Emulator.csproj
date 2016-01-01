@@ -47,6 +47,7 @@
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\HttpInterceptor.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\Parser.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\ParserRule.ts" />
+    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\Rules\NgForRule.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\Rules\NgModelRule.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\Rules\TwoWayBindingRule.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\Rules\PropertyBindingRule.ts" />
