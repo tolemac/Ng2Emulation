@@ -16,7 +16,7 @@ instead of
 * Attribute syntax `[attr.colspan]="expression"`.
 * Class syntax `[class.red]="amount < 0"`.
 * Style syntax `[style.color] = "isSpecial ? 'red' : 'green'"`. Or with units: `[style.fontSize.em]="isSpecial ? 3 : 1"`
-* NgModelRule for template parser, replace [(ngModel)] by ng-model
+* NgModelRule for template parser, replace [(ngModel)]="some.thing" by ng-model="$$cmp.some.thing"
 
 ## Version 0.2 ALPHA
 * **breaking** controllerAs is $$cmp instead of $$vm
