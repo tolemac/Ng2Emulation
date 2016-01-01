@@ -17,6 +17,15 @@ instead of
 * Class syntax `[class.red]="amount < 0"`.
 * Style syntax `[style.color] = "isSpecial ? 'red' : 'green'"`. Or with units: `[style.fontSize.em]="isSpecial ? 3 : 1"`
 * NgModelRule for template parser, replace [(ngModel)]="some.thing" by ng-model="$$cmp.some.thing"
+* *ngFor working. Replace *ngFor by ng-repeat + ng-init: 
+````html
+<div *ngFor="#item of itemList, #i = index"></div>
+````
+change by:
+````html
+<div ng-repeat="item in itemList" ng-init="i = $index"></div>
+````
+
 
 ## Version 0.2 ALPHA
 * **breaking** controllerAs is $$cmp instead of $$vm
