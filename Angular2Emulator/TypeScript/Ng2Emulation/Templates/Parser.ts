@@ -11,6 +11,10 @@ export default class Parser {
 		new NgModelRule(), new NgContentRule(), new NgPropertyRule(),
 		new TwoWayBindingRule(), new PropertyBindingRule(), new EventBindingRule()
 	];
+    //private static rules: ParserRule[] = [
+	//	new NgModelRule(), new NgContentRule(), new NgPropertyRule(),
+	//	new TwoWayBindingRule(), new PropertyBindingRule(), new EventBindingRule()
+	//];
 
     static addRule(rule: ParserRule) {
         this.rules.push(rule);

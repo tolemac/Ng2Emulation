@@ -69,6 +69,7 @@
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\systemjs\systemjs.d.ts" />
+    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Utils\Utils.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\angular.min.js.map" />

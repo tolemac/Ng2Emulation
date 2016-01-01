@@ -22,7 +22,7 @@ export class TodoListComponent {
 
     text: string;
     todoList: string[];
-    textInput: HTMLInputElement;
+    textInput: HTMLInputElement = <HTMLInputElement>({});
 
     addTodo() {
         if (!this.text)

@@ -1,7 +1,8 @@
 ﻿import {Directive, Inject} from "../Ng2Emulation";
 import {DEFAULT_CONTROLLER_AS} from "../Core/Angular1Wrapper";
-import ElementEvents from "../Events/ElementEvents"
-import {directiveNormalize} from "../Utils/AngularHelpers"
+import ElementEvents from "../Events/ElementEvents";
+import {directiveNormalize} from "../Utils/AngularHelpers";
+import {getOwnPropertyNameInsensitiveCase, indexOfInsensitiveCase} from "../Utils/Utils";
 
 /**
  * Directive to do Event binding.
@@ -31,8 +32,8 @@ export class NgEventBinding {
 		const component: any = $element.controller(directiveNormalize($element[0].localName));
 		if (component && component.constructor.$componentMetadata) {
 			// Component event binding (must be in component outputs)
-			if (component.constructor.$componentMetadata.outputs && component.constructor.$componentMetadata.outputs.indexOf(event) >= 0)
-				component[event].subscribe(eventEmitted => {
+			if (component.constructor.$componentMetadata.outputs && indexOfInsensitiveCase(component.constructor.$componentMetadata.outputs, event) >= 0)
+				component[getOwnPropertyNameInsensitiveCase(component, event)].subscribe(eventEmitted => {
 					this.eventHandler(eventEmitted);
 				});
 			else

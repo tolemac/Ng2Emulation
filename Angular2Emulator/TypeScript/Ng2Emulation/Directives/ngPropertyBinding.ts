@@ -1,6 +1,7 @@
 ﻿import {Directive, Inject} from "../Ng2Emulation";
 import {DEFAULT_CONTROLLER_AS} from "../Core/Angular1Wrapper";
 import {directiveNormalize} from "../Utils/AngularHelpers"
+import {getOwnPropertyNameInsensitiveCase, indexOfInsensitiveCase} from "../Utils/Utils";
 
 /**
  * Directive to do Property binding.
@@ -70,11 +71,11 @@ export class NgPropertyBinding {
 	    const component: any = $element.controller(directiveNormalize($element[0].localName));
 		if (component && component.constructor.$componentMetadata) {
 			// Bind to component input property.
-			if (component.constructor.$componentMetadata.inputs && component.constructor.$componentMetadata.inputs.indexOf(property) >= 0) {
+			if (component.constructor.$componentMetadata.inputs && indexOfInsensitiveCase(component.constructor.$componentMetadata.inputs, property) >= 0) {
 
 				this.$scope.$watch(interpolateFn, (newValue, oldValue) => {
-					if (newValue !== component[property])
-						component[property] = newValue;
+					if (newValue !== component[getOwnPropertyNameInsensitiveCase(component, property)])
+						component[getOwnPropertyNameInsensitiveCase(component, property)] = newValue;
 				});
 			} else
 				console.log(`Error processing property binding ${$attrs["ngPropertyBinding"]}`);

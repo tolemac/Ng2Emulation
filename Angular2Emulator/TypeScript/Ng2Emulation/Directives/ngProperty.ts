@@ -1,5 +1,6 @@
 ﻿import {Directive, Inject} from "../Ng2Emulation";
 import {DEFAULT_CONTROLLER_AS} from "../Core/Angular1Wrapper";
+import {getOwnPropertyNameInsensitiveCase} from "../Utils/Utils";
 
 /**
  * Directive to get access to html element as a component property.
@@ -17,7 +18,9 @@ export class NgProperty {
     constructor( 
         @Inject("$element") public $element: JQuery,
         @Inject("$attrs") $attrs: ng.IAttributes,
-        @Inject("$scope") public $scope: ng.IScope) {
-        $scope[DEFAULT_CONTROLLER_AS][$attrs["ngProperty"]] = $element[0];
+        @Inject("$scope") public $scope: ng.IScope)
+	{
+		const newScope = $scope[DEFAULT_CONTROLLER_AS];
+        newScope[getOwnPropertyNameInsensitiveCase(newScope, $attrs["ngProperty"]) || $attrs["ngProperty"]] = $element[0];
     }
 }
