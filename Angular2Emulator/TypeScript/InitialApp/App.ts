@@ -1,7 +1,7 @@
 ﻿import {Component, Inject} from "Ng2Emulation/Ng2Emulation"
 
-import {DataStore} from "App/Services/DataStore"
-import {TodoListComponent} from "App/Components/TodoList/TodoList"
+import {DataStore} from "./Services/DataStore"
+import {TodoListComponent} from "./Components/TodoList/TodoList"
 
 @Component({
     template: `

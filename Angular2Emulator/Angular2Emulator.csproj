@@ -25,15 +25,17 @@
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
-    <Content Include="TypeScript\App\Components\TodoList\TodoList.html" />
+    <Content Include="TypeScript\InitialApp\Components\TodoList\TodoList.html" />
     <Content Include="web.config" />
     <Content Include="Scripts\jquery-2.1.4.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="TypeScript\App\App.ts" />
-    <TypeScriptCompile Include="TypeScript\App\Boot.ts" />
-    <TypeScriptCompile Include="TypeScript\App\Services\DataStore.ts" />
-    <TypeScriptCompile Include="TypeScript\App\Services\TodoService.ts" />
+    <TypeScriptCompile Include="TypeScript\App\app.component.ts" />
+    <TypeScriptCompile Include="TypeScript\App\boot.ts" />
+    <TypeScriptCompile Include="TypeScript\InitialApp\App.ts" />
+    <TypeScriptCompile Include="TypeScript\InitialApp\Boot.ts" />
+    <TypeScriptCompile Include="TypeScript\InitialApp\Services\DataStore.ts" />
+    <TypeScriptCompile Include="TypeScript\InitialApp\Services\TodoService.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Core\Angular1Wrapper.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Decorators\Directive.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Core\InterpolateDecorator.ts" />
@@ -60,7 +62,7 @@
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Decorators\Component.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Decorators\Inject.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Ng2Emulation.ts" />
-    <TypeScriptCompile Include="TypeScript\App\Components\TodoList\TodoList.ts" />
+    <TypeScriptCompile Include="TypeScript\InitialApp\Components\TodoList\TodoList.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-cookies.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-mocks.d.ts" />

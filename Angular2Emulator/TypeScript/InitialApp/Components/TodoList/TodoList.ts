@@ -1,5 +1,5 @@
 ﻿import {Component, Inject, Output, Input, EventEmiter} from "Ng2Emulation/Ng2Emulation"
-import {TodoService} from "App/Services/TodoService"
+import {TodoService} from "./Services/TodoService"
 
 @Component({
 	templateUrl: "TypeScript/App/Components/TodoList/TodoList.html",
