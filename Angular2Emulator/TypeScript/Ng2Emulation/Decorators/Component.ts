@@ -6,6 +6,7 @@
     directives?: Function[];
 	outputs?: string[];
 	inputs?: string[];
+	styles?: string[];
 }
 
 /**

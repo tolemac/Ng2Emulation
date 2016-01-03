@@ -1,10 +1,12 @@
 ﻿import {Angular1Wrapper} from "./Angular1Wrapper";
 import ElementEvents from "../Events/ElementEvents";
 import httpIntercept from "../Templates/HttpInterceptor";
-import decorateInterpolate from "./InterpolateDecorator"
+import decorateInterpolate from "./InterpolateDecorator";
+import decorateNgIf from "./NgIfDecorator";
 import {NgProperty} from "../Directives/NgProperty";
 import {NgEventBinding} from "../Directives/NgEventBinding";
 import {NgPropertyBinding} from "../Directives/NgPropertyBinding";
+import decorateNgRepeat from "./NgRepeatDecorator"
 
 /**
  * Class to store bootstrap information.
@@ -22,7 +24,10 @@ export class BootStrapper {
         // Interceptor for templates.
         httpIntercept(Angular1Wrapper.app);
 		// Decorate $interpolate to redirect scope to $$cmp
-	    decorateInterpolate(Angular1Wrapper.app);
+		decorateInterpolate(Angular1Wrapper.app);
+		//decorateNgIf(Angular1Wrapper.app);
+	    //decorateNgRepeat(Angular1Wrapper.app);
+
 
         // Register built-in directives
         // register element events directives.

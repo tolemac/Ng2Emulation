@@ -1,5 +1,5 @@
 ﻿import {Directive, Inject} from "../Ng2Emulation";
-import {DEFAULT_CONTROLLER_AS} from "../Core/Angular1Wrapper";
+import {createScope} from "../Core/ScopeCreator";
 import ElementEvents from "../Events/ElementEvents";
 import {directiveNormalize} from "../Utils/AngularHelpers";
 import {getOwnPropertyNameInsensitiveCase, indexOfInsensitiveCase} from "../Utils/Utils";
@@ -20,14 +20,14 @@ export class NgEventBinding {
  * Copied and modified from ng-forward: https://github.com/tolemac/ng-forward/blob/master/lib/events/events.ts
  */
     constructor(
-		@Inject("$parse") $parse: ng.IParseService,
+		@Inject("$parse") $parse: any, //ng.IParseService,
 	    @Inject("$element") public $element: any,
 	    @Inject("$attrs") $attrs: ng.IAttributes,
 	    @Inject("$scope") public $scope: ng.IScope) {
 
 		const attrValues = $attrs["ngEventBinding"].split("=>");
 		const event = attrValues[0];
-		this.expression = $parse(attrValues[1]);
+		this.expression = $parse(attrValues[1]); //, function() {console.log(arguments);};
 
 		const component: any = $element.controller(directiveNormalize($element[0].localName));
 		if (component && component.constructor.$componentMetadata) {
@@ -62,8 +62,8 @@ export class NgEventBinding {
 			parameters = { $event: angular.extend($event, { detail }) };
 		}
 
-		const newScope = this.$scope.hasOwnProperty(DEFAULT_CONTROLLER_AS) ? this.$scope[DEFAULT_CONTROLLER_AS] : this.$scope;
-		this.expression(newScope, parameters);
+		const newScope = createScope(this.$scope);
+		this.expression(newScope, parameters, undefined, this.$scope["$$cmp"]);
 		this.$scope.$applyAsync();
 	}
 

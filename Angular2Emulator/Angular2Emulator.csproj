@@ -30,6 +30,7 @@
     <Content Include="Scripts\jquery-2.1.4.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="file1.ts" />
     <TypeScriptCompile Include="TypeScript\App\app.component.ts" />
     <TypeScriptCompile Include="TypeScript\App\boot.ts" />
     <TypeScriptCompile Include="TypeScript\InitialApp\App.ts" />
@@ -37,6 +38,9 @@
     <TypeScriptCompile Include="TypeScript\InitialApp\Services\DataStore.ts" />
     <TypeScriptCompile Include="TypeScript\InitialApp\Services\TodoService.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Core\Angular1Wrapper.ts" />
+    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Core\NgIfDecorator.ts" />
+    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Core\NgRepeatDecorator.ts" />
+    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Core\ScopeCreator.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Decorators\Directive.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Core\InterpolateDecorator.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Decorators\Input.ts" />
@@ -49,6 +53,7 @@
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\HttpInterceptor.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\Parser.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\ParserRule.ts" />
+    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\Rules\NgIfRule.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\Rules\NgForRule.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\Rules\NgModelRule.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\Rules\TwoWayBindingRule.ts" />

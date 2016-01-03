@@ -6,12 +6,13 @@ import EventBindingRule from "./rules/EventBindingRule"
 import PropertyBindingRule from "./rules/PropertyBindingRule"
 import TwoWayBindingRule from "./rules/TwoWayBindingRule"
 import NgForRule from "./rules/NgForRule"
+import NgIfRule from "./rules/NgIfRule"
 
 export default class Parser {
     private static rules: ParserRule[] = [
 		new NgModelRule(), new NgContentRule(), new NgPropertyRule(),
 		new TwoWayBindingRule(), new PropertyBindingRule(), new EventBindingRule(),
-		new NgForRule()
+		new NgForRule(), new NgIfRule()
 	];
     //private static rules: ParserRule[] = [
 	//	new NgModelRule(), new NgContentRule(), new NgPropertyRule(),

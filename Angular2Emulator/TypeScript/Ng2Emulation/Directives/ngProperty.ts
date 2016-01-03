@@ -1,5 +1,5 @@
 ﻿import {Directive, Inject} from "../Ng2Emulation";
-import {DEFAULT_CONTROLLER_AS} from "../Core/Angular1Wrapper";
+import {createScope} from "../Core/ScopeCreator";
 import {getOwnPropertyNameInsensitiveCase} from "../Utils/Utils";
 
 /**
@@ -18,9 +18,9 @@ export class NgProperty {
     constructor( 
         @Inject("$element") public $element: JQuery,
         @Inject("$attrs") $attrs: ng.IAttributes,
-        @Inject("$scope") public $scope: ng.IScope)
-	{
-		const newScope = $scope[DEFAULT_CONTROLLER_AS];
+        @Inject("$scope") public $scope: ng.IScope) {
+
+		const newScope = createScope($scope);
         newScope[getOwnPropertyNameInsensitiveCase(newScope, $attrs["ngProperty"]) || $attrs["ngProperty"]] = $element[0];
     }
 }

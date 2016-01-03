@@ -25,6 +25,7 @@ change by:
 ````html
 <div ng-repeat="item in itemList" ng-init="i = $index"></div>
 ````
+* styles added to component metadata and load it in bootstrap (added globally)
 
 
 ## Version 0.2 ALPHA

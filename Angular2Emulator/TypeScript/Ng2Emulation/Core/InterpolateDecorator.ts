@@ -1,4 +1,4 @@
-﻿import {DEFAULT_CONTROLLER_AS} from "../Core/Angular1Wrapper"
+﻿import {createScope} from "../Core/ScopeCreator";
 
 function decorateInterpolate(app: ng.IModule) {
 	app.config(["$provide", ($provide: ng.auto.IProvideService) => {
@@ -8,7 +8,7 @@ function decorateInterpolate(app: ng.IModule) {
 			const customDelegate = function () {
 				const origResult = origInterpolateDelegate.apply(this, arguments);
 				return (!origResult ? origResult : function () {
-					const newScope = arguments[0].hasOwnProperty(DEFAULT_CONTROLLER_AS) ? arguments[0][DEFAULT_CONTROLLER_AS] : arguments[0];
+					const newScope = createScope(arguments[0]);
 					arguments[0] = newScope;
 
 					return origResult.apply(this, arguments);
