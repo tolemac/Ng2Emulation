@@ -27,7 +27,7 @@ export class NgPropertyBinding {
 		this.expression = attrValues[1];
 
 		const interpolateFn = (scope) => {
-		    const newScope = scope.hasOwnProperty(DEFAULT_CONTROLLER_AS) ? scope[DEFAULT_CONTROLLER_AS] : scope;
+			const newScope = scope;//scope.hasOwnProperty(DEFAULT_CONTROLLER_AS) ? scope[DEFAULT_CONTROLLER_AS] : scope;
 		    return $interpolate("{{" + this.expression + "}}")(newScope);
 		};
 

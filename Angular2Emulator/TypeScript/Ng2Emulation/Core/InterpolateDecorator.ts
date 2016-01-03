@@ -8,7 +8,7 @@ function decorateInterpolate(app: ng.IModule) {
 			const customDelegate = function () {
 				const origResult = origInterpolateDelegate.apply(this, arguments);
 				return (!origResult ? origResult : function () {
-					const newScope = arguments[0].hasOwnProperty(DEFAULT_CONTROLLER_AS) ? arguments[0][DEFAULT_CONTROLLER_AS] : arguments[0];
+					const newScope = arguments[0];//arguments[0].hasOwnProperty(DEFAULT_CONTROLLER_AS) ? arguments[0][DEFAULT_CONTROLLER_AS] : arguments[0];
 					arguments[0] = newScope;
 
 					return origResult.apply(this, arguments);

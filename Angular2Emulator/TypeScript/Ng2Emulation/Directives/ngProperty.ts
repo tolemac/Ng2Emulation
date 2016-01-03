@@ -18,9 +18,8 @@ export class NgProperty {
     constructor( 
         @Inject("$element") public $element: JQuery,
         @Inject("$attrs") $attrs: ng.IAttributes,
-        @Inject("$scope") public $scope: ng.IScope)
-	{
-		const newScope = $scope[DEFAULT_CONTROLLER_AS];
+        @Inject("$scope") public $scope: ng.IScope) {
+	    const newScope = $scope[DEFAULT_CONTROLLER_AS];
         newScope[getOwnPropertyNameInsensitiveCase(newScope, $attrs["ngProperty"]) || $attrs["ngProperty"]] = $element[0];
     }
 }
