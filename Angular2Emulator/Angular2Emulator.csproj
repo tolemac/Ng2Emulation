@@ -38,9 +38,7 @@
     <TypeScriptCompile Include="TypeScript\InitialApp\Services\DataStore.ts" />
     <TypeScriptCompile Include="TypeScript\InitialApp\Services\TodoService.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Core\Angular1Wrapper.ts" />
-    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Core\NgIfDecorator.ts" />
-    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Core\NgRepeatDecorator.ts" />
-    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Core\ScopeCreator.ts" />
+    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Core\ParseDecorator.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Decorators\Directive.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Core\InterpolateDecorator.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Decorators\Input.ts" />
@@ -50,6 +48,8 @@
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Directives\ngPropertyBinding.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Events\ElementEvents.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Events\EventEmitter.ts" />
+    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Expressions\ExpressionParser.ts" />
+    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Expressions\Ng1Lexer\Lexer.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\HttpInterceptor.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\Parser.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\ParserRule.ts" />

@@ -1,5 +1,5 @@
 ﻿import {Directive, Inject} from "../Ng2Emulation";
-import {createScope} from "../Core/ScopeCreator";
+import {DEFAULT_CONTROLLER_AS} from "../Core/Angular1Wrapper";
 import {directiveNormalize} from "../Utils/AngularHelpers"
 import {getOwnPropertyNameInsensitiveCase, indexOfInsensitiveCase} from "../Utils/Utils";
 
@@ -27,7 +27,7 @@ export class NgPropertyBinding {
 		this.expression = attrValues[1];
 
 		const interpolateFn = (scope) => {
-			const newScope = createScope(scope);
+			const newScope = scope;//scope.hasOwnProperty(DEFAULT_CONTROLLER_AS) ? scope[DEFAULT_CONTROLLER_AS] : scope;
 		    return $interpolate("{{" + this.expression + "}}")(newScope);
 		};
 
