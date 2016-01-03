@@ -2,6 +2,7 @@
 import {DEFAULT_CONTROLLER_AS} from "../Core/Angular1Wrapper";
 import {directiveNormalize} from "../Utils/AngularHelpers"
 import {getOwnPropertyNameInsensitiveCase, indexOfInsensitiveCase} from "../Utils/Utils";
+import {parseExpression} from "../Expressions/ExpressionParser";
 
 /**
  * Directive to do Property binding.
@@ -16,7 +17,7 @@ export class NgPropertyBinding {
 	public expression: any;
 
     constructor(
-		//@Inject("$parse") $parse: ng.IParseService,
+		@Inject("$parse") $parse: ng.IParseService,
 		@Inject("$element") public $element: any,
 		@Inject("$attrs") $attrs: ng.IAttributes,
 		@Inject("$scope") public $scope: ng.IScope,
@@ -24,17 +25,12 @@ export class NgPropertyBinding {
 
 		const attrValues = $attrs["ngPropertyBinding"].split("=>");
 		const property = attrValues[0];
-		this.expression = attrValues[1];
-
-		const interpolateFn = (scope) => {
-			const newScope = scope;//scope.hasOwnProperty(DEFAULT_CONTROLLER_AS) ? scope[DEFAULT_CONTROLLER_AS] : scope;
-		    return $interpolate("{{" + this.expression + "}}")(newScope);
-		};
+		this.expression = $parse(attrValues[1]);
 
 		// Attribute binding.
 		if (property.substr(0, 5) === "attr.") {
 			const attributeName = property.substr(5);
-			this.$scope.$watch(interpolateFn, (newValue, oldValue) => {
+			this.$scope.$watch(this.expression, (newValue, oldValue) => {
 				if (newValue !== $element[0].getAttribute(attributeName))
 					$element[0].setAttribute(attributeName, newValue);
 			});
@@ -44,7 +40,7 @@ export class NgPropertyBinding {
 		// Class binding.
 		if (property.substr(0, 6) === "class.") {
 			const className = property.substr(6);
-			this.$scope.$watch(interpolateFn, (newValue, oldValue) => {
+			this.$scope.$watch(this.expression, (newValue, oldValue) => {
 				if (newValue)
 					$element[0].classList.add(className);
 				else
@@ -57,7 +53,7 @@ export class NgPropertyBinding {
 		if (property.substr(0, 6) === "style.") {
 			const [styleName, units] = property.substr(6).split(".");
 
-			this.$scope.$watch(interpolateFn, (newValue, oldValue) => {
+			this.$scope.$watch(this.expression, (newValue, oldValue) => {
 				if (units)
 					newValue = newValue + units;
 
@@ -73,16 +69,17 @@ export class NgPropertyBinding {
 			// Bind to component input property.
 			if (component.constructor.$componentMetadata.inputs && indexOfInsensitiveCase(component.constructor.$componentMetadata.inputs, property) >= 0) {
 
-				this.$scope.$watch(interpolateFn, (newValue, oldValue) => {
-					if (newValue !== component[getOwnPropertyNameInsensitiveCase(component, property)])
-						component[getOwnPropertyNameInsensitiveCase(component, property)] = newValue;
+				this.$scope.$watch(this.expression, (newValue, oldValue) => {
+					const propertyExpression = $parse(attrValues[0]);
+					if (newValue !== propertyExpression(component))
+						propertyExpression.assign(component, newValue);
 				});
 			} else
 				console.log(`Error processing property binding ${$attrs["ngPropertyBinding"]}`);
 			return;
 		} else {
 			// Bind to element (DOM) property.
-			this.$scope.$watch(interpolateFn, (newValue, oldValue) => {
+			this.$scope.$watch(this.expression, (newValue, oldValue) => {
 				if (newValue !== $element[0][property])
 					$element[0][property] = newValue;
 			});
