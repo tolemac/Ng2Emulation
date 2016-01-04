@@ -24,6 +24,7 @@
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
+    <Content Include="Scripts\es6-promise.min.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
     <Content Include="TypeScript\InitialApp\Components\TodoList\TodoList.html" />
@@ -32,6 +33,7 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="file1.ts" />
+    <TypeScriptCompile Include="Scripts\typings\es6-promise\es6-promise.d.ts" />
     <TypeScriptCompile Include="TypeScript\App\app.component.ts" />
     <TypeScriptCompile Include="TypeScript\App\boot.ts" />
     <TypeScriptCompile Include="TypeScript\App\hero-detail.component.ts" />

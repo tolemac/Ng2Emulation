@@ -1,4 +1,6 @@
-﻿export * from "./Decorators/Component";
+﻿/// <reference path="../../scripts/typings/es6-promise/es6-promise.d.ts" />
+
+export * from "./Decorators/Component";
 export * from "./Decorators/Directive";
 export * from "./Decorators/Inject";
 export * from "./Decorators/Injectable";

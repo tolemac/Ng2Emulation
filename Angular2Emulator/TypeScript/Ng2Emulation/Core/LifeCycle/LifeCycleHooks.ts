@@ -26,7 +26,7 @@ export function initLifeCycleHooks(app: ng.IModule) {
                 hasRegistered = false;
                 onEndDigestPhase = true;
                 onEndDigest();
-                $rootScope.$apply();
+                $rootScope.$applyAsync();
                 onEndDigestPhase = false;
 
             });
