@@ -1,20 +1,20 @@
 ﻿import {ParserRule} from "../ParserRule";
 
-export default class NgContentRule extends  ParserRule 
+export default class NgIfRule extends  ParserRule 
 {
 	processAttribute(attr: Attr): { name: string; value: string } {
 		const name = attr.name;
 		const value = attr.value;
 
-		if (name === "ngcontent" || name === "ng-content")
+		if (name === "*ngif")
 			return {
-				name: "ng-transcude",
-				value: value
+				name: "ng-if",
+				value: `$$cmp.${value}`
 			};
 		return undefined;
 	}
 
     //processTemplate(template: string): string {
-    //    return template.replace(/ng-content/g, "ng-transclude");
+    //    return template.replace(/*ngif/g, "ng-if");
     //}
 }

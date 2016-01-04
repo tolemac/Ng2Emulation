@@ -45,11 +45,13 @@ export class Angular1Wrapper {
 
         let cmpMetaData: IComponentMetadata = component["$componentMetadata"];
 
-        // Component as => controller as
-        //if (cmpMetaData.componentAs) {
-        //    ddo.controllerAs = cmpMetaData.componentAs;
-        //    delete cmpMetaData.componentAs;
-        //}
+		// Register styles
+		if (cmpMetaData.styles && cmpMetaData.styles.length > 0) {
+			const style = cmpMetaData.styles.join(",");
+			const sheet = document.createElement("style");
+			sheet.innerHTML = style;
+			document.body.appendChild(sheet);
+		}
 
         // Register dependent components
         if (cmpMetaData.directives) {

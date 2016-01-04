@@ -1,5 +1,6 @@
 ﻿import {Directive, Inject} from "../Ng2Emulation";
 import {DEFAULT_CONTROLLER_AS} from "../Core/Angular1Wrapper";
+import {getOwnPropertyNameInsensitiveCase} from "../Utils/Utils";
 
 /**
  * Directive to get access to html element as a component property.
@@ -8,16 +9,17 @@ import {DEFAULT_CONTROLLER_AS} from "../Core/Angular1Wrapper";
  *		<input #mytext type="text"/>
  * Parser change #text by ng-property="text":
  *		<input ng-property="mytext" type="text"/>
+ * An you can do:
  *		<input #mytext type="text"/>
  *		<span>{{$$cmp.mytext.value}}</span>
- * An you can do:
  */
-@Directive({ selector: "ng-property" })
+@Directive({ selector: "ng-property", priority: -1000 })
 export class NgProperty {
     constructor( 
         @Inject("$element") public $element: JQuery,
         @Inject("$attrs") $attrs: ng.IAttributes,
         @Inject("$scope") public $scope: ng.IScope) {
-        $scope[DEFAULT_CONTROLLER_AS][$attrs["ngProperty"]] = $element[0];
+	    const newScope = $scope[DEFAULT_CONTROLLER_AS];
+        newScope[getOwnPropertyNameInsensitiveCase(newScope, $attrs["ngProperty"]) || $attrs["ngProperty"]] = $element[0];
     }
 }
