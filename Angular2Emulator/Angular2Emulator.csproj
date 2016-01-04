@@ -35,7 +35,9 @@
     <TypeScriptCompile Include="TypeScript\App\app.component.ts" />
     <TypeScriptCompile Include="TypeScript\App\boot.ts" />
     <TypeScriptCompile Include="TypeScript\App\hero-detail.component.ts" />
+    <TypeScriptCompile Include="TypeScript\App\hero.service.ts" />
     <TypeScriptCompile Include="TypeScript\App\hero.ts" />
+    <TypeScriptCompile Include="TypeScript\App\mock-heroes.ts" />
     <TypeScriptCompile Include="TypeScript\InitialApp\App.ts" />
     <TypeScriptCompile Include="TypeScript\InitialApp\Boot.ts" />
     <TypeScriptCompile Include="TypeScript\InitialApp\Services\DataStore.ts" />

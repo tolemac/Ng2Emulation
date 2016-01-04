@@ -6,6 +6,8 @@ import decorateParse from "./ParseDecorator"
 import {NgProperty} from "../Directives/NgProperty";
 import {NgEventBinding} from "../Directives/NgEventBinding";
 import {NgPropertyBinding} from "../Directives/NgPropertyBinding";
+import decorateController from "./ControllerDecorator";
+import {initLifeCycleHooks} from "./LifeCycle/LifeCycleHooks";
 
 /**
  * Class to store bootstrap information.
@@ -24,7 +26,8 @@ export class BootStrapper {
         httpIntercept(Angular1Wrapper.app);
 		// Decorate $interpolate to redirect scope to $$cmp
 	    //decorateInterpolate(Angular1Wrapper.app);
-	    decorateParse(Angular1Wrapper.app);
+        decorateParse(Angular1Wrapper.app);
+        decorateController(Angular1Wrapper.app);
 
         // Register built-in directives
         // register element events directives.
@@ -40,6 +43,7 @@ export class BootStrapper {
         Angular1Wrapper.registerServices(BootStrapper.services);
         Angular1Wrapper.registerComponent(component);
 
+        initLifeCycleHooks(Angular1Wrapper.app);
         Angular1Wrapper.bootstrap();
     }
 }

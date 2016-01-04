@@ -1,4 +1,4 @@
-﻿import {removeChanges, componentChanges, SimpleChange} from "../ChangeDetection"
+﻿import {removeChanges, componentChanges, SimpleChange, componentInstances} from "../ChangeDetection"
 
 let onEndDigestPhase = false;
 
@@ -34,6 +34,13 @@ export function initLifeCycleHooks(app: ng.IModule) {
     }]);
 }
 
+function callOnInit(component: any) {
+    if (component && !component.$$ng2emu$Init && typeof component.ngOnInit === "function") {
+        component.ngOnInit();
+        component.$$ng2emu$Init = true;
+    }
+}
+
 function onEndDigest() {
     for (let i = 0; i < componentChanges.length; i++) {
         const cmpChanges = componentChanges[i];
@@ -42,10 +49,13 @@ function onEndDigest() {
         if (typeof component.ngOnChanges === "function") {
             component.ngOnChanges(cmpChanges);
         }
-        if (!component.$$ng2emu$Init && typeof component.ngOnInit === "function") {
-            component.ngOnInit();
-            component.$$ng2emu$Init = true;
-        }
+        callOnInit(component);
     }
     removeChanges();
+
+    for (let i = 0; i < componentInstances.length; i++) {
+        const cmp = componentInstances[i];
+        callOnInit(cmp);
+        
+    }
 }

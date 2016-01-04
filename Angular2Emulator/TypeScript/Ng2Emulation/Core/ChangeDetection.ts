@@ -7,7 +7,7 @@
     isFirstChange(): boolean { return typeof this.previousValue === "undefined"; }
 }
 
-export let componentChanges: { component: any, changes: { [propertyName: string]: SimpleChange } }[];
+export let componentChanges: { component: any, changes: { [propertyName: string]: SimpleChange } }[] = [];
 
 export function getComponentChanges(component : any) {
     for (let i = 0; i < componentChanges.length; i++) {
@@ -26,4 +26,10 @@ export function registerChange(component: any, propertyName: string, simpleChang
 
 export function removeChanges() {
     componentChanges = [];
+}
+
+export let componentInstances = [];
+
+export function registerComponentInstance(component : any) {
+    componentInstances.push(component);
 }
