@@ -26,6 +26,8 @@ change by:
 <div ng-repeat="item in itemList" ng-init="i = $index"></div>
 ````
 * styles added to component metadata and load it in bootstrap (added globally) 
+* Add `providers` to @Component metadata.
+* LifeCycleHooks - OnChanges, OnInit and OnDestroy
 
 
 ## Version 0.2 ALPHA

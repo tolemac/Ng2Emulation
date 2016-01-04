@@ -5,4 +5,5 @@ export * from "./Events/EventEmitter";
 export * from "./Core/Bootstrap";
 export * from "./Decorators/Output";
 export * from "./Decorators/Input";
+export {OnChanges, OnInit, OnDestroy} from "./Core/LifeCycle/LifeCycleHooks";
 

@@ -15,6 +15,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <ItemGroup>
     <Content Include="app.css" />
@@ -40,6 +41,9 @@
     <TypeScriptCompile Include="TypeScript\InitialApp\Services\DataStore.ts" />
     <TypeScriptCompile Include="TypeScript\InitialApp\Services\TodoService.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Core\Angular1Wrapper.ts" />
+    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Core\ChangeDetection.ts" />
+    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Core\ControllerDecorator.ts" />
+    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Core\LifeCycle\LifeCycleHooks.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Core\ParseDecorator.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Decorators\Directive.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Core\InterpolateDecorator.ts" />

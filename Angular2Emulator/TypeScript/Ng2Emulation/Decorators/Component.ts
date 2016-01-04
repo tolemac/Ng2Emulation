@@ -1,4 +1,6 @@
-﻿export interface IComponentMetadata {
+﻿import {serviceNormalize} from "../Utils/AngularHelpers";
+
+export interface IComponentMetadata {
     template?: string;
     templateUrl?: string;
 	selector?: string;
@@ -6,7 +8,8 @@
     directives?: Function[];
 	outputs?: string[];
 	inputs?: string[];
-	styles?: string[];
+    styles?: string[];
+    providers?: Function|string;
 }
 
 /**
@@ -16,8 +19,17 @@ export function Component(componentMetadata: IComponentMetadata) {
 	return (target: any) => {
 
 		target.$componentMetadata = target.$componentMetadata || {};
-		target.$componentMetadata = angular.extend(target.$componentMetadata, componentMetadata);
-        		
+        target.$componentMetadata = angular.extend(target.$componentMetadata, componentMetadata);
+        // providers ($inject)
+	    const $inject = target.$inject || [];
+        for (let i = 0; i < componentMetadata.providers.length - 1; i++) {
+            const token = componentMetadata.providers[i];
+            const name = typeof token === "string" ? token : serviceNormalize((token as any).name);
+            if ($inject.length === i)
+                $inject.push();
+            $inject[i] = name;
+        }
+
         return target;
 	}
 }
