@@ -3,6 +3,7 @@ import {DEFAULT_CONTROLLER_AS} from "../Core/Angular1Wrapper";
 import ElementEvents from "../Events/ElementEvents";
 import {directiveNormalize} from "../Utils/AngularHelpers";
 import {getOwnPropertyNameInsensitiveCase, indexOfInsensitiveCase} from "../Utils/Utils";
+import {registerChange, SimpleChange} from "../Core/ChangeDetection"
 
 /**
  * Directive to do Event binding.
@@ -34,7 +35,8 @@ export class NgEventBinding {
 			// Component event binding (must be in component outputs)
 			if (component.constructor.$componentMetadata.outputs && indexOfInsensitiveCase(component.constructor.$componentMetadata.outputs, event) >= 0)
 				component[getOwnPropertyNameInsensitiveCase(component, event)].subscribe(eventEmitted => {
-					this.eventHandler(eventEmitted);
+                    this.eventHandler(eventEmitted);
+                    registerChange(component, event, new SimpleChange(undefined, eventEmitted));
 				});
 			else
 				console.log(`Error processing ${$attrs["ngEventBinding"]}`);

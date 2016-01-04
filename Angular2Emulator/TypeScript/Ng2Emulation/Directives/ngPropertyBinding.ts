@@ -3,6 +3,7 @@ import {DEFAULT_CONTROLLER_AS} from "../Core/Angular1Wrapper";
 import {directiveNormalize} from "../Utils/AngularHelpers"
 import {getOwnPropertyNameInsensitiveCase, indexOfInsensitiveCase} from "../Utils/Utils";
 import {parseExpression} from "../Expressions/ExpressionParser";
+import {registerChange, SimpleChange} from "../Core/ChangeDetection"
 
 /**
  * Directive to do Property binding.
@@ -71,8 +72,10 @@ export class NgPropertyBinding {
 
 				this.$scope.$watch(this.expression, (newValue, oldValue) => {
 					const propertyExpression = $parse(attrValues[0]);
-					if (newValue !== propertyExpression(component))
-						propertyExpression.assign(component, newValue);
+				    if (newValue !== propertyExpression(component)) {
+                        propertyExpression.assign(component, newValue);
+				        registerChange(component, property, new SimpleChange(oldValue, newValue));
+				    }
 				});
 			} else
 				console.log(`Error processing property binding ${$attrs["ngPropertyBinding"]}`);
