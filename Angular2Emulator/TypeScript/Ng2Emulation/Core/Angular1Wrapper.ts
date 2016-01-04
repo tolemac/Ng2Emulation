@@ -1,13 +1,11 @@
-﻿import * as AngularHelpers from "../Utils/AngularHelpers"
-import {IComponentMetadata} from "../Decorators/Component"
-import {IDirectiveMetadata} from "../Decorators/Directive"
+﻿import * as AngularHelpers from "../Utils/AngularHelpers";
+import {IComponentMetadata} from "../Decorators/Component";
 import TemplateParser from "../Templates/Parser";
 
 const APPLICATION_MODULE_NAME = "app";
 export const DEFAULT_CONTROLLER_AS = "$$cmp";
 
 export class Angular1Wrapper {
-    
     static app: ng.IModule;
     private static registerDirectiveInternal(directiveName: string, ddo: any, component: Function) {        
 
