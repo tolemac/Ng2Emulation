@@ -68,6 +68,7 @@
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\HtmlParser\Rules\NgContentRule.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\HtmlParser\Rules\NgForRule.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\HtmlParser\Rules\NgIfRule.ts" />
+    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\HtmlParser\Rules\NgSubmitRule.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\HtmlParser\Rules\NgModelRule.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\HtmlParser\Rules\NgPropertyRule.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\HtmlParser\Rules\PropertyBindingRule.ts" />
