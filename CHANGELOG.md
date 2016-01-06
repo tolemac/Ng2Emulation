@@ -28,6 +28,7 @@ change by:
 * styles added to component metadata and load it in bootstrap (added globally) 
 * Add `providers` to @Component metadata.
 * LifeCycleHooks - OnChanges, OnInit and OnDestroy
+* Angular 2 Hero Tutorial as example application
 
 
 ## Version 0.2 ALPHA
