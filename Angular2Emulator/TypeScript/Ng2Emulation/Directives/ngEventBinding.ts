@@ -2,7 +2,7 @@
 import {DEFAULT_CONTROLLER_AS} from "../Core/Angular1Wrapper";
 import ElementEvents from "../Events/ElementEvents";
 import {directiveNormalize} from "../Utils/AngularHelpers";
-import {getOwnPropertyNameInsensitiveCase, indexOfInsensitiveCase} from "../Utils/Utils";
+//import {getOwnPropertyNameInsensitiveCase, indexOfInsensitiveCase} from "../Utils/Utils";
 import {registerChange, SimpleChange} from "../Core/ChangeDetection"
 
 /**
@@ -26,29 +26,39 @@ export class NgEventBinding {
 	    @Inject("$attrs") $attrs: ng.IAttributes,
 	    @Inject("$scope") public $scope: ng.IScope) {
 
-		const attrValues = $attrs["ngEventBinding"].split("=>");
-		const event = attrValues[0];
-		this.expression = $parse(attrValues[1]);
+        const parts = $attrs["ngEventBinding"].split("[&&]");
+        for (let i = 0; i < parts.length; i++) {
+            const binding = parts[i];
+            if (binding) {
+                this.createBinding(binding, $parse, $element, $scope);
+            }
+        }
+    }
 
-		const component: any = $element.controller(directiveNormalize($element[0].localName));
-		if (component && component.constructor.$componentMetadata) {
-			// Component event binding (must be in component outputs)
-			if (component.constructor.$componentMetadata.outputs && indexOfInsensitiveCase(component.constructor.$componentMetadata.outputs, event) >= 0)
-				component[getOwnPropertyNameInsensitiveCase(component, event)].subscribe(eventEmitted => {
+    createBinding(binding, $parse, $element, $scope) {
+        const attrValues = binding.split("=>");
+        const event = attrValues[0];
+        this.expression = $parse(attrValues[1]);
+
+        const component: any = $element.controller(directiveNormalize($element[0].localName));
+        if (component && component.constructor.$componentMetadata) {
+            // Component event binding (must be in component outputs)
+            if (component.constructor.$componentMetadata.outputs && component.constructor.$componentMetadata.outputs.indexOf(event) >= 0)
+                component[event].subscribe(eventEmitted => {
                     this.eventHandler(eventEmitted);
                     registerChange(component, event, new SimpleChange(undefined, eventEmitted));
-				});
-			else
-				console.log(`Error processing ${$attrs["ngEventBinding"]}`);
-			return;
-		}
+                });
+            else
+                console.log(`Error processing ${binding}`);
+            return;
+        }
 
-		if (ElementEvents.exists(event)) {
-			// DOM element binding.
-			$element.on(event, e => this.eventHandler(e));
-			$scope.$on("$destroy", () => this.onDestroy());
-			return;
-		}
+        if (ElementEvents.exists(event)) {
+            // DOM element binding.
+            $element.on(event, e => this.eventHandler(e));
+            $scope.$on("$destroy", () => this.onDestroy());
+            return;
+        }
     }
 
 	eventHandler($event: any = {}) {

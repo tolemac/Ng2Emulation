@@ -1,7 +1,7 @@
 ﻿import {Directive, Inject} from "../Ng2Emulation";
 import {DEFAULT_CONTROLLER_AS} from "../Core/Angular1Wrapper";
 import {directiveNormalize} from "../Utils/AngularHelpers"
-import {getOwnPropertyNameInsensitiveCase, indexOfInsensitiveCase} from "../Utils/Utils";
+//import {getOwnPropertyNameInsensitiveCase, indexOfInsensitiveCase} from "../Utils/Utils";
 import {parseExpression} from "../Expressions/ExpressionParser";
 import {registerChange, SimpleChange} from "../Core/ChangeDetection"
 
@@ -22,71 +22,81 @@ export class NgPropertyBinding {
 		@Inject("$element") public $element: any,
 		@Inject("$attrs") $attrs: ng.IAttributes,
 		@Inject("$scope") public $scope: ng.IScope,
-		@Inject("$interpolate") public $interpolate: ng.IInterpolateService) {
+        @Inject("$interpolate") public $interpolate: ng.IInterpolateService) {
 
-		const attrValues = $attrs["ngPropertyBinding"].split("=>");
-		const property = attrValues[0];
-		this.expression = $parse(attrValues[1]);
+        const parts = $attrs["ngPropertyBinding"].split("[&&]");
+        for (let i = 0; i < parts.length; i++) {
+            const binding = parts[i];
+            if (binding) {
+                this.createBinding(binding, $parse, $element);
+            }
+        }
+    }
 
-		// Attribute binding.
-		if (property.substr(0, 5) === "attr.") {
-			const attributeName = property.substr(5);
-			this.$scope.$watch(this.expression, (newValue, oldValue) => {
-				if (newValue !== $element[0].getAttribute(attributeName))
-					$element[0].setAttribute(attributeName, newValue);
-			});
-			return;
-		}
+    createBinding(binding: string, $parse, $element) {
+        const attrValues = binding.split("=>");
+        const property = attrValues[0];
+        this.expression = $parse(attrValues[1]);
 
-		// Class binding.
-		if (property.substr(0, 6) === "class.") {
-			const className = property.substr(6);
-			this.$scope.$watch(this.expression, (newValue, oldValue) => {
-				if (newValue)
-					$element[0].classList.add(className);
-				else
-					$element[0].classList.remove(className);
-			});
-			return;
-		}
+        // Attribute binding.
+        if (property.substr(0, 5) === "attr.") {
+            const attributeName = property.substr(5);
+            this.$scope.$watch(this.expression, (newValue, oldValue) => {
+                if (newValue !== $element[0].getAttribute(attributeName))
+                    $element[0].setAttribute(attributeName, newValue);
+            });
+            return;
+        }
 
-		// Style binding.
-		if (property.substr(0, 6) === "style.") {
-			const [styleName, units] = property.substr(6).split(".");
+        // Class binding.
+        if (property.substr(0, 6) === "class.") {
+            const className = property.substr(6);
+            this.$scope.$watch(this.expression, (newValue, oldValue) => {
+                if (newValue)
+                    $element[0].classList.add(className);
+                else
+                    $element[0].classList.remove(className);
+            });
+            return;
+        }
 
-			this.$scope.$watch(this.expression, (newValue, oldValue) => {
-				if (units)
-					newValue = newValue + units;
+        // Style binding.
+        if (property.substr(0, 6) === "style.") {
+            const [styleName, units] = property.substr(6).split(".");
 
-				if (newValue !== $element[0].style[styleName])
-					$element[0].style[styleName] = newValue;
-			});
-			return;
-		}
+            this.$scope.$watch(this.expression, (newValue, oldValue) => {
+                if (units)
+                    newValue = newValue + units;
 
-		// Component property binding.
-	    const component: any = $element.controller(directiveNormalize($element[0].localName));
-		if (component && component.constructor.$componentMetadata) {
-			// Bind to component input property.
-			if (component.constructor.$componentMetadata.inputs && indexOfInsensitiveCase(component.constructor.$componentMetadata.inputs, property) >= 0) {
+                if (newValue !== $element[0].style[styleName])
+                    $element[0].style[styleName] = newValue;
+            });
+            return;
+        }
 
-				this.$scope.$watch(this.expression, (newValue, oldValue) => {
-					const propertyExpression = $parse(attrValues[0]);
-				    if (newValue !== propertyExpression(component)) {
+        // Component property binding.
+        var component: any = $element.controller(directiveNormalize($element[0].localName));
+        if (component && component.constructor.$componentMetadata) {
+            // Bind to component input property.
+            if (component.constructor.$componentMetadata.inputs && component.constructor.$componentMetadata.inputs.indexOf(property) >= 0) {
+
+                this.$scope.$watch(this.expression, (newValue, oldValue) => {
+                    const propertyExpression = $parse(property);
+                    if (newValue !== propertyExpression(component)) {
                         propertyExpression.assign(component, newValue);
-				        registerChange(component, property, new SimpleChange(oldValue, newValue));
-				    }
-				});
-			} else
-				console.log(`Error processing property binding ${$attrs["ngPropertyBinding"]}`);
-			return;
-		} else {
-			// Bind to element (DOM) property.
-			this.$scope.$watch(this.expression, (newValue, oldValue) => {
-				if (newValue !== $element[0][property])
-					$element[0][property] = newValue;
-			});
-			return;
-		}
+                        registerChange(component, property, new SimpleChange(oldValue, newValue));
+                    }
+                });
+            } else
+                console.log(`Error processing property binding ${binding}`);
+            return;
+        } else {
+            // Bind to element (DOM) property.
+            this.$scope.$watch(this.expression, (newValue, oldValue) => {
+                if (newValue !== $element[0][property])
+                    $element[0][property] = newValue;
+            });
+            return;
+        }
     }
 }  

@@ -17,8 +17,10 @@ export function initLifeCycleHooks(app: ng.IModule) {
     app.run(["$rootScope", $rootScope => {
         var hasRegistered = false;
         $rootScope.$watch(() => {
-            if (onEndDigestPhase)
+            if (onEndDigestPhase) {
+                onEndDigestPhase = false;
                 return;
+            }
 
             if (hasRegistered) return;
             hasRegistered = true;
@@ -27,7 +29,7 @@ export function initLifeCycleHooks(app: ng.IModule) {
                 onEndDigestPhase = true;
                 onEndDigest();
                 $rootScope.$applyAsync();
-                onEndDigestPhase = false;
+                //onEndDigestPhase = false;
 
             });
         });

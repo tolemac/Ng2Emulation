@@ -27,13 +27,15 @@
     <Content Include="Scripts\es6-promise.min.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
+    <Content Include="Scripts\simple-html-tokenizer.js" />
+    <Content Include="Scripts\system.js" />
     <Content Include="TypeScript\InitialApp\Components\TodoList\TodoList.html" />
     <Content Include="web.config" />
     <Content Include="Scripts\jquery-2.1.4.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="file1.ts" />
     <TypeScriptCompile Include="Scripts\typings\es6-promise\es6-promise.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\simple-html-tokenizer\simple-html-tokenizer.d.ts" />
     <TypeScriptCompile Include="TypeScript\App\app.component.ts" />
     <TypeScriptCompile Include="TypeScript\App\boot.ts" />
     <TypeScriptCompile Include="TypeScript\App\hero-detail.component.ts" />
@@ -60,6 +62,16 @@
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Events\EventEmitter.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Expressions\ExpressionParser.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Expressions\Ng1Lexer\Lexer.ts" />
+    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\HtmlParser\Parser.ts" />
+    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\HtmlParser\ParserRule.ts" />
+    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\HtmlParser\Rules\EventBindingRule.ts" />
+    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\HtmlParser\Rules\NgContentRule.ts" />
+    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\HtmlParser\Rules\NgForRule.ts" />
+    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\HtmlParser\Rules\NgIfRule.ts" />
+    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\HtmlParser\Rules\NgModelRule.ts" />
+    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\HtmlParser\Rules\NgPropertyRule.ts" />
+    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\HtmlParser\Rules\PropertyBindingRule.ts" />
+    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\HtmlParser\Rules\TwoWayBindingRule.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\HttpInterceptor.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\Parser.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\ParserRule.ts" />
@@ -87,7 +99,6 @@
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\systemjs\systemjs.d.ts" />
-    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Utils\Utils.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\angular.min.js.map" />

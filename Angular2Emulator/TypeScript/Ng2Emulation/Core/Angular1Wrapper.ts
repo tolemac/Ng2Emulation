@@ -1,6 +1,6 @@
 ﻿import * as AngularHelpers from "../Utils/AngularHelpers";
 import {IComponentMetadata} from "../Decorators/Component";
-import TemplateParser from "../Templates/Parser";
+import TemplateParser from "../Templates/HtmlParser/Parser";
 
 const APPLICATION_MODULE_NAME = "app";
 export const DEFAULT_CONTROLLER_AS = "$$cmp";
