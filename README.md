@@ -97,7 +97,7 @@ Ng2Emulation lets you build your components in the Angular 2 style. Using simila
 1. Build components writing a single class and decorating it.
 2. Set component and service dependencies.
 3. Set inputs and outputs properties and events bindings of your components by component decorator (outputs, inputs) or/and by property decorators (@Input, @Output).
-3. Define injectable services and inject on your component, via component decorator (providers) or decorating constructor parameters (@Inject).
+3. Define injectable services and inject on yours components, via component decorator (providers) or decorating constructor parameters (@Inject).
 4. Use complete Angular 2 template syntax, including:
   * Event binding template `(event)` and cannonical `on-`
   * Property binding template `[event]` and cannonical `bind-`
@@ -136,7 +136,7 @@ This way you can minimize the migration time from Angular 1.x to Angular 2.0
 
 The components and services are attached with metadata through @decorators. This metadata is used by bootstrap to create all components as directives and all @Injectable classes as services.
 Ng2Emulation use httpInterceptor and component registration to parse html and convert ng2 syntax to ng1 syntax, to make property and event binding Ng2Emulation use internal directives.
-The main technique to avoid use `controllerAs` syntax in expression and to be able to write expressions accessing to component properties without preffix, is an internal `$parse` decorator to parse each expression and find tokens in scope and components. This way Ng2Emulation can redirect each expression identifier to correct context. To parse expressions Ng2Emulation use Angular 1 Lexer.
+The main technique to avoid use `controllerAs` syntax in expressions and to be able to write expressions accessing to component properties without preffix, is an internal `$parse` decorator to parse each expression and find tokens in scope and components. This way Ng2Emulation can redirect each expression identifier to correct context. To parse expressions Ng2Emulation use Angular 1 Lexer.
 
 ## It works?
 
@@ -154,5 +154,5 @@ We would like to have the minimal external dependencies.
 * Follow Angular 2 docs to implements others features (Http, Router)
 
 ## What's the end?
-* When Angular 2.0 will be release this project will be closed.
+* When Angular 2.0 will be release, will stop making sense this project? Yes and no. When Angular 2.0 will be released we all need to wait to other projects migrating to 2.0 versión. When a lot of main projects migrate to 2.0 then Ng2Emulation will stop making sense, then will be the end of this project.
 
