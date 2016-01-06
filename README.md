@@ -1,5 +1,9 @@
 # Ng2Emulation
 
+## Status
+
+This project is in pre-beta status, see [changelog](https://github.com/tolemac/Ng2Emulation/blob/master/CHANGELOG.md).
+
 ## Build Angular 1 components using Angular 2 style in TypeScript.
 
 If you have to start a new project with AngularJS and can't wait for Angular 2, you can prepare for its arrival and write Angular 1.4+ applications this way:
