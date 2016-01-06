@@ -25,17 +25,17 @@
     <Content Include="Scripts\angular.min.js" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\es6-promise.min.js" />
-    <Content Include="Scripts\htmlparser.js" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
+    <Content Include="Scripts\simple-html-tokenizer.js" />
+    <Content Include="Scripts\system.js" />
     <Content Include="TypeScript\InitialApp\Components\TodoList\TodoList.html" />
     <Content Include="web.config" />
     <Content Include="Scripts\jquery-2.1.4.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="file1.ts" />
     <TypeScriptCompile Include="Scripts\typings\es6-promise\es6-promise.d.ts" />
-    <TypeScriptCompile Include="Scripts\typings\htmlparser\htmlparser.d.ts" />
+    <TypeScriptCompile Include="Scripts\typings\simple-html-tokenizer\simple-html-tokenizer.d.ts" />
     <TypeScriptCompile Include="TypeScript\App\app.component.ts" />
     <TypeScriptCompile Include="TypeScript\App\boot.ts" />
     <TypeScriptCompile Include="TypeScript\App\hero-detail.component.ts" />
@@ -99,7 +99,6 @@
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\systemjs\systemjs.d.ts" />
-    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Utils\Utils.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\angular.min.js.map" />

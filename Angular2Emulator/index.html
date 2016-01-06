@@ -6,14 +6,17 @@
     <title>Ng2 Emulator</title>
 	<link rel="stylesheet" href="app.css" type="text/css"/>
 
-	<script src="https://code.angularjs.org/tools/system.js"></script>
+    <script src="Scripts/system.js"></script>
     <script src="Scripts/es6-promise.min.js"></script>
 	<script src="Scripts/jquery-2.1.4.js"></script>
 	<script src="Scripts/angular.js"></script>
 	<script>
 		// set our baseURL reference path
 		System.config({
-		    baseURL: '/TypeScript'
+		    baseURL: '/TypeScript',
+		    map: {
+		        "HTML5Tokenizer": "/Scripts/simple-html-tokenizer.js"
+		    }
 		});
 		System.defaultJSExtensions = true;
 

@@ -18,6 +18,17 @@ function getCmpPropLevel(token: string, context: any, level :number = 0) {
     return undefined;
 }
 
+function getScopePropLevel(token: string, context: any, level: number = 0) {
+    "use strict";
+    if (context.hasOwnProperty(token)) {
+        return level;
+    }
+    if (context.$parent) {
+        return getCmpPropLevel(token, context.$parent, ++level);
+    }
+    return undefined;
+}
+
 function parseToken(token: string, context: any) {
     "use strict";
 	var result = token;
@@ -26,14 +37,23 @@ function parseToken(token: string, context: any) {
     }
 
     let cmpLevel = getCmpPropLevel(token, context);
-	if (angular.isDefined(cmpLevel)) {
-		result = "$$cmp." + result;
-		for (let i = 0; i < cmpLevel; i++) {
-			result = "$parent." + result;
-		}
-	}
+    if (angular.isDefined(cmpLevel)) {
+        result = "$$cmp." + result;
+        for (let i = 0; i < cmpLevel; i++) {
+            result = "$parent." + result;
+        }
+    } else {
+        let scopeLevel = getScopePropLevel(token, context);
+        if (angular.isDefined(scopeLevel)) {
+            for (let i = 0; i < scopeLevel; i++) {
+                result = "$parent." + result;
+            }
+        } else {
+            result = "$$cmp." + result;
+        }
+    }
 
-	return result;
+    return result;
 }
 
 export function parseExpression(exp: string, context: any) {
@@ -46,7 +66,9 @@ export function parseExpression(exp: string, context: any) {
 	angular.forEach(tokens, (token : any) => {
         if (firstIdentifier && token.identifier === true) {
             const parsedToken = parseToken(token.text, context);
-            changed = parsedToken !== token.text;
+            if (parsedToken !== token.text) {
+                changed = true;
+            }
 			parsedTokens.push(parsedToken);
 			firstIdentifier = false;
 		} else {

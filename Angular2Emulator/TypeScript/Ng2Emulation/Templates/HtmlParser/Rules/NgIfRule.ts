@@ -18,9 +18,9 @@ export default class NgIfRule extends  ParserRule
     //    return template.replace(/*ngif/g, "ng-if");
     //}
 
-    startTag(tagName: string, attributes: { [name: string]: string }, unary: boolean): string {
+    startTag(tagName: string, attributes: { [name: string]: { value: string; quoted: boolean; } }, unary: boolean): string {
         if (attributes.hasOwnProperty("*ngIf")) {
-            attributes["ng-if"] = attributes["*ngIf"];
+            attributes["ng-if"] = angular.extend({}, attributes["*ngIf"]);
             delete attributes["*ngIf"];
         }
         return tagName;

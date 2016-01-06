@@ -35,9 +35,9 @@ export default class NgModelRule extends ParserRule {
 	//	return undefined;
  //   }
 
-    startTag(tagName: string, attributes: { [name: string]: string }, unary: boolean): string {
+    startTag(tagName: string, attributes: { [name: string]: { value: string; quoted: boolean; } }, unary: boolean): string {
         if (attributes.hasOwnProperty("*ngFor")) {
-            const value = attributes["*ngFor"];
+            const value = attributes["*ngFor"].value;
             const regex = /#([a-zA-Z0-9-]+) of ([a-zA-Z0-9.]+)(?:,(.*)?)?/;
             const [, variable, list, more] = regex.exec(value);
 
@@ -55,13 +55,13 @@ export default class NgModelRule extends ParserRule {
                     }
                 }
                 if (ngInit !== "") {
-                    attributes["ng-init"] = attributes["ng-init"] || "";
-                    attributes["ng-init"] = ngInit + attributes["ng-init"];
+                    attributes["ng-init"] = attributes["ng-init"] || {value:"", quoted: true};
+                    attributes["ng-init"].value = ngInit + attributes["ng-init"].value;
                 }
             }
 
-            attributes["ng-repeat"] = `${variable} in ${list}`;
-            delete attributes["ngFor"];
+            attributes["ng-repeat"] = { value: `${variable} in $$cmp.${list}`, quoted: true };
+            delete attributes["*ngFor"];
         }
         return tagName;
     }

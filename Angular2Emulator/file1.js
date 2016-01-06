@@ -1,4 +1,4 @@
-﻿//function(scope, locals, assign, inputs) {
+//function(scope, locals, assign, inputs) {
 //	var v0, v1, v2, v3 = locals && ('onSelect' in locals), v4, v5 = locals && ('hero' in locals);
 //	v2 = v3 ? locals : scope;
 //	if (!(v3)) {
@@ -23,4 +23,5 @@
 //		v0 = undefined;
 //	}
 //	return v0;
-//}
+//} 
+//# sourceMappingURL=C:/Users/jros/Desarrollo/GitHub/tolemaC/Ng2Emulation/Angular2Emulator/TypeScript/file1.js.map

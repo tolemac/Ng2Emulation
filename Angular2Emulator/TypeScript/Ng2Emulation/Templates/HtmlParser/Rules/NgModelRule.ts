@@ -23,9 +23,9 @@ export default class NgModelRule extends ParserRule {
     //    return template.replace(/\[\(ngModel\)\]/g, "ng-model");
     //}
 
-    startTag(tagName: string, attributes: { [name: string]: string }, unary: boolean): string {
+    startTag(tagName: string, attributes: { [name: string]: { value: string; quoted: boolean; } }, unary: boolean): string {
         if (attributes.hasOwnProperty("[(ngModel)]")) {
-            attributes["ng-model"] = attributes["[(ngModel)]"];
+            attributes["ng-model"] = angular.extend({}, attributes["[(ngModel)]"]);
             delete attributes["[(ngModel)]"];
         }
         return tagName;

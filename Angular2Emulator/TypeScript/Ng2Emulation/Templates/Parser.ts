@@ -7,6 +7,7 @@ import PropertyBindingRule from "./rules/PropertyBindingRule";
 import TwoWayBindingRule from "./rules/TwoWayBindingRule";
 import NgForRule from "./rules/NgForRule";
 import NgIfRule from "./rules/NgIfRule";
+import HtmlParser from "./HtmlParser/Parser"
 
 export default class Parser {
     private static rules: ParserRule[] = [
@@ -20,6 +21,7 @@ export default class Parser {
     }
 
     static processTemplate(template: string): string {
+        //let test = HtmlParser.processTemplate(template);
         this.rules.forEach((rule:any) => template = rule.processTemplate(template));
         return template;
     }

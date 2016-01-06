@@ -2,26 +2,26 @@
 
 export default class BindingRule extends  ParserRule 
 {
-	processAttribute(attr: Attr): { name: string; value: string } {
-		const name = attr.name;
-		const value = attr.value;
-		let property: string;
+	//processAttribute(attr: Attr): { name: string; value: string } {
+	//	const name = attr.name;
+	//	const value = attr.value;
+	//	let property: string;
 
-		// [(property)] syntax
-		if (name.length > 4 && name.substr(0, 2) === "[(" && name.substr(name.length - 2, 2) === ")]")
-			property = name.substr(2, name.length - 4);
-		// Cannonical bindon-property syntax
-		if (name.length > 7 && name.substr(0, 7) === "bindon-")
-			property = name.substr(7);
+	//	// [(property)] syntax
+	//	if (name.length > 4 && name.substr(0, 2) === "[(" && name.substr(name.length - 2, 2) === ")]")
+	//		property = name.substr(2, name.length - 4);
+	//	// Cannonical bindon-property syntax
+	//	if (name.length > 7 && name.substr(0, 7) === "bindon-")
+	//		property = name.substr(7);
 
-		if (property) {
-			return {
-				name: "ng-two-way-binding",
-				value: `${property}=>${value}`
-			}
-		}
-		return undefined;
-	}
+	//	if (property) {
+	//		return {
+	//			name: "ng-two-way-binding",
+	//			value: `${property}=>${value}`
+	//		}
+	//	}
+	//	return undefined;
+	//}
 	
     //processTemplate(template: string): string {
 
@@ -41,11 +41,11 @@ export default class BindingRule extends  ParserRule
 
 	//    return template;
     //}
-    startTag(tagName: string, attributes: { [name: string]: string }, unary: boolean): string {
+    startTag(tagName: string, attributes: { [name: string]: { value: string; quoted: boolean; } }, unary: boolean): string {
         const removeAttrs: string[] = [];
         for (let name in attributes) {
             if (attributes.hasOwnProperty(name)) {
-                const value = attributes[name];
+                const value = attributes[name].value;
                 let property: string;
 
                 // [(property)] syntax
@@ -57,8 +57,10 @@ export default class BindingRule extends  ParserRule
 
                 if (property) {
                     removeAttrs.push(name);
-                    attributes["ng-two-way-binding"] = attributes["ng-two-way-binding"] || "";
-                    attributes["ng-two-way-binding"] += `${property}=>${value}[&&]`;
+                    attributes["ng-two-way-binding"] = attributes["ng-two-way-binding"] || { value: "", quoted: true };
+                    if (attributes["ng-two-way-binding"].value)
+                        attributes["ng-two-way-binding"].value += "[&&]";
+                    attributes["ng-two-way-binding"].value += `${property}=>${value}`;
                 }
             }
         }

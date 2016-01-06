@@ -42,7 +42,7 @@ export default class NgPropertyRule extends ParserRule
 	//    return template;
     //}
 
-    startTag(tagName: string, attributes: { [name: string]: string }, unary: boolean): string {
+    startTag(tagName: string, attributes: { [name: string]: { value: string; quoted: boolean; } }, unary: boolean): string {
         const removeAttrs :string[] = [];
         for (let name in attributes) {
             if (attributes.hasOwnProperty(name)) {
@@ -57,12 +57,12 @@ export default class NgPropertyRule extends ParserRule
 
                 if (variable) {
                     removeAttrs.push(name);
-                    attributes["ng-property"] = attributes["ng-property"] || "";
-                    attributes["ng-property"] += variable + ";";
+                    attributes["ng-property"] = attributes["ng-property"] || {value:"", quoted:true};
+                    attributes["ng-property"].value += variable + ";";
                 }
             }
         }
-        removeAttrs.forEach((attrName: any) => { delete attributes[attrName]; });
+        removeAttrs.forEach((attrName: string) => { delete attributes[attrName]; });
         return tagName;
     }
 

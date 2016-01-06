@@ -17,9 +17,9 @@ export default class NgContentRule extends  ParserRule
     //processTemplate(template: string): string {
     //    return template.replace(/ng-content/g, "ng-transclude");
     //}
-    startTag(tagName: string, attributes: { [name: string]: string }, unary: boolean): string {
+    startTag(tagName: string, attributes: { [name: string]: { value: string; quoted: boolean; } }, unary: boolean): string {
         if (attributes.hasOwnProperty("ngContent")) {
-            attributes["ng-transcude"] = attributes["ngContent"];
+            attributes["ng-transcude"] = angular.extend({}, attributes["ngContent"]);
             delete attributes["ngContent"];
         }
         return tagName;
