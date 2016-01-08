@@ -1,0 +1,15 @@
+{
+	"compilerOptions": {
+		"declaration": true,
+		"module": "system",
+		"target": "es5",
+		"noImplicitAny": false,
+		"outDir": "dist",        
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "removeComments": true
+	},
+	"files": [
+		"src/Ng2Emulation.ts"
+	]
+}

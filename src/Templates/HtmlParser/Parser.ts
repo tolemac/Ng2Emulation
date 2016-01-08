@@ -1,5 +1,4 @@
-﻿/// <reference path="../../../../scripts/typings/simple-html-tokenizer/simple-html-tokenizer.d.ts" />
-import {ParserRule} from "./ParserRule";
+﻿import {ParserRule} from "./ParserRule";
 import NgContentRule from "./rules/NgContentRule";
 import NgModelRule from "./rules/NgModelRule";
 import NgPropertyRule from "./rules/NgPropertyRule";

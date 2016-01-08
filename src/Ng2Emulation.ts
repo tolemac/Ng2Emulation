@@ -1,4 +1,5 @@
-﻿/// <reference path="../../scripts/typings/es6-promise/es6-promise.d.ts" />
+﻿/// <reference path="../typings/tsd.d.ts" />
+/// <reference path="./typings/simple-html-tokenizer/simple-html-tokenizer" />
 
 export * from "./Decorators/Component";
 export * from "./Decorators/Directive";
