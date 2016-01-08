@@ -26,6 +26,7 @@ export default class NgModelRule extends ParserRule {
     startTag(tagName: string, attributes: { [name: string]: { value: string; quoted: boolean; } }, unary: boolean): string {
         if (attributes.hasOwnProperty("[(ngModel)]")) {
             attributes["ng-model"] = angular.extend({}, attributes["[(ngModel)]"]);
+            attributes["ng-model"].value = "$$cmp." + attributes["ng-model"].value;
             delete attributes["[(ngModel)]"];
         }
         return tagName;

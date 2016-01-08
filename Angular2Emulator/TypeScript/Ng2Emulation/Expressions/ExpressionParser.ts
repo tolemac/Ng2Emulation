@@ -73,7 +73,7 @@ export function parseExpression(exp: string, context: any) {
 			firstIdentifier = false;
 		} else {
 			parsedTokens.push(token.text);
-            if (token.text !== ".") {
+            if (token.identifier !== true && token.text !== ".") {
                 firstIdentifier = true;
             }
         }
