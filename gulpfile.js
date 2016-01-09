@@ -5,6 +5,7 @@ var concat = require('gulp-concat');
 var sourcemaps = require('gulp-sourcemaps');
 var runSequence = require('run-sequence');
 var del = require('del');
+var dtsBundle = require('dts-bundle');
 
 var tsProject = ts.createProject('tsconfig.json');
 
@@ -13,17 +14,23 @@ gulp.task('compile', function() {
         .pipe(ts(tsProject));
 
     return merge([
-        tsResult.dts.pipe(gulp.dest('dist')),
+        tsResult.dts.pipe(gulp.dest('dist/dts')),
         tsResult.js.pipe(gulp.dest('dist/js'))
     ]);
 });
 
 gulp.task('bundle', function() {
-  return gulp.src('dist/js/**/*.js')
+    var es5 = gulp.src('dist/js/src/**/*.js')
     .pipe(sourcemaps.init())
       .pipe(concat('Ng2Emulation-es5.js'))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest('dist/release'));
+    
+    return es5;
+    // var dts = gulp.src('dist/dts/src/**/*.d.ts')
+    // .pipe(gulp.dest('dist/release'));
+    // 
+    // return merge([es5, dts]);
 });
 
 gulp.task('clean', function(){
@@ -34,6 +41,17 @@ gulp.task('clean', function(){
 	]); 
 });
 
+gulp.task('definition-bundle', function(){
+    //console.log(dtsGenerator);
+    dtsBundle.bundle({
+        name: 'Ng2Emulation',
+        main: 'dist/dts/src/Ng2Emulation.d.ts',
+        out: "dist/release/Ng2Emulation.d.ts",
+        exclude: /.*typings.*/,
+        verbose: true
+    });
+});
+
 gulp.task('build', function(done) {
-  runSequence('clean', 'compile', 'bundle', done);
+  runSequence('clean', 'compile', 'bundle', 'definition-bundle', done);
 });
