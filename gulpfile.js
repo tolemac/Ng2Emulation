@@ -26,11 +26,11 @@ gulp.task('bundle', function() {
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('dist/release'));
     
-    return es5;
-    // var dts = gulp.src('dist/dts/src/**/*.d.ts')
-    // .pipe(gulp.dest('dist/release'));
-    // 
-    // return merge([es5, dts]);
+    //return es5;
+    var typings = gulp.src('typings/**/*.d.ts')
+    .pipe(gulp.dest('dist/typings'));
+    
+    return merge([es5, typings]);
 });
 
 gulp.task('clean', function(){
@@ -46,7 +46,7 @@ gulp.task('definition-bundle', function(){
     dtsBundle.bundle({
         name: 'Ng2Emulation',
         main: 'dist/dts/src/Ng2Emulation.d.ts',
-        out: "dist/release/Ng2Emulation.d.ts",
+        out: "../../release/Ng2Emulation.d.ts",
         exclude: /.*typings.*/,
         verbose: true
     });
