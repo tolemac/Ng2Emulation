@@ -48,7 +48,7 @@ gulp.task('definition-bundle', function(){
         main: 'dist/dts/src/Ng2Emulation.d.ts',
         out: "../../release/Ng2Emulation.d.ts",
         exclude: /.*typings.*/,
-        verbose: true
+        verbose: false
     });
 });
 
