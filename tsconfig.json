@@ -9,7 +9,13 @@
         "emitDecoratorMetadata": true,
         "removeComments": true
 	},
-	"files": [
-		"src/Ng2Emulation.ts"
-	]
+    "exclude": [
+        ".vs",
+        "Angular2Emulator",
+        "packages",
+        "typings",
+        "dist",
+        "node_modules",
+        "wwwroot"
+    ]
 }
