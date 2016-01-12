@@ -23,6 +23,7 @@
     "gulp-typescript": "^2.10.0",
     "merge2": "^0.3.6",
     "run-sequence": "^1.1.5",
+    "tsd": "^0.6.5",
     "typescript": "~1.7.5"
   }
 }
