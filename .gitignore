@@ -1,7 +1,7 @@
 node_modules
 dist
-src/typings
-!src/typings/manual
+src/typings/**/*.d.ts
+!src/typings/manual/**/*.d.ts
 
 ## Compilación typescript
 Angular2Emulator/TypeScript/**/*.js
