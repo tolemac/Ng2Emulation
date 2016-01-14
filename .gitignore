@@ -1,7 +1,7 @@
 node_modules
 dist
-typings
-!src/typings
+src/typings
+!src/typings/manual
 .vscode
 
 ## Compilación typescript

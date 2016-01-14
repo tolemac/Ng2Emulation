@@ -18,11 +18,12 @@
     "del": "^2.2.0",
     "dts-bundle": "^0.3.0",
     "gulp": "^3.9.0",
-    "gulp-concat": "^2.6.0",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-typescript": "^2.10.0",
     "merge2": "^0.3.6",
-    "run-sequence": "^1.1.5",
+    "gulp-sequence": "^0.4.4",
+    "systemjs-builder": "^0.15.3",
+    "tsd": "^0.6.5",
     "typescript": "~1.7.5"
   }
 }
