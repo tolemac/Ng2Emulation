@@ -1,83 +1,68 @@
 var gulp = require('gulp');
 var ts = require('gulp-typescript');
 var merge = require('merge2');
-var concat = require('gulp-concat');
 var sourcemaps = require('gulp-sourcemaps');
-var runSequence = require('run-sequence');
+var runSequence = require('gulp-sequence');
 var del = require('del');
 var dtsBundle = require('dts-bundle');
-
-var browserify = require('browserify');
-var tsify = require('tsify');
 
 var Builder = require('systemjs-builder');
 
 var tsProject = ts.createProject('tsconfig.json');
 
 gulp.task('compile', function () {
-    var tsResult = tsProject.src() // instead of gulp.src(...)
+    var tsResult = tsProject.src()
         .pipe(ts(tsProject));
-
+        
     return merge([
         tsResult.dts.pipe(gulp.dest('dist/dts')),
-        tsResult.js.pipe(gulp.dest('dist/js'))
+        tsResult.js.pipe(gulp.dest('dist/js')),
     ]);
-});
-
-gulp.task('bundle', function () {
-    var es5 = gulp.src('dist/js/src/**/*.js')
-        .pipe(sourcemaps.init())
-        .pipe(concat('Ng2Emulation-es5.js'))
-        .pipe(sourcemaps.write())
-        .pipe(gulp.dest('dist/release'));
-
-    return es5;
-    // var dts = gulp.src('dist/dts/src/**/*.d.ts')
-    // .pipe(gulp.dest('dist/release'));
-    // 
-    // return merge([es5, dts]);
 });
 
 gulp.task('clean', function () {
     del([
-        './dist'//,
-        // './dist/ng-forward.es6.js',
-        // './dist/ng-forward.es5.js'
+        './dist'
     ]);
 });
 
 gulp.task('clean-temp', function () {
     del([
         './dist/dts',
-        './dist/js'
-        // './dist/ng-forward.es6.js',
-        // './dist/ng-forward.es5.js'
+        './dist/js',
+        './dist/src'
     ]);
 });
 
 gulp.task('definition-bundle', function () {
-    //console.log(dtsGenerator);
-    dtsBundle.bundle({
+    var result = dtsBundle.bundle({
         name: 'Ng2Emulation',
         main: 'dist/dts/src/Ng2Emulation.d.ts',
-        out: "dist/release/Ng2Emulation.d.ts",
-        exclude: /.*typings.*/,
-        verbose: true
+        out: "~/dist/release/Ng2Emulation.d.ts",
+        prefix: "",
+        verbose: false,
+        emitOnNoIncludedFileNotFound: true,
+        emitOnIncludedFileNotFound: false
     });
+    if (!result.emited){
+        throw Error("dts-bundle from main file not emit result.");
+    }
+    // result = dtsBundle.bundle({
+    //     name: 'Ng2Emulation',
+    //     main: 'dist/dts/src/**/*.d.ts',
+    //     out: "~/dist/release/Ng2Emulation2.d.ts",
+    //     prefix: "",
+    //     verbose: false,
+    //     emitOnNoIncludedFileNotFound: true,
+    //     emitOnIncludedFileNotFound: false
+    // });
+    // 
+    // if (!result.emited){
+    //     throw Error("dts-bundle from all files not emit result.");
+    // }
 });
 
-gulp.task("tsfy", function () {
-    return browserify()
-        .add('src/ng2emulation.ts')
-        .plugin(tsify, { noImplicitAny: false })
-        .bundle()
-        .on('error', function (error) { console.error(error.toString()); })
-        .pipe(process.stdout);
-});
-
-gulp.task("system-builder", function () {
-    // optional constructor options
-    // sets the baseURL and loads the configuration file
+gulp.task("bundle", function () {
     var builder = new Builder('dist/js/src');
 
     builder.config({
@@ -100,6 +85,12 @@ gulp.task("system-builder", function () {
         });
 });
 
-gulp.task('build', function (done) {
-    runSequence('clean', 'compile', 'system-builder', 'definition-bundle', "clean-temp", done);
+gulp.task('default', function (done) {
+    runSequence('clean', 'compile', 'bundle', 'definition-bundle', /*"clean-temp", */done);
 });
+
+gulp.task('typings', function (done) {
+    runSequence('definition-bundle', done);
+});
+
+//gulp.task('default', ["build"]);
