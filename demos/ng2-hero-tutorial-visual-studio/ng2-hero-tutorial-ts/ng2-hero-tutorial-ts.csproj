@@ -45,7 +45,7 @@
     <TypeScriptCompile Include="scripts\typings\es6-promise\es6-promise.d.ts" />
     <TypeScriptCompile Include="scripts\typings\jquery\jquery.d.ts" />
     <TypeScriptCompile Include="scripts\typings\manual\simple-html-tokenizer\simple-html-tokenizer.d.ts" />
-    <TypeScriptCompile Include="scripts\typings\Ng2Emulation\Ng2Emulation.d.ts" />
+    <TypeScriptCompile Include="scripts\typings\manual\Ng2Emulation\Ng2Emulation.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
