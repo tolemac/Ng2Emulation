@@ -10,12 +10,9 @@
         "removeComments": true
 	},
     "exclude": [
-        ".vs",
-        "Angular2Emulator",
-        "packages",
-        "typings",
+        ".vscode",
+        "demos",               
         "dist",
-        "node_modules",
-        "wwwroot"
+        "node_modules"
     ]
 }
