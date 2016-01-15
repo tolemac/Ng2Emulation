@@ -5,15 +5,15 @@ var sourcemaps = require('gulp-sourcemaps');
 var runSequence = require('gulp-sequence');
 var del = require('del');
 var dtsBundle = require('dts-bundle');
-
 var Builder = require('systemjs-builder');
+var Q = require('q');
 
 var tsProject = ts.createProject('tsconfig.json');
 
 gulp.task('compile', function () {
     var tsResult = tsProject.src()
         .pipe(ts(tsProject));
-        
+
     return merge([
         tsResult.dts.pipe(gulp.dest('dist/dts')),
         tsResult.js.pipe(gulp.dest('dist/js')),
@@ -44,7 +44,7 @@ gulp.task('definition-bundle', function () {
         emitOnNoIncludedFileNotFound: true,
         emitOnIncludedFileNotFound: false
     });
-    if (!result.emited){
+    if (!result.emited) {
         throw Error("dts-bundle from main file not emit result.");
     }
     // result = dtsBundle.bundle({
@@ -62,9 +62,8 @@ gulp.task('definition-bundle', function () {
     // }
 });
 
-gulp.task("bundle", function () {
+function bundleJs() {
     var builder = new Builder('dist/js/src');
-
     builder.config({
         meta: {
             'HTML5Tokenizer.js': {
@@ -74,15 +73,24 @@ gulp.task("bundle", function () {
         defaultJSExtensions: true
     });
 
-    builder
-        .bundle('Ng2Emulation.js', 'dist/release/Ng2Emulation-bundle.js')
+    return builder
+        .bundle('Ng2Emulation.js', 'dist/release/Ng2Emulation-bundle.js');
+}
+
+gulp.task("bundle", function () {
+
+    var deferred = Q.defer();
+    
+    bundleJs()
         .then(function () {
-            console.log('Build complete');
+            deferred.resolve();
         })
         .catch(function (err) {
             console.log('Build error');
-            console.log(err);
+            deferred.reject(err);
         });
+        
+    return deferred.promise;
 });
 
 gulp.task('default', function (done) {
