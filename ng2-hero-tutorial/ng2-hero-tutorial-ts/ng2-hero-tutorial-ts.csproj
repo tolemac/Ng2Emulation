@@ -22,18 +22,12 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app.css" />
     <Content Include="index.html" />
     <Content Include="scripts\simple-html-tokenizer.js" />
     <Content Include="scripts\Ng2Emulation-bundle.js" />
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="..\..\src\typings\manual\simple-html-tokenizer\simple-html-tokenizer.d.ts">
-      <Link>scripts\typings\manual\simple-html-tokenizer\simple-html-tokenizer.d.ts</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </TypeScriptCompile>
-    <TypeScriptCompile Include="app.ts" />
     <TypeScriptCompile Include="app\app.component.ts" />
     <TypeScriptCompile Include="app\boot.ts" />
     <TypeScriptCompile Include="app\hero-detail.component.ts" />
@@ -50,6 +44,7 @@
     <TypeScriptCompile Include="scripts\typings\angularjs\angular.d.ts" />
     <TypeScriptCompile Include="scripts\typings\es6-promise\es6-promise.d.ts" />
     <TypeScriptCompile Include="scripts\typings\jquery\jquery.d.ts" />
+    <TypeScriptCompile Include="scripts\typings\manual\simple-html-tokenizer\simple-html-tokenizer.d.ts" />
     <TypeScriptCompile Include="scripts\typings\Ng2Emulation\Ng2Emulation.d.ts" />
   </ItemGroup>
   <ItemGroup>
