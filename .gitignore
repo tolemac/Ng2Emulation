@@ -4,16 +4,21 @@ src/typings/**/*.d.ts
 !src/typings/manual/**/*.d.ts
 .vscode
 
+## demos
 demos/ng2-hero-tutorial-visual-studio/packages
 demos/ng2-hero-tutorial-visual-studio/ng2-hero-tutorial-ts/app/**/*.js
 demos/ng2-hero-tutorial-visual-studio/ng2-hero-tutorial-ts/app/**/*.map
 demos/ng2-hero-tutorial-visual-studio/ng2-hero-tutorial-ts/scripts/typings/**/*.d.ts
 !demos/ng2-hero-tutorial-visual-studio/ng2-hero-tutorial-ts/scripts/typings/manual/**/*.d.ts
 
+demos/ng2emulation-vs-aspnet-debug/packages
+demos/ng2emulation-vs-aspnet-debug/ng2emulation-vs-aspnet-debug/TypeScript/**/*.js
+demos/ng2emulation-vs-aspnet-debug/ng2emulation-vs-aspnet-debug/TypeScript/**/*.map
+demos/ng2emulation-vs-aspnet-debug/ng2emulation-vs-aspnet-debug/TypeScript/typings/**/*.d.ts
+!demos/ng2emulation-vs-aspnet-debug/ng2emulation-vs-aspnet-debug/TypeScript/typings/manual/**/*.d.ts
+
 
 ## Compilación typescript
-Angular2Emulator/TypeScript/**/*.js
-Angular2Emulator/TypeScript/**/*.map
 src/**/*.js
 src/**/*.map
 
@@ -61,7 +66,6 @@ dlldata.c
 *.meta
 *.obj
 *.pch
-*.pdb
 *.pgc
 *.pgd
 *.rsp

@@ -1,0 +1,23 @@
+{
+  "name": "ng2emulation-vs-aspnet-debug",
+  "version": "1.0.0",
+  "description": "demo for debug src of ng2emulation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Javier Ros (tolemaC)",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.4.8",
+    "angular-animate": "^1.4.8",
+    "angular-aria": "^1.4.8",
+    "angular-material": "^1.0.2",
+    "angular-messages": "^1.4.8",
+    "jquery": "^2.2.0",
+    "systemjs": "^0.19.16"
+  },
+  "devDependencies": {
+    "tsd": "^0.6.5"
+  }
+}
