@@ -7,8 +7,8 @@ src/typings/**/*.d.ts
 ng2-hero-tutorial/packages
 ng2-hero-tutorial/ng2-hero-tutorial-ts/app/**/*.js
 ng2-hero-tutorial/ng2-hero-tutorial-ts/app/**/*.map
-ng2-hero-tutorial/ng2-hero-tutorial-ts/script/typings/**/*.d.ts
-!ng2-hero-tutorial/ng2-hero-tutorial-ts/script/typings/manual/**/*.d.ts
+ng2-hero-tutorial/ng2-hero-tutorial-ts/scripts/typings/**/*.d.ts
+!ng2-hero-tutorial/ng2-hero-tutorial-ts/scripts/typings/manual/**/*.d.ts
 
 
 ## Compilación typescript
