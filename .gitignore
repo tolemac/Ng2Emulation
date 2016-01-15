@@ -4,11 +4,11 @@ src/typings/**/*.d.ts
 !src/typings/manual/**/*.d.ts
 .vscode
 
-demos/ng2-hero-tutorial/packages
-demos/ng2-hero-tutorial/ng2-hero-tutorial-ts/app/**/*.js
-demos/ng2-hero-tutorial/ng2-hero-tutorial-ts/app/**/*.map
-demos/ng2-hero-tutorial/ng2-hero-tutorial-ts/scripts/typings/**/*.d.ts
-!demos/ng2-hero-tutorial/ng2-hero-tutorial-ts/scripts/typings/manual/**/*.d.ts
+demos/ng2-hero-tutorial-visual-studio/packages
+demos/ng2-hero-tutorial-visual-studio/ng2-hero-tutorial-ts/app/**/*.js
+demos/ng2-hero-tutorial-visual-studio/ng2-hero-tutorial-ts/app/**/*.map
+demos/ng2-hero-tutorial-visual-studio/ng2-hero-tutorial-ts/scripts/typings/**/*.d.ts
+!demos/ng2-hero-tutorial-visual-studio/ng2-hero-tutorial-ts/scripts/typings/manual/**/*.d.ts
 
 
 ## Compilación typescript
