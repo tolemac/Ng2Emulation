@@ -26,15 +26,7 @@ gulp.task('clean', function () {
     ]);
 });
 
-gulp.task('clean-temp', function () {
-    del([
-        './dist/dts',
-        './dist/js',
-        './dist/src'
-    ]);
-});
-
-gulp.task('definition-bundle', function () {
+gulp.task('bundle-dts', function () {
     var result = dtsBundle.bundle({
         name: 'Ng2Emulation',
         main: 'dist/dts/src/Ng2Emulation.d.ts',
@@ -47,19 +39,6 @@ gulp.task('definition-bundle', function () {
     if (!result.emitted) {
         throw Error("dts-bundle from main file not emit result.");
     }
-    // result = dtsBundle.bundle({
-    //     name: 'Ng2Emulation',
-    //     main: 'dist/dts/src/**/*.d.ts',
-    //     out: "~/dist/release/Ng2Emulation2.d.ts",
-    //     prefix: "",
-    //     verbose: false,
-    //     emitOnNoIncludedFileNotFound: true,
-    //     emitOnIncludedFileNotFound: false
-    // });
-    // 
-    // if (!result.emited){
-    //     throw Error("dts-bundle from all files not emit result.");
-    // }
 });
 
 function bundleJs() {
@@ -80,7 +59,7 @@ function bundleJs() {
 gulp.task("bundle", function () {
 
     var deferred = Q.defer();
-    
+
     bundleJs()
         .then(function () {
             deferred.resolve();
@@ -89,16 +68,21 @@ gulp.task("bundle", function () {
             console.log('Build error');
             deferred.reject(err);
         });
-        
+
     return deferred.promise;
 });
 
 gulp.task('default', function (done) {
-    runSequence('clean', 'compile', 'bundle', 'definition-bundle', /*"clean-temp", */done);
+    runSequence('clean', 'compile', 'bundle', 'bundle-dts', /*"clean-temp", */done);
 });
 
-gulp.task('typings', function (done) {
-    runSequence('definition-bundle', done);
+gulp.task("copy-src-to-debug-env", function () {
+    gulp.src('src/**/**')        
+        .pipe(gulp.dest('demos/ng2emulation-vs-aspnet-debug/ng2emulation-vs-aspnet-debug/TypeScript/Ng2Emulation'));
+});
+
+gulp.task('start-debug-env', function (done) {
+    runSequence('copy-src-to-debug-env', done);
 });
 
 //gulp.task('default', ["build"]);
