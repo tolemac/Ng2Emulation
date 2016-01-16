@@ -7,6 +7,7 @@ var del = require('del');
 var dtsBundle = require('dts-bundle');
 var Builder = require('systemjs-builder');
 var Q = require('q');
+var watch = require('gulp-watch');
 
 var tsProject = ts.createProject('tsconfig.json');
 
@@ -79,6 +80,12 @@ gulp.task('default', function (done) {
 gulp.task("copy-src-to-debug-env", function () {
     gulp.src('src/**/**')        
         .pipe(gulp.dest('demos/ng2emulation-vs-aspnet-debug/ng2emulation-vs-aspnet-debug/TypeScript/Ng2Emulation'));
+});
+
+gulp.task("watch-debug", function () {
+    return gulp.src('demos/ng2emulation-vs-aspnet-debug/ng2emulation-vs-aspnet-debug/TypeScript/Ng2Emulation/**/**')
+        .pipe(watch('**'))
+        .pipe(gulp.dest('src'));
 });
 
 gulp.task('start-debug-env', function (done) {
