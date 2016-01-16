@@ -44,7 +44,7 @@ gulp.task('definition-bundle', function () {
         emitOnNoIncludedFileNotFound: true,
         emitOnIncludedFileNotFound: false
     });
-    if (!result.emited) {
+    if (!result.emitted) {
         throw Error("dts-bundle from main file not emit result.");
     }
     // result = dtsBundle.bundle({
