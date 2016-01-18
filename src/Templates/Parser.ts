@@ -1,4 +1,4 @@
-﻿import {ParserRule} from "./ParserRule";
+import {ParserRule} from "./ParserRule";
 import NgContentRule from "./rules/NgContentRule";
 import NgModelRule from "./rules/NgModelRule";
 import NgPropertyRule from "./rules/NgPropertyRule";

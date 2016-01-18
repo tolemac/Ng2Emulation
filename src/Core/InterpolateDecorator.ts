@@ -1,4 +1,4 @@
-﻿import {DEFAULT_CONTROLLER_AS} from "../Core/Angular1Wrapper"
+import {DEFAULT_CONTROLLER_AS} from "../Core/Angular1Wrapper"
 
 function decorateInterpolate(app: ng.IModule) {
 	app.config(["$provide", ($provide: ng.auto.IProvideService) => {

@@ -1,4 +1,4 @@
-﻿import {registerComponentInstance} from "./ChangeDetection"
+import {registerComponentInstance} from "./ChangeDetection"
 
 function decorateController(app: ng.IModule) {
 	app.config(["$provide", ($provide: ng.auto.IProvideService) => {

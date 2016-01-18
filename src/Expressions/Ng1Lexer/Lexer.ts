@@ -1,4 +1,4 @@
-﻿function isScope(obj) {
+function isScope(obj) {
 	return obj && obj.$evalAsync && obj.$watch;
 }
 

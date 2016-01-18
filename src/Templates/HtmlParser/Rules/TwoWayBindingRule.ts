@@ -1,4 +1,4 @@
-﻿import {ParserRule} from "../ParserRule";
+import {ParserRule} from "../ParserRule";
 
 export default class BindingRule extends  ParserRule 
 {

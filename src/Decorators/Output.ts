@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Register property as output on $componentMetadata;
  * @param outputName Name of the output
  */

@@ -1,4 +1,4 @@
-﻿import {Lexer} from "./Ng1Lexer/Lexer";
+import {Lexer} from "./Ng1Lexer/Lexer";
 import {DEFAULT_CONTROLLER_AS} from "../Core/Angular1Wrapper";
 
 // const _cache = {};

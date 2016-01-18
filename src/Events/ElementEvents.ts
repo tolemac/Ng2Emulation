@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Copied and modified from ng-forward: https://github.com/tolemac/ng-forward/blob/master/lib/events/events.ts
  */
 

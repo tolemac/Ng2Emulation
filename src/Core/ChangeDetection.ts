@@ -1,4 +1,4 @@
-﻿export class SimpleChange {
+export class SimpleChange {
     constructor(public previousValue: any, public currentValue: any) { }
 
     /**

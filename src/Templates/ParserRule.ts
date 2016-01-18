@@ -1,4 +1,4 @@
-﻿export abstract class ParserRule {
+export abstract class ParserRule {
     processTemplate(template: string): string {
 
 		const element = angular.element("<some>" + template + "</some>");

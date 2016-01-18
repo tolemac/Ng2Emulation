@@ -1,4 +1,4 @@
-﻿import * as AngularHelpers from "../Utils/AngularHelpers";
+import * as AngularHelpers from "../Utils/AngularHelpers";
 import {IComponentMetadata} from "../Decorators/Component";
 import TemplateParser from "../Templates/HtmlParser/Parser";
 

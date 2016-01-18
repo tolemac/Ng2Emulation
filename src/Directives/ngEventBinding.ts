@@ -1,4 +1,4 @@
-﻿import {Directive, Inject} from "../Ng2Emulation";
+import {Directive, Inject} from "../Ng2Emulation";
 import {DEFAULT_CONTROLLER_AS} from "../Core/Angular1Wrapper";
 import ElementEvents from "../Events/ElementEvents";
 import {directiveNormalize} from "../Utils/AngularHelpers";

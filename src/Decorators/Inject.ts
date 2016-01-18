@@ -1,4 +1,4 @@
-﻿import {serviceNormalize} from "../Utils/AngularHelpers";
+import {serviceNormalize} from "../Utils/AngularHelpers";
 
 /**
  * Says to angular how and where inject a service or angular 1 component.

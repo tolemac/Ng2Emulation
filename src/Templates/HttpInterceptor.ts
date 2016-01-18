@@ -1,4 +1,4 @@
-﻿import TemplateParser from "./HtmlParser/Parser";
+import TemplateParser from "./HtmlParser/Parser";
 
 function parseInterceptor() {
     "use strict";

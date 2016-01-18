@@ -1,4 +1,4 @@
-﻿import {parseExpression} from "../Expressions/ExpressionParser";
+import {parseExpression} from "../Expressions/ExpressionParser";
 
 function decorateParse(app: any) {
     "use strict";

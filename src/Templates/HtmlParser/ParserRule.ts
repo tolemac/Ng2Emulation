@@ -1,4 +1,4 @@
-﻿export abstract class ParserRule {
+export abstract class ParserRule {
     abstract startTag(tagName: string,
         attributes: { [name: string]: { value: string; quoted: boolean; } },
         selfClosing: boolean): string;

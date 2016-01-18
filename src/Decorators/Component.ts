@@ -1,4 +1,4 @@
-﻿import {serviceNormalize} from "../Utils/AngularHelpers";
+import {serviceNormalize} from "../Utils/AngularHelpers";
 
 export interface IComponentMetadata {
     template?: string;

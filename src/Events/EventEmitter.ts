@@ -1,4 +1,4 @@
-﻿export class EventEmiter<T> {
+export class EventEmiter<T> {
 	private observers: ((event: T) => boolean)[] = [];
 
 	subscribe(handler: (event: T) => boolean) {

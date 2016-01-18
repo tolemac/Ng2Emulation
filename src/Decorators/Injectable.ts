@@ -1,4 +1,4 @@
-﻿import {serviceNormalize} from "../Utils/AngularHelpers"
+import {serviceNormalize} from "../Utils/AngularHelpers"
 import {BootStrapper} from "../Core/Bootstrap"
 
 /**

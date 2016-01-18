@@ -1,4 +1,4 @@
-﻿import {removeChanges, componentChanges, SimpleChange, componentInstances} from "../ChangeDetection"
+import {removeChanges, componentChanges, SimpleChange, componentInstances} from "../ChangeDetection"
 
 let onEndDigestPhase = false;
 

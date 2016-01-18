@@ -1,4 +1,4 @@
-﻿import {ParserRule} from "../ParserRule";
+import {ParserRule} from "../ParserRule";
 
 export default class NgSubmitRule extends ParserRule {
 	//processAttribute(attr: Attr): { name: string; value: string } {

@@ -1,4 +1,4 @@
-﻿// Copied from angular source code.
+// Copied from angular source code.
 
 var SPECIAL_CHARS_REGEXP = /([\:\-\_]+(.))/g;
 var MOZ_HACK_REGEXP = /^moz([A-Z])/;

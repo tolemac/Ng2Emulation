@@ -1,4 +1,4 @@
-﻿import {Angular1Wrapper} from "./Angular1Wrapper";
+import {Angular1Wrapper} from "./Angular1Wrapper";
 import ElementEvents from "../Events/ElementEvents";
 import httpIntercept from "../Templates/HttpInterceptor";
 import decorateInterpolate from "./InterpolateDecorator"

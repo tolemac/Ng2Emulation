@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Register property as input on $componentMetadata;
  * @param inputName Name of the input
  */
