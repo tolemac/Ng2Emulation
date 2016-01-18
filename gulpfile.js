@@ -77,19 +77,29 @@ gulp.task('default', function (done) {
     runSequence('clean', 'compile', 'bundle', 'bundle-dts', /*"clean-temp", */done);
 });
 
+var debug_src = 'demos/ng2emulation-vs-aspnet-debug/ng2emulation-vs-aspnet-debug/TypeScript/Ng2Emulation';
+var project_src = 'src';
+var debug_dts = 'demos/ng2emulation-vs-aspnet-debug/ng2emulation-vs-aspnet-debug/TypeScript/typings';
+var project_dts = 'typings';
+
 gulp.task("copy-src-to-debug-env", function () {
-    gulp.src('src/**/**')        
-        .pipe(gulp.dest('demos/ng2emulation-vs-aspnet-debug/ng2emulation-vs-aspnet-debug/TypeScript/Ng2Emulation'));
+    return gulp.src(project_src + '/**/*', { base: project_src })
+        .pipe(gulp.dest(debug_src));
+});
+
+gulp.task("copy-typings-to-debug-env", function () {
+    return gulp.src(project_dts + '/**/*', { base: project_dts })
+        .pipe(gulp.dest(debug_dts));
 });
 
 gulp.task("watch-debug", function () {
-    return gulp.src('demos/ng2emulation-vs-aspnet-debug/ng2emulation-vs-aspnet-debug/TypeScript/Ng2Emulation/**/**')
-        .pipe(watch('**'))
-        .pipe(gulp.dest('src'));
+    gulp.src(debug_src + '/**/*.ts', { base: debug_src })
+        .pipe(watch(debug_src, { base: debug_src }))
+        .pipe(gulp.dest(project_src));
 });
 
 gulp.task('start-debug-env', function (done) {
-    runSequence('copy-src-to-debug-env', done);
+    runSequence(['copy-src-to-debug-env', "copy-typings-to-debug-env"], "watch-debug", done);
 });
 
 //gulp.task('default', ["build"]);
