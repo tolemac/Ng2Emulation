@@ -1,6 +1,6 @@
 # Ng2Emulation Change log.
 
-## Version 0.3 ALPHA
+## Version 0.1.0 ALPHA
 * Doble curly braces syntax use component as scope root. You can do:
 ````html
 <div>{{componentProperty}}</div>
@@ -29,9 +29,6 @@ change by:
 * Add `providers` to @Component metadata.
 * LifeCycleHooks - OnChanges, OnInit and OnDestroy
 * Angular 2 Hero Tutorial as example application
-
-
-## Version 0.2 ALPHA
 * **breaking** controllerAs is $$cmp instead of $$vm
 * Template interception to change html.
 * NgContentRule to replace ng-content por ng-transclude
@@ -43,8 +40,6 @@ change by:
 ````html
  <input type="text" #myinput/> {{$cmp.myinput.value}}
 ````
-
-## Version 0.1 ALPHA
 * Postpone router.
 * `@Inject` for angular1 components and take care with param order. Closes #2
 * `@Injectable` to mark a class as service

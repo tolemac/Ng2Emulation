@@ -158,5 +158,5 @@ We would like to have the minimal external dependencies.
 * Follow Angular 2 docs to implements others features (Http, Router)
 
 ## What's the end?
-* When Angular 2.0 will be release, will stop making sense this project? Yes and no. When Angular 2.0 will be released we all need to wait to other projects migrating to 2.0 versión. When a lot of main projects migrate to 2.0 then Ng2Emulation will stop making sense, then will be the end of this project.
+* When Angular 2.0 will be release, will stop making sense this project? Yes and no. When Angular 2.0 will be released we all need to wait to other projects migrating to 2.0 version. When a lot of main projects migrate to 2.0 then Ng2Emulation will stop making sense, then will be the end of this project.
 
