@@ -1,31 +1,31 @@
 {
-    "name": "ng2-emulation",
-    "version": "0.1.1",
-    "description": "Build Angular 1 components using Angular 2 style in TypeScript.",
-    "repository": {
-        "type": "git",
-        "url": "http://github.com/tolemac/Ng2Emulation.git"
-    },
-    "main": "dist/Ng2Emulation.js",
-    "scripts": {},
-    "author": "Javier Ros (tolemaC)",
-    "license": "MIT",
-    "typescript": {
-        "definition": "index.d.ts"
-    },
-    "dependencies": {},
-    "devDependencies": {
-        "del": "^2.2.0",
-        "dts-bundle": "^0.4.3",
-        "gulp": "^3.9.0",
-        "gulp-sequence": "^0.4.4",
-        "gulp-sourcemaps": "^1.6.0",
-        "gulp-typescript": "^2.10.0",
-        "gulp-watch": "^4.3.5",
-        "merge2": "^0.3.6",
-        "q": "^1.4.1",
-        "systemjs-builder": "^0.15.3",
-        "tsd": "^0.6.5",
-        "typescript": "~1.7.5"
-    }
+  "name": "ng2-emulation",
+  "version": "0.1.2",
+  "description": "Build Angular 1 components using Angular 2 style in TypeScript.",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/tolemac/Ng2Emulation.git"
+  },
+  "main": "dist/Ng2Emulation.js",
+  "scripts": {},
+  "author": "Javier Ros (tolemaC)",
+  "license": "MIT",
+  "typescript": {
+    "definition": "index.d.ts"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "del": "^2.2.0",
+    "dts-bundle": "^0.4.3",
+    "gulp": "^3.9.0",
+    "gulp-sequence": "^0.4.4",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-typescript": "^2.10.0",
+    "gulp-watch": "^4.3.5",
+    "merge2": "^0.3.6",
+    "q": "^1.4.1",
+    "systemjs-builder": "^0.15.3",
+    "tsd": "^0.6.5",
+    "typescript": "~1.7.5"
+  }
 }
