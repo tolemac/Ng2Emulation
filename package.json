@@ -6,12 +6,12 @@
     "type": "git",
     "url": "http://github.com/tolemac/Ng2Emulation.git"
   },
-  "main": "dist/Ng2Emulation.js",
   "scripts": {},
   "author": "Javier Ros (tolemaC)",
   "license": "MIT",
+  "main": "dist/src/Ng2Emulation.js",
   "typescript": {
-    "definition": "index.d.ts"
+    "definition": "dist/src/Ng2Emulation.d.ts"
   },
   "dependencies": {},
   "devDependencies": {
