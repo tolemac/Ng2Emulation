@@ -1,4 +1,4 @@
-import {Directive, Inject} from "../Ng2Emulation";
+import {Directive, Inject} from "../ng2-emulation";
 import {DEFAULT_CONTROLLER_AS} from "../Core/Angular1Wrapper";
 import {directiveNormalize} from "../Utils/AngularHelpers"
 //import {getOwnPropertyNameInsensitiveCase, indexOfInsensitiveCase} from "../Utils/Utils";

@@ -29,9 +29,9 @@ gulp.task('clean', function () {
 
 gulp.task('bundle-dts', function () {
     var result = dtsBundle.bundle({
-        name: 'Ng2Emulation',
-        main: 'dist/src/Ng2Emulation.d.ts',
-        out: "~/dist/release/Ng2Emulation.d.ts",
+        name: 'ng2-emulation',
+        main: 'dist/src/ng2-emulation.d.ts',
+        out: "~/dist/release/ng2-emulation.d.ts",
         prefix: "",
         verbose: false,
         emitOnNoIncludedFileNotFound: true,
@@ -54,7 +54,7 @@ function bundleJs() {
     });
 
     return builder
-        .bundle('Ng2Emulation.js', 'dist/release/Ng2Emulation-bundle.js');
+        .bundle('ng2-emulation.js', 'dist/release/ng2-emulation-bundle.js');
 }
 
 gulp.task("bundle", function () {
