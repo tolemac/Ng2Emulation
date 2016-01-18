@@ -16,8 +16,8 @@ gulp.task('compile', function () {
         .pipe(ts(tsProject));
 
     return merge([
-        tsResult.dts.pipe(gulp.dest('dist/dts')),
-        tsResult.js.pipe(gulp.dest('dist/js')),
+        tsResult.dts.pipe(gulp.dest('dist')),
+        tsResult.js.pipe(gulp.dest('dist')),
     ]);
 });
 
@@ -30,7 +30,7 @@ gulp.task('clean', function () {
 gulp.task('bundle-dts', function () {
     var result = dtsBundle.bundle({
         name: 'Ng2Emulation',
-        main: 'dist/dts/src/Ng2Emulation.d.ts',
+        main: 'dist/src/Ng2Emulation.d.ts',
         out: "~/dist/release/Ng2Emulation.d.ts",
         prefix: "",
         verbose: false,
@@ -43,7 +43,7 @@ gulp.task('bundle-dts', function () {
 });
 
 function bundleJs() {
-    var builder = new Builder('dist/js/src');
+    var builder = new Builder('dist/src');
     builder.config({
         meta: {
             'HTML5Tokenizer.js': {
