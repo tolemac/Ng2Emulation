@@ -274,6 +274,7 @@
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\Rules\NgPropertyRule.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\Rules\PropertyBindingRule.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\Rules\TwoWayBindingRule.ts" />
+    <TypeScriptCompile Include="TypeScript\Ng2Emulation\typings\manual\simple-html-tokenizer\simple-html-tokenizer.d.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Utils\AngularHelpers.ts" />
     <TypeScriptCompile Include="TypeScript\typings\manual\simple-html-tokenizer\simple-html-tokenizer.d.ts" />
     <TypeScriptCompile Include="TypeScript\typings\angularjs\angular.d.ts" />
