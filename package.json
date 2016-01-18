@@ -1,6 +1,6 @@
 {
   "name": "Ng2Emulation",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Build Angular 1 components using Angular 2 style in TypeScript.",
   "repository": {
     "type": "git",
@@ -8,7 +8,7 @@
   },
   "main": "dist/Ng2Emulation.js",
   "scripts": {
-      "install": "tsd install"
+    "install": "tsd install"
   },
   "author": "Javier Ros (tolemaC)",
   "license": "MIT",
