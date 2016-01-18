@@ -1,6 +1,6 @@
 node_modules
 dist
-src/typings/**/*.d.ts
+typings/**/*.d.ts
 !src/typings/manual/**/*.d.ts
 .vscode
 packages
