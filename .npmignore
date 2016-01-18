@@ -1,7 +1,7 @@
 ## ignore sources and build files
 ## if you want to get it clone github repository
 .vscode
-src
+./src
 typings
 demos
 gulpfile.js

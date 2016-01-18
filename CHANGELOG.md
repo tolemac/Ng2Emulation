@@ -1,6 +1,6 @@
 # Ng2Emulation Change log.
 
-## Version 0.1.0 ALPHA
+## Version 0.1.* ALPHA
 * Doble curly braces syntax use component as scope root. You can do:
 ````html
 <div>{{componentProperty}}</div>
