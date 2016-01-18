@@ -9,10 +9,10 @@
   "scripts": {},
   "author": "Javier Ros (tolemaC)",
   "license": "MIT",
-  "main": "dist/src/Ng2Emulation.js",
-  "typings": "dist/src/Ng2Emulation",
+  "main": "dist/src/index",
+  "typings": "dist/src/inex",
   "typescript": {
-    "definition": "dist/src/Ng2Emulation.d.ts"
+    "definition": "dist/src/index.d.ts"
   },
   "dependencies": {},
   "devDependencies": {
