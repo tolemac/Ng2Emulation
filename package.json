@@ -1,6 +1,6 @@
 {
   "name": "ng2-emulation",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Build Angular 1 components using Angular 2 style in TypeScript.",
   "repository": {
     "type": "git",
