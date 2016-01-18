@@ -231,6 +231,12 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="TypeScript\App\app.component.ts" />
+    <TypeScriptCompile Include="TypeScript\App\boot.ts" />
+    <TypeScriptCompile Include="TypeScript\App\hero-detail.component.ts" />
+    <TypeScriptCompile Include="TypeScript\App\hero.service.ts" />
+    <TypeScriptCompile Include="TypeScript\App\hero.ts" />
+    <TypeScriptCompile Include="TypeScript\App\mock-heroes.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Core\Angular1Wrapper.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Core\Bootstrap.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Core\ChangeDetection.ts" />
@@ -302,7 +308,7 @@
     <TypeScriptNoEmitOnError>True</TypeScriptNoEmitOnError>
     <TypeScriptSourceMap>True</TypeScriptSourceMap>
     <TypeScriptMapRoot />
-    <TypeScriptSourceRoot />
+    <TypeScriptSourceRoot>$(ProjectDir)TypeScript/</TypeScriptSourceRoot>
     <TypeScriptEmitDecoratorMetadata>True</TypeScriptEmitDecoratorMetadata>
     <TypeScriptExperimentalDecorators>True</TypeScriptExperimentalDecorators>
   </PropertyGroup>
