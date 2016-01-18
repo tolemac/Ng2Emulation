@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>TypeScript HTML App</title>
+    <link rel="stylesheet" href="app.css" type="text/css" />
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/systemjs/0.18.4/system.src.js"></script>
+    <script>
+        // set our baseURL reference path
+        System.config({
+            baseURL: '/app',
+            map: {
+                "HTML5Tokenizer": "/Scripts/simple-html-tokenizer.js"
+            }
+        });
+        System.defaultJSExtensions = true;
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-promise/3.0.2/es6-promise.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://code.angularjs.org/1.4.8/angular.js"></script>
+    <script src="Scripts/Ng2Emulation-bundle.js"></script>
+    <script>
+        System.import('boot');
+    </script>
+</head>
+<body>
+    <h1>TypeScript HTML App</h1>
+
+    <div id="content">
+        <my-app></my-app>
+    </div>
+</body>
+</html>

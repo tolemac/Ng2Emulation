@@ -1,0 +1,12 @@
+## ignore sources and build files
+## if you want to get it clone github repository
+.vscode
+src
+typings
+demos
+gulpfile.js
+tsconfig.json
+tsd.json
+
+## include dist directory.
+!dist
