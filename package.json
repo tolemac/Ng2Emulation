@@ -7,7 +7,9 @@
     "url": "http://github.com/tolemac/Ng2Emulation.git"
   },
   "main": "dist/Ng2Emulation.js",
-  "scripts": {},
+  "scripts": {
+      "install": "tsd install"
+  },
   "author": "Javier Ros (tolemaC)",
   "license": "MIT",
   "typescript": {
