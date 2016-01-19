@@ -1,7 +1,6 @@
 import {Directive, Inject} from "../ng2-emulation";
 import {DEFAULT_CONTROLLER_AS} from "../Core/Angular1Wrapper";
 import {directiveNormalize} from "../Utils/AngularHelpers"
-//import {getOwnPropertyNameInsensitiveCase, indexOfInsensitiveCase} from "../Utils/Utils";
 import {parseExpression} from "../Expressions/ExpressionParser";
 import {registerChange, SimpleChange} from "../Core/ChangeDetection"
 
