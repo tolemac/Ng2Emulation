@@ -1,12 +1,12 @@
 import {ParserRule} from "./ParserRule";
-import NgContentRule from "./rules/NgContentRule";
-import NgModelRule from "./rules/NgModelRule";
-import NgPropertyRule from "./rules/NgPropertyRule";
-import EventBindingRule from "./rules/EventBindingRule";
-import PropertyBindingRule from "./rules/PropertyBindingRule";
-import TwoWayBindingRule from "./rules/TwoWayBindingRule";
-import NgForRule from "./rules/NgForRule";
-import NgIfRule from "./rules/NgIfRule";
+import NgContentRule from "./Rules/NgContentRule";
+import NgModelRule from "./Rules/NgModelRule";
+import NgPropertyRule from "./Rules/NgPropertyRule";
+import EventBindingRule from "./Rules/EventBindingRule";
+import PropertyBindingRule from "./Rules/PropertyBindingRule";
+import TwoWayBindingRule from "./Rules/TwoWayBindingRule";
+import NgForRule from "./Rules/NgForRule";
+import NgIfRule from "./Rules/NgIfRule";
 import HtmlParser from "./HtmlParser/Parser"
 
 export default class Parser {
