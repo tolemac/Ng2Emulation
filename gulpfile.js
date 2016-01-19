@@ -10,7 +10,7 @@ var Q = require('q');
 var watch = require('gulp-watch');
 var tsd = require('gulp-tsd');
 
-var tsProject = ts.createProject('tsconfig.json');
+var tsProject = ts.createProject('tsconfig.json', { typescript: require('typescript') });
 
 gulp.task('compile', function () {
     var tsResult = tsProject.src()
