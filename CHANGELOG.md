@@ -1,6 +1,17 @@
 # Ng2Emulation Change log.
 
 ## Version 0.1.* ALPHA
+* Built demo projects under `demos` folder.
+  * `ng2-hero-tutorial-visual-studio` is a demo for use Ng2Emulation from visual studio typescript application. It load es5 bundle and .d.ts bundle to use Ng2Emulation (.d.ts file generated using https://github.com/TypeStrong/dts-bundle)
+  * `ng2emulation-vs-aspnet-debug` is a demo used for debugging Ng2Emulation using Visual Studio. Its a ASP.NET MVC4 project that use Ng2Emulation .ts files.
+  * `ng2-emulation-npm` is a submodule from https://github.com/tolemac/Ng2EmulationDemo. Its a npm package that use npm package to work with ng2emulation.
+
+* Built npm package.
+````
+npm install ng2-emulation
+````
+* Built ES5 bundle and typings to use Ng2Emulation without any package manager. You can use npm to download package and get files from `dist/release` folder.
+
 * Doble curly braces syntax use component as scope root. You can do:
 ````html
 <div>{{componentProperty}}</div>
