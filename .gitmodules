@@ -1,0 +1,6 @@
+[submodule "demos/Ng2EmulationDemo"]
+	path = demos/Ng2EmulationDemo
+	url = https://github.com/tolemac/Ng2EmulationDemo
+[submodule "demos/ng2-emulation-npm"]
+	path = demos/ng2-emulation-npm
+	url = https://github.com/tolemac/Ng2EmulationDemo
