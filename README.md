@@ -1,10 +1,21 @@
 # Ng2Emulation
 
+[![Build Status](https://travis-ci.org/tolemac/Ng2Emulation.svg)](https://travis-ci.org/tolemac/Ng2Emulation) [![NPM version](https://badge.fury.io/js/ng2-emulation.svg)](http://badge.fury.io/js/ng2-emulation) [![Dependency Status](https://david-dm.org/tolemac/Ng2Emulation.svg)](https://david-dm.org/tolemac/Ng2Emulation) [![devDependency Status](https://david-dm.org/tolemac/Ng2Emulation/dev-status.svg)](https://david-dm.org/tolemac/Ng2Emulation#info=devDependencies)
+
+> Build Angular 1 components using Angular 2 style in TypeScript.
+
 ## Status
 
 This project is in pre-beta status, see [changelog](https://github.com/tolemac/Ng2Emulation/blob/master/CHANGELOG.md).
 
-## Use with npm:
+## See demos
+
+Three demos in [`demos`](https://github.com/tolemac/Ng2Emulation/tree/master/demos) folder:
+* `ng2-hero-tutorial-visual-studio` is a demo for use Ng2Emulation from visual studio typescript application. It load es5 bundle and .d.ts bundle to use Ng2Emulation (.d.ts file generated using https://github.com/TypeStrong/dts-bundle)
+* `ng2emulation-vs-aspnet-debug` is a demo used for debugging Ng2Emulation using Visual Studio. Its a ASP.NET MVC4 project that use Ng2Emulation .ts files.
+* `ng2-emulation-npm` is a submodule from https://github.com/tolemac/Ng2EmulationDemo. Its a npm package that use npm package to work with ng2emulation.
+
+## Use with npm
 
 You can see an example here: https://github.com/tolemac/Ng2EmulationDemo
 
