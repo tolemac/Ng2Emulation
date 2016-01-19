@@ -75,6 +75,7 @@ gulp.task("bundle", function () {
         })
         .catch(function (err) {
             console.log('Build error');
+            console.log(err);
             deferred.reject(err);
         });
 
