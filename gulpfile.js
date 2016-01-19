@@ -12,13 +12,23 @@ var tsd = require('gulp-tsd');
 
 var tsProject = ts.createProject('tsconfig.json', { typescript: require('typescript') });
 
-gulp.task('compile', function () {
+gulp.task('compile', function () {    
+    /* Use base dir with tsconfig.json */
+    // var tsProject = typescript.createProject('tsconfig.json');
+    // return gulp.src(['./src/**/*.ts', './typings/**/*.d.ts'], { base: './src' })
+    //     .pipe(typescript(tsProject))
+    //     .pipe(gulp.dest('./dist'));    
+    
     var tsResult = tsProject.src()
+        .pipe(sourcemaps.init())
         .pipe(ts(tsProject));
 
     return merge([
-        tsResult.dts.pipe(gulp.dest('dist')),
-        tsResult.js.pipe(gulp.dest('dist'))
+        tsResult.dts
+            .pipe(gulp.dest('dist')),
+        tsResult.js
+            .pipe(sourcemaps.write())
+            .pipe(gulp.dest('dist'))
     ]);
 });
 
