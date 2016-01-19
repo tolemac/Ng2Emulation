@@ -4,6 +4,41 @@
 
 This project is in pre-beta status, see [changelog](https://github.com/tolemac/Ng2Emulation/blob/master/CHANGELOG.md).
 
+## Use with npm:
+
+You can see an example here: https://github.com/tolemac/Ng2EmulationDemo
+
+Follow these steps:
+* Add cripts and dependencies to your `package.json` (i.e: https://github.com/tolemac/Ng2EmulationDemo/blob/master/package.json)
+* Add `tsconfig.json` (i.e: https://github.com/tolemac/Ng2EmulationDemo/blob/master/tsconfig.json)
+* Add `tsd.json` (i.e: https://github.com/tolemac/Ng2EmulationDemo/blob/master/tsd.json)
+* Run these commands:
+````
+npm install
+tsd install
+tsc
+````
+* Add `index.html` file (i.e: https://github.com/tolemac/Ng2EmulationDemo/blob/master/index.html) including these scripts tags:
+```` html
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <script src="node_modules/es6-promise/dist/es6-promise.min.js"></script>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/ng2-emulation/dist/release/ng2-emulation-bundle.js"></script>
+    <script src="node_modules/simple-html-tokenizer/dist/simple-html-tokenizer.js"></script>
+
+    <!-- 2. Configure SystemJS -->
+    <script>
+        System.config({
+            defaultJSExtensions: true,
+            map: {
+                "HTML5Tokenizer": "/node_modules/simple-html-tokenizer/dist/simple-html-tokenizer"
+            }
+        });
+    </script>
+````
+* Write your Angular 2 code and import it with system.js
+
 ## Build Angular 1 components using Angular 2 style in TypeScript.
 
 If you have to start a new project with AngularJS and can't wait for Angular 2, you can prepare for its arrival and write Angular 1.4+ applications this way:
