@@ -8,6 +8,7 @@ var dtsBundle = require('dts-bundle');
 var Builder = require('systemjs-builder');
 var Q = require('q');
 var watch = require('gulp-watch');
+var tsd = require('gulp-tsd');
 
 var tsProject = ts.createProject('tsconfig.json');
 
@@ -25,6 +26,13 @@ gulp.task('clean', function () {
     del([
         './dist'
     ]);
+});
+
+gulp.task('tsd', function (callback) {
+    tsd({
+        command: 'reinstall',
+        config: './tsd.json'
+    }, callback);
 });
 
 gulp.task('bundle-dts', function () {
@@ -74,7 +82,7 @@ gulp.task("bundle", function () {
 });
 
 gulp.task('default', function (done) {
-    runSequence('clean', 'compile', 'bundle', 'bundle-dts', /*"clean-temp", */done);
+    runSequence('clean', 'tsd', 'compile', 'bundle', 'bundle-dts', /*"clean-temp", */done);
 });
 
 var debug_src = 'demos/ng2emulation-vs-aspnet-debug/ng2emulation-vs-aspnet-debug/TypeScript/Ng2Emulation';
