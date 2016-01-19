@@ -1,5 +1,9 @@
 # Ng2Emulation
 
+[![Build Status](https://travis-ci.org/tolemac/Ng2Emulation.svg)](https://travis-ci.org/tolemac/Ng2Emulation) [![NPM version](https://badge.fury.io/js/ng2-emulation.svg)](http://badge.fury.io/js/ng2-emulation) [![Dependency Status](https://david-dm.org/tolemac/Ng2Emulation.svg)](https://david-dm.org/tolemac/Ng2Emulation) [![devDependency Status](https://david-dm.org/tolemac/Ng2Emulation/dev-status.svg)](https://david-dm.org/tolemac/Ng2Emulation#info=devDependencies)
+
+> Build Angular 1 components using Angular 2 style in TypeScript.
+
 ## Status
 
 This project is in pre-beta status, see [changelog](https://github.com/tolemac/Ng2Emulation/blob/master/CHANGELOG.md).
