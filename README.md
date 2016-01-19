@@ -151,8 +151,6 @@ We would like to have the minimal external dependencies.
 
 ## What's the next?
 
-* Build package, over NPM, bower, ...
-* Build ES5 bundle and generate typings to use Ng2Emulation without any package manager.
 * Use a router and use @RouteConfig decorator to use multiple views and url routing.
 * Angular 1 integration. Allow current Angular projects to use new components wrote using Ng2Emulation.
 * Follow Angular 2 docs to implements others features (Http, Router)
