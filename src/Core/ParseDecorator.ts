@@ -18,7 +18,7 @@ import {parseExpression} from "../Expressions/ExpressionParser";
 
 /**
  * Decorator for $parse.
- * Decorate $parse provider in order to get all expressions call and try to resolve symbols from $scope.$$cmp
+ * Decorate $parse provider in order to get all expressions call and try to resolve symbols from $scope.DEFAULT_CONTROLLER_AS
  */
 function decorateParse(app: any) {
     "use strict";
@@ -28,40 +28,79 @@ function decorateParse(app: any) {
 
             // Intercept $parse call
 			var customDelegate = function () {
-                var origResult = origParseDelegate.apply(this, arguments);
+                var origExpressionResult = origParseDelegate.apply(this, arguments);
                 // If expression is a function continue with original.
                 if (typeof arguments[0] === "function") {
-                    return origResult;
+                    return origExpressionResult;
 			    }
                 const expression = arguments[0];
                 // Result function
-                const customResult: any = function () {
+                const customExpressionResult: any = function () {
                         // Set original expression as default.
-                        var finalExpression = origResult;
+                        var finalExpression = origExpressionResult;
                         // If expression is not cached process it.
-                        if (!customResult.$$cachedExpression) {
-                            var expression = customResult.$$expression, newExpression;
+                        if (!customExpressionResult.$$cachedExpression && customExpressionResult.$$cachedExpression !== null) {
+                            // Load annoted expression.
+                            const expression = customExpressionResult.$$expression;
+                            // If exists annoted expression and $scope is passed try to convert expression.
                             if (expression && arguments[0]) {
-                                newExpression = parseExpression(expression, arguments[0]);
+                                const newExpression = parseExpression(expression, arguments[0]);
+                                // if newExpression is different of original expression then calculate new expression and annote it.
                                 if (newExpression && newExpression !== expression) {
-                                    customResult.$$cachedExpression = finalExpression = origParseDelegate(newExpression);
+                                    customExpressionResult.$$cachedExpression = finalExpression = origParseDelegate(newExpression);
+                                } else {
+                                    // If expression are equal it hasn't changes.
+                                    customExpressionResult.$$cachedExpression = null;
                                 }
                             }
                         } else {
-                            finalExpression = customResult.$$cachedExpression;
+                            // If expression was cached as "null" use original result, no changes on expression.
+                            if (customExpressionResult.$$cachedExpression === null)
+                                finalExpression = origExpressionResult;
+                            else // Use cached expression.
+                                finalExpression = customExpressionResult.$$cachedExpression;
                         }
 
-                    const newScope = arguments[0];
-					arguments[0] = newScope;
                     return finalExpression.apply(this, arguments);
                 };
                 // Mark this expression, write the expression to parse when expression function is called
-                customResult.$$expression = expression;
+                customExpressionResult.$$expression = expression;
                 // Copy data from original.
-				customResult.liteal = origResult.liteal;
-				customResult.constant = origResult.constant;
-				customResult.assign = origResult.assign;
-				return (!origResult ? origResult : customResult);
+				customExpressionResult.liteal = origExpressionResult.liteal;
+                customExpressionResult.constant = origExpressionResult.constant;
+                const customExpressionAssign : any = function () {
+
+                    // Set original expression as default.
+                    var finalExpression = origExpressionResult.assign;
+                    // If expression is not cached process it.
+                    if (!customExpressionAssign.$$cachedExpression && customExpressionAssign.$$cachedExpression !== null) {
+                        // Load annoted expression.
+                        const expression = customExpressionAssign.$$expression;
+                        // If exists annoted expression and $scope is passed try to convert expression.
+                        if (expression && arguments[0]) {
+                            const newExpression = parseExpression(expression, arguments[0]);
+                            // if newExpression is different of original expression then calculate new expression and annote it.
+                            if (newExpression && newExpression !== expression) {
+                                customExpressionAssign.$$cachedExpression = finalExpression = origParseDelegate(newExpression).assign;
+                            } else {
+                                // If expression are equal it hasn't changes.
+                                customExpressionAssign.$$cachedExpression = null;
+                            }
+                        }
+                    } else {
+                        // If expression was cached as "null" use original result, no changes on expression.
+                        if (customExpressionAssign.$$cachedExpression === null)
+                            finalExpression = origExpressionResult.assign;
+                        else // Use cached expression.
+                            finalExpression = customExpressionAssign.$$cachedExpression;
+                    }
+
+                    return finalExpression.apply(this, arguments);
+			    };
+
+			    customExpressionResult.assign = customExpressionAssign;
+			    customExpressionResult.assign.$$expression = expression;
+				return (!origExpressionResult ? origExpressionResult : customExpressionResult);
 			};
 			return customDelegate;
 		}]);
