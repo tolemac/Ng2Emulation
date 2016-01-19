@@ -24,7 +24,7 @@ export class BootStrapper {
 
         // Interceptor for templates.
         httpIntercept(Angular1Wrapper.app);
-		// Decorate $interpolate to redirect scope to $$cmp
+		// Decorate $interpolate to redirect scope to DEFAULT_CONTROLLER_AS
 	    //decorateInterpolate(Angular1Wrapper.app);
         decorateParse(Angular1Wrapper.app);
         decorateController(Angular1Wrapper.app);

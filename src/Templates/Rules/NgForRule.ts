@@ -1,3 +1,4 @@
+import {DEFAULT_CONTROLLER_AS} from "../../Core/Angular1Wrapper";
 import {ParserRule} from "../ParserRule";
 
 export default class NgModelRule extends ParserRule {
@@ -28,7 +29,7 @@ export default class NgModelRule extends ParserRule {
 
 			return {
 				name: "ng-repeat",
-				value: `${variable} in $$cmp.${list}`
+                value: `${variable} in ${DEFAULT_CONTROLLER_AS}.${list}`
 			};
 			
 		}

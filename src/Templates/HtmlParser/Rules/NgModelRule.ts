@@ -8,7 +8,7 @@ export default class NgModelRule extends ParserRule {
 	//	if (name === "[(ngmodel)]")
 	//		return {
 	//			name: "ng-model",
-	//			value: `$$cmp.${value}`
+	//			value: `${DEFAULT_CONTROLLER_AS}.${value}`
 	//		};
 	//	return undefined;
 	//}
@@ -17,7 +17,7 @@ export default class NgModelRule extends ParserRule {
 	//processTemplate(template: string): string {
 	//	let regex = /\[\(ngModel\)\]="([a-zA-Z0-9-$.]+)"/g;
 	//	template = template.replace(regex, (text, match) => {
-	//		return text.replace(match, `$$$$cmp.${match}`);
+	//		return text.replace(match, `${DEFAULT_CONTROLLER_AS}.${match}`);
     //    });
 
     //    return template.replace(/\[\(ngModel\)\]/g, "ng-model");
@@ -26,7 +26,7 @@ export default class NgModelRule extends ParserRule {
     startTag(tagName: string, attributes: { [name: string]: { value: string; quoted: boolean; } }, unary: boolean): string {
         if (attributes.hasOwnProperty("[(ngModel)]")) {
             attributes["ng-model"] = angular.extend({}, attributes["[(ngModel)]"]);
-            attributes["ng-model"].value = "$$cmp." + attributes["ng-model"].value;
+            //attributes["ng-model"].value = DEFAULT_CONTROLLER_AS + "." + attributes["ng-model"].value;
             delete attributes["[(ngModel)]"];
         }
         return tagName;

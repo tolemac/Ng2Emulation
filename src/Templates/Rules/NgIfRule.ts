@@ -1,4 +1,5 @@
 import {ParserRule} from "../ParserRule";
+import {DEFAULT_CONTROLLER_AS} from "../../Core/Angular1Wrapper";
 
 export default class NgIfRule extends  ParserRule 
 {
@@ -9,7 +10,7 @@ export default class NgIfRule extends  ParserRule
 		if (name === "*ngif")
 			return {
 				name: "ng-if",
-				value: `$$cmp.${value}`
+                value: `${DEFAULT_CONTROLLER_AS}.${value}`
 			};
 		return undefined;
 	}

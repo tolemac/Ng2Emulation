@@ -1,4 +1,5 @@
 import {ParserRule} from "../ParserRule";
+import {DEFAULT_CONTROLLER_AS} from "../../../Core/Angular1Wrapper";
 
 export default class NgModelRule extends ParserRule {
 	//processAttribute(attr: Attr): { name: string; value: string } {
@@ -28,7 +29,7 @@ export default class NgModelRule extends ParserRule {
 
 	//		return {
 	//			name: "ng-repeat",
-	//			value: `${variable} in $$cmp.${list}`
+	//			value: `${variable} in ${DEFAULT_CONTROLLER_AS}.${list}`
 	//		};
 			
 	//	}
@@ -60,7 +61,7 @@ export default class NgModelRule extends ParserRule {
                 }
             }
 
-            attributes["ng-repeat"] = { value: `${variable} in $$cmp.${list}`, quoted: true };
+            attributes["ng-repeat"] = { value: `${variable} in ${DEFAULT_CONTROLLER_AS}.${list}`, quoted: true };
             delete attributes["*ngFor"];
         }
         return tagName;

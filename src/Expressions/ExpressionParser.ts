@@ -38,7 +38,7 @@ function parseToken(token: string, context: any) {
 
     let cmpLevel = getCmpPropLevel(token, context);
     if (angular.isDefined(cmpLevel)) {
-        result = "$$cmp." + result;
+        result = DEFAULT_CONTROLLER_AS + "." + result;
         for (let i = 0; i < cmpLevel; i++) {
             result = "$parent." + result;
         }
@@ -49,7 +49,8 @@ function parseToken(token: string, context: any) {
                 result = "$parent." + result;
             }
         } else {
-            result = "$$cmp." + result;
+            if (context[DEFAULT_CONTROLLER_AS])
+                result = DEFAULT_CONTROLLER_AS + "." + result;
         }
     }
 

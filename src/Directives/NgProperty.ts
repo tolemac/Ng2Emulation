@@ -11,7 +11,7 @@ import {DEFAULT_CONTROLLER_AS} from "../Core/Angular1Wrapper";
  *		<input ng-property="mytext" type="text"/>
  * An you can do:
  *		<input #mytext type="text"/>
- *		<span>{{$$cmp.mytext.value}}</span>
+ *		<span>{{DEFAULT_CONTROLLER_AS.mytext.value}}</span>
  */
 @Directive({ selector: "ng-property", priority: -1000 })
 export class NgProperty {
