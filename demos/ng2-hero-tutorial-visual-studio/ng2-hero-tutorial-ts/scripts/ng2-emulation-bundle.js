@@ -1072,7 +1072,7 @@ System.register("Core/Angular1Wrapper.js", ["../Utils/AngularHelpers", "../Templ
   };
 });
 
-System.register("Directives/NgProperty.js", ["../Ng2Emulation", "../Core/Angular1Wrapper"], function(exports_1) {
+System.register("Directives/NgProperty.js", ["../ng2-emulation", "../Core/Angular1Wrapper"], function(exports_1) {
   var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
     var c = arguments.length,
         r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -1094,12 +1094,12 @@ System.register("Directives/NgProperty.js", ["../Ng2Emulation", "../Core/Angular
       decorator(target, key, paramIndex);
     };
   };
-  var Ng2Emulation_1,
+  var ng2_emulation_1,
       Angular1Wrapper_1;
   var NgProperty;
   return {
-    setters: [function(Ng2Emulation_1_1) {
-      Ng2Emulation_1 = Ng2Emulation_1_1;
+    setters: [function(ng2_emulation_1_1) {
+      ng2_emulation_1 = ng2_emulation_1_1;
     }, function(Angular1Wrapper_1_1) {
       Angular1Wrapper_1 = Angular1Wrapper_1_1;
     }],
@@ -1116,10 +1116,10 @@ System.register("Directives/NgProperty.js", ["../Ng2Emulation", "../Core/Angular
               newScope[property] = $element[0];
           }
         }
-        NgProperty = __decorate([Ng2Emulation_1.Directive({
+        NgProperty = __decorate([ng2_emulation_1.Directive({
           selector: "ng-property",
           priority: -1000
-        }), __param(0, Ng2Emulation_1.Inject("$element")), __param(1, Ng2Emulation_1.Inject("$attrs")), __param(2, Ng2Emulation_1.Inject("$scope")), __metadata('design:paramtypes', [Object, Object, Object])], NgProperty);
+        }), __param(0, ng2_emulation_1.Inject("$element")), __param(1, ng2_emulation_1.Inject("$attrs")), __param(2, ng2_emulation_1.Inject("$scope")), __metadata('design:paramtypes', [Object, Object, Object])], NgProperty);
         return NgProperty;
       })();
       exports_1("NgProperty", NgProperty);
@@ -1153,7 +1153,7 @@ System.register("Events/ElementEvents.js", [], function(exports_1) {
   };
 });
 
-System.register("Directives/NgEventBinding.js", ["../Ng2Emulation", "../Events/ElementEvents", "../Utils/AngularHelpers", "../Core/ChangeDetection"], function(exports_1) {
+System.register("Directives/NgEventBinding.js", ["../ng2-emulation", "../Events/ElementEvents", "../Utils/AngularHelpers", "../Core/ChangeDetection"], function(exports_1) {
   var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
     var c = arguments.length,
         r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -1175,14 +1175,14 @@ System.register("Directives/NgEventBinding.js", ["../Ng2Emulation", "../Events/E
       decorator(target, key, paramIndex);
     };
   };
-  var Ng2Emulation_1,
+  var ng2_emulation_1,
       ElementEvents_1,
       AngularHelpers_1,
       ChangeDetection_1;
   var NgEventBinding;
   return {
-    setters: [function(Ng2Emulation_1_1) {
-      Ng2Emulation_1 = Ng2Emulation_1_1;
+    setters: [function(ng2_emulation_1_1) {
+      ng2_emulation_1 = ng2_emulation_1_1;
     }, function(ElementEvents_1_1) {
       ElementEvents_1 = ElementEvents_1_1;
     }, function(AngularHelpers_1_1) {
@@ -1250,10 +1250,10 @@ System.register("Directives/NgEventBinding.js", ["../Ng2Emulation", "../Events/E
         NgEventBinding.prototype.onDestroy = function() {
           this.$element.off(event);
         };
-        NgEventBinding = __decorate([Ng2Emulation_1.Directive({
+        NgEventBinding = __decorate([ng2_emulation_1.Directive({
           selector: "ng-event-binding",
           priority: -1000
-        }), __param(0, Ng2Emulation_1.Inject("$parse")), __param(1, Ng2Emulation_1.Inject("$element")), __param(2, Ng2Emulation_1.Inject("$attrs")), __param(3, Ng2Emulation_1.Inject("$scope")), __metadata('design:paramtypes', [Function, Object, Object, Object])], NgEventBinding);
+        }), __param(0, ng2_emulation_1.Inject("$parse")), __param(1, ng2_emulation_1.Inject("$element")), __param(2, ng2_emulation_1.Inject("$attrs")), __param(3, ng2_emulation_1.Inject("$scope")), __metadata('design:paramtypes', [Function, Object, Object, Object])], NgEventBinding);
         return NgEventBinding;
       })();
       exports_1("NgEventBinding", NgEventBinding);
@@ -1407,7 +1407,7 @@ System.register("Decorators/Input.js", [], function(exports_1) {
   };
 });
 
-System.register("Ng2Emulation.js", ["./Decorators/Component", "./Decorators/Directive", "./Decorators/Inject", "./Decorators/Injectable", "./Events/EventEmitter", "./Core/Bootstrap", "./Decorators/Output", "./Decorators/Input"], function(exports_1) {
+System.register("ng2-emulation.js", ["./Decorators/Component", "./Decorators/Directive", "./Decorators/Inject", "./Decorators/Injectable", "./Events/EventEmitter", "./Core/Bootstrap", "./Decorators/Output", "./Decorators/Input"], function(exports_1) {
   function exportStar_1(m) {
     var exports = {};
     for (var n in m) {
@@ -1507,7 +1507,7 @@ System.register("Utils/AngularHelpers.js", [], function(exports_1) {
   };
 });
 
-System.register("Directives/NgPropertyBinding.js", ["../Ng2Emulation", "../Utils/AngularHelpers", "../Core/ChangeDetection"], function(exports_1) {
+System.register("Directives/NgPropertyBinding.js", ["../ng2-emulation", "../Utils/AngularHelpers", "../Core/ChangeDetection"], function(exports_1) {
   var __decorate = (this && this.__decorate) || function(decorators, target, key, desc) {
     var c = arguments.length,
         r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
@@ -1529,13 +1529,13 @@ System.register("Directives/NgPropertyBinding.js", ["../Ng2Emulation", "../Utils
       decorator(target, key, paramIndex);
     };
   };
-  var Ng2Emulation_1,
+  var ng2_emulation_1,
       AngularHelpers_1,
       ChangeDetection_1;
   var NgPropertyBinding;
   return {
-    setters: [function(Ng2Emulation_1_1) {
-      Ng2Emulation_1 = Ng2Emulation_1_1;
+    setters: [function(ng2_emulation_1_1) {
+      ng2_emulation_1 = ng2_emulation_1_1;
     }, function(AngularHelpers_1_1) {
       AngularHelpers_1 = AngularHelpers_1_1;
     }, function(ChangeDetection_1_1) {
@@ -1610,10 +1610,10 @@ System.register("Directives/NgPropertyBinding.js", ["../Ng2Emulation", "../Utils
             return;
           }
         };
-        NgPropertyBinding = __decorate([Ng2Emulation_1.Directive({
+        NgPropertyBinding = __decorate([ng2_emulation_1.Directive({
           selector: "ng-property-binding",
           priority: -1000
-        }), __param(0, Ng2Emulation_1.Inject("$parse")), __param(1, Ng2Emulation_1.Inject("$element")), __param(2, Ng2Emulation_1.Inject("$attrs")), __param(3, Ng2Emulation_1.Inject("$scope")), __param(4, Ng2Emulation_1.Inject("$interpolate")), __metadata('design:paramtypes', [Function, Object, Object, Object, Function])], NgPropertyBinding);
+        }), __param(0, ng2_emulation_1.Inject("$parse")), __param(1, ng2_emulation_1.Inject("$element")), __param(2, ng2_emulation_1.Inject("$attrs")), __param(3, ng2_emulation_1.Inject("$scope")), __param(4, ng2_emulation_1.Inject("$interpolate")), __metadata('design:paramtypes', [Function, Object, Object, Object, Function])], NgPropertyBinding);
         return NgPropertyBinding;
       })();
       exports_1("NgPropertyBinding", NgPropertyBinding);

@@ -23,8 +23,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="index.html" />
+    <Content Include="scripts\ng2-emulation-bundle.js" />
     <Content Include="scripts\simple-html-tokenizer.js" />
-    <Content Include="scripts\Ng2Emulation-bundle.js" />
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -44,8 +44,8 @@
     <TypeScriptCompile Include="scripts\typings\angularjs\angular.d.ts" />
     <TypeScriptCompile Include="scripts\typings\es6-promise\es6-promise.d.ts" />
     <TypeScriptCompile Include="scripts\typings\jquery\jquery.d.ts" />
+    <TypeScriptCompile Include="scripts\typings\manual\Ng2Emulation\ng2-emulation.d.ts" />
     <TypeScriptCompile Include="scripts\typings\manual\simple-html-tokenizer\simple-html-tokenizer.d.ts" />
-    <TypeScriptCompile Include="scripts\typings\manual\Ng2Emulation\Ng2Emulation.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

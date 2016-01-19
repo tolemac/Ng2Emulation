@@ -8,8 +8,6 @@ packages
 ## demos
 demos/ng2-hero-tutorial-visual-studio/ng2-hero-tutorial-ts/app/**/*.js
 demos/ng2-hero-tutorial-visual-studio/ng2-hero-tutorial-ts/app/**/*.map
-demos/ng2-hero-tutorial-visual-studio/ng2-hero-tutorial-ts/scripts/typings/**/*.d.ts
-!demos/ng2-hero-tutorial-visual-studio/ng2-hero-tutorial-ts/scripts/typings/manual/**/*.d.ts
 
 demos/ng2emulation-vs-aspnet-debug/ng2emulation-vs-aspnet-debug/TypeScript/Ng2Emulation
 demos/ng2emulation-vs-aspnet-debug/ng2emulation-vs-aspnet-debug/TypeScript/**/*.js

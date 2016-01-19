@@ -1,4 +1,4 @@
-﻿import {Component} from "Ng2Emulation";
+﻿import {Component} from "ng2-emulation";
 import {Hero} from "./hero";
 @Component({
 	selector: "my-hero-detail",

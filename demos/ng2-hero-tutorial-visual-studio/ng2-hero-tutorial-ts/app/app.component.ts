@@ -1,4 +1,4 @@
-﻿import {OnInit, Component} from "Ng2Emulation";
+﻿import {OnInit, Component} from "ng2-emulation";
 import {Hero} from "./hero";
 import {HeroService} from "./hero.service";
 import {HeroDetailComponent} from "./hero-detail.component";
