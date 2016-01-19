@@ -19,6 +19,7 @@
     "del": "^2.2.0",
     "dts-bundle": "^0.4.3",
     "gulp": "^3.9.0",
+    "gulp-changed": "^1.3.0",
     "gulp-sequence": "^0.4.4",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-tsd": "^0.1.0",

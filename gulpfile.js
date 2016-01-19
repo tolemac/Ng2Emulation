@@ -9,6 +9,7 @@ var Builder = require('systemjs-builder');
 var Q = require('q');
 var watch = require('gulp-watch');
 var tsd = require('gulp-tsd');
+var changed = require('gulp-changed');
 
 var tsProject = ts.createProject('tsconfig.json', { typescript: require('typescript') });
 
@@ -106,6 +107,12 @@ gulp.task("copy-src-to-debug-env", function () {
         .pipe(gulp.dest(debug_src));
 });
 
+gulp.task("copy-changed-debug-to-src", function (){
+    return gulp.src(debug_src + '/**/*.ts', {base: debug_src})
+        .pipe(changed(project_src))
+        .pipe(gulp.dest(project_src));
+});
+
 gulp.task("copy-typings-to-debug-env", function () {
     return gulp.src(project_dts + '/**/*', { base: project_dts })
         .pipe(gulp.dest(debug_dts));
@@ -118,7 +125,7 @@ gulp.task("watch-debug", function () {
 });
 
 gulp.task('start-debug-env', function (done) {
-    runSequence(['copy-src-to-debug-env', "copy-typings-to-debug-env"], "watch-debug", done);
+    runSequence("copy-changed-debug-to-src", ['copy-src-to-debug-env', "copy-typings-to-debug-env"], "watch-debug", done);
 });
 
 //gulp.task('default', ["build"]);
