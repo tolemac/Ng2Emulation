@@ -18,7 +18,7 @@ gulp.task('compile', function () {
 
     return merge([
         tsResult.dts.pipe(gulp.dest('dist')),
-        tsResult.js.pipe(gulp.dest('dist')),
+        tsResult.js.pipe(gulp.dest('dist'))
     ]);
 });
 

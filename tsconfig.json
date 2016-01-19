@@ -8,7 +8,9 @@
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
         "removeComments": true,
-        "noResolve": true
+        "noResolve": true,
+        "diagnostics": true,
+        "listFiles": true
 	},
     "exclude": [
         ".vscode",
