@@ -257,7 +257,7 @@
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Events\EventEmitter.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Expressions\ExpressionParser.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Expressions\Ng1Lexer\Lexer.ts" />
-    <TypeScriptCompile Include="TypeScript\Ng2Emulation\Ng2Emulation.ts" />
+    <TypeScriptCompile Include="TypeScript\Ng2Emulation\ng2-emulation.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\HtmlParser\Parser.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\HtmlParser\ParserRule.ts" />
     <TypeScriptCompile Include="TypeScript\Ng2Emulation\Templates\HtmlParser\Rules\EventBindingRule.ts" />

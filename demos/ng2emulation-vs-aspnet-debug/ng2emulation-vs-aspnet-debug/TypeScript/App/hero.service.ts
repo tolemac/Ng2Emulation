@@ -1,6 +1,6 @@
 ﻿import {Hero} from "./hero";
 import {HEROES} from "./mock-heroes";
-import {Injectable} from "Ng2Emulation/Ng2Emulation";
+import {Injectable} from "Ng2Emulation/ng2-emulation";
 @Injectable()
 export class HeroService {
     getHeroes() {

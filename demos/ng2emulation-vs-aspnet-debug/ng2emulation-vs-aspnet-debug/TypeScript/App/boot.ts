@@ -1,4 +1,4 @@
-﻿import {bootstrap} from "Ng2Emulation/Ng2Emulation";
+﻿import {bootstrap} from "Ng2Emulation/ng2-emulation";
 import {AppComponent} from "./app.component";
 
 bootstrap(AppComponent);
