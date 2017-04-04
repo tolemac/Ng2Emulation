@@ -1,3 +1,5 @@
+## [DISCONTINUED PROJECT] 
+
 # Ng2Emulation
 
 [![Build Status](https://travis-ci.org/tolemac/Ng2Emulation.svg)](https://travis-ci.org/tolemac/Ng2Emulation) [![NPM version](https://badge.fury.io/js/ng2-emulation.svg)](http://badge.fury.io/js/ng2-emulation) [![Dependency Status](https://david-dm.org/tolemac/Ng2Emulation.svg)](https://david-dm.org/tolemac/Ng2Emulation) [![devDependency Status](https://david-dm.org/tolemac/Ng2Emulation/dev-status.svg)](https://david-dm.org/tolemac/Ng2Emulation#info=devDependencies)
